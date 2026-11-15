@@ -1,0 +1,10 @@
+# Không đưa lên GitHub: file tạm, file hệ thống, mọi file có thể chứa thông tin đăng nhập
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+.env
+.env.*
+*.pem
+*.key

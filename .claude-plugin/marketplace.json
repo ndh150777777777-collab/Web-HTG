@@ -1,0 +1,12 @@
+{
+  "name": "hoathang-local",
+  "owner": { "name": "Hoà Thắng – nhóm web" },
+  "metadata": { "description": "Kho plugin nội bộ cho nhóm web hoathang.vn" },
+  "plugins": [
+    {
+      "name": "hoathang",
+      "source": "./",
+      "description": "Kiến thức và quy trình làm web hoathang.vn"
+    }
+  ]
+}
