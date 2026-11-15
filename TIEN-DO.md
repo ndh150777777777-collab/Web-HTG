@@ -34,6 +34,8 @@
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
 ### 15/11/2026
+- **Thiết lập tự động cập nhật tiến độ:** sau mỗi công việc hoàn thành và trước khi kết thúc cuộc trò chuyện, tiến độ được ghi vào file này và đẩy lên GitHub. Thêm lưới an toàn: khi phiên Claude Code đóng, máy tự lưu + đẩy các thay đổi còn sót.
+- **Tạo plugin `hoathang`** và đưa lên kho GitHub `Web-HTG` (Private): 3 skill, 4 lệnh tắt, script dùng lại, file tiến độ này.
 - **Đổi tiêu đề bảng** "Bảng mã OEM của …" → **"Bảng mã OEM"** trên 6 trang: ID 5926, 5946, 4559, 5950, 5942, 7900. Kiểm tra: chỉ dòng tiêu đề thay đổi.
 - **Tạo Bảng mã OEM mới** (4 cặp cột Hãng | OEM) cho 6 trang chưa có bảng:
   - Má phanh trước Wigo 2023-2024 (ID 5926) – 18 mã
