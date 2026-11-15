@@ -20,6 +20,7 @@ description: Dùng ĐẦU MỖI PHIÊN hoặc khi làm bất kỳ việc gì cho
 7. Việc dài: **báo tiến độ khoảng mỗi 5 phút**.
 8. Mọi dự án **SẼ TIẾP TỤC** ở phiên sau: đầu phiên đọc tiến độ, làm tiếp, không làm lại từ đầu; xong việc thì **cập nhật tiến độ**.
 9. **Luôn kiểm tra trang web thật trước khi sửa** – file đối chiếu cũ có thể đã lỗi thời (bài học 15/11/2026: 57 trang guốc phanh tưởng thiếu mã nhưng thực ra đã đủ).
+10. **Sau MỖI lần thao tác trên website** (thêm/sửa mã, tạo bảng, sửa SEO, sửa nội dung… – kể cả kiểm tra chỉ đọc có kết quả mới): **ghi tiến độ và đẩy lên GitHub ngay** (người dùng yêu cầu 15/11/2026, đã cho phép sẵn – không cần hỏi lại). Làm theo lệnh `/hoathang:day-tien-do`: thêm mục mới lên đầu nhật ký `TIEN-DO.md`, chép `du-lieu-oem/tien-do-oem.md` sang `tien-do/`, commit tiếng Việt, push lên kho **https://github.com/ndh150777777777-collab/Web-HTG** (Private, nhánh `main`, thư mục `C:\Users\admin\du-an-thu-nghiem\plugin-hoathang`). Không đẩy mật khẩu/token.
 
 ## Công nghệ
 - **WordPress** + **WooCommerce** (sản phẩm là post type `product`, đường dẫn `/san-pham/<slug>/`).

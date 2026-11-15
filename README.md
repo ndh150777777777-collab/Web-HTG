@@ -44,8 +44,12 @@ claude --plugin-dir "C:\Users\Admin\du-an-thu-nghiem\plugin-hoathang"
 ```
 Muốn có cả trình duyệt Chrome: thêm `--chrome`.
 
+## Xem tiến độ công việc
+👉 **[TIEN-DO.md](TIEN-DO.md)** – tổng quan các dự án và nhật ký mọi thao tác trên website (mới nhất ở trên). File này được cập nhật và đẩy lên GitHub **sau mỗi lần thao tác trên web**. Nhật ký chi tiết mã OEM: [tien-do/tien-do-oem.md](tien-do/tien-do-oem.md).
+
 ## Cách dùng
 - `/hoathang:tien-do` – xem đang làm tới đâu, nên làm gì tiếp.
+- `/hoathang:day-tien-do` – ghi tiến độ vừa làm và đẩy lên GitHub.
 - `/hoathang:cap-nhat-oem lọc gió điều hòa` – làm tiếp cập nhật mã OEM cho một nhóm.
 - `/hoathang:kiem-tra-oem tất cả` – kiểm tra lại (chỉ đọc) các trang đã đủ mã chưa.
 - Hoặc cứ nói bình thường, VD "sửa SEO trang AFT-U520" – Claude tự dùng skill phù hợp.
