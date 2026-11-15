@@ -27,7 +27,7 @@ plugin-hoathang/
 
 **Cách 0 – Cài từ GitHub (cho người khác trong nhóm)**
 1. Mở Claude Code.
-2. Gõ: `/plugin marketplace add ndh150777777777-collab/Wed-HTG`
+2. Gõ: `/plugin marketplace add ndh150777777777-collab/Web-HTG`
 3. Gõ: `/plugin install hoathang@hoathang-local`
 4. Thoát (`/exit`) rồi mở lại Claude Code.
 > Nếu kho GitHub để **Private**, người cài phải được mời vào kho và đã đăng nhập GitHub trên máy.
