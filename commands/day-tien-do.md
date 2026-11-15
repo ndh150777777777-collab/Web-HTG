@@ -7,7 +7,7 @@ Dùng skill `hoathang-tong-quan` (quy tắc 10).
 
 Việc vừa làm (nếu có): $ARGUMENTS
 
-1. Cập nhật tiến độ trong dự án `C:\Users\admin\du-an-thu-nghiem` (`CLAUDE.md` mục 5, `du-lieu-oem/tien-do-oem.md`) nếu chưa ghi.
+1. Cập nhật tiến độ trong dự án `C:\Users\admin\du-an-thu-nghiem` (`CLAUDE.md` mục 6, `du-lieu-oem/tien-do-oem.md`) nếu chưa ghi.
 2. Trong kho plugin `C:\Users\admin\du-an-thu-nghiem\plugin-hoathang`:
    - Thêm mục mới **lên đầu** phần "Nhật ký thao tác trên website" của `TIEN-DO.md`: ngày – làm gì – trang (tên + ID) – kết quả kiểm tra – còn lại gì. Cập nhật bảng tổng quan, "Cập nhật lần cuối".
    - Chép đè `du-lieu-oem/tien-do-oem.md` sang `tien-do/tien-do-oem.md`.

@@ -39,18 +39,18 @@ description: Dùng ĐẦU MỖI PHIÊN hoặc khi làm bất kỳ việc gì cho
 - Người dùng **cần cung cấp thêm**: địa chỉ hiện tại, số hotline, giờ làm việc đúng.
 
 ## Nơi lưu tiến độ (đọc đầu phiên)
-- `CLAUDE.md` mục **5. Tiến độ các dự án** (5.1 → 5.5).
+- `CLAUDE.md` mục **6. Tiến độ các dự án** (6.1 → 6.5).
 - `du-lieu-oem\tien-do-oem.md`: nhật ký chi tiết dự án OEM.
 - Xem tóm tắt bằng lệnh `/hoathang:tien-do`.
 
 ## Danh sách dự án (tất cả: SẼ TIẾP TỤC)
 | # | Dự án | Skill dùng |
 |---|---|---|
-| 5.1 | Sửa SEO trang/bài dưới 85 điểm | `hoathang-seo-noi-dung` |
-| 5.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5 2021+, Asahi, OEM 516013A) – https://hoathang.vn/san-pham/loc-dau-hop-so-at-dung-cho-xe-territory-1-5/ | `hoathang-seo-noi-dung` |
-| 5.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | `hoathang-oem` |
-| 5.4 | Cập nhật mã OEM mới nhất | `hoathang-oem` |
-| 5.5 | 8 hạng mục sửa nội dung | `hoathang-seo-noi-dung` |
+| 6.1 | Sửa SEO trang/bài dưới 85 điểm | `hoathang-seo-noi-dung` |
+| 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5 2021+, Asahi, OEM 516013A) – https://hoathang.vn/san-pham/loc-dau-hop-so-at-dung-cho-xe-territory-1-5/ | `hoathang-seo-noi-dung` |
+| 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | `hoathang-oem` |
+| 6.4 | Cập nhật mã OEM mới nhất | `hoathang-oem` |
+| 6.5 | 8 hạng mục sửa nội dung | `hoathang-seo-noi-dung` |
 
 ## File khác trong dự án
 - `index.html` – trang web HTML đầu tiên của người dùng (học tập), `mo-trang-web.bat` mở nó.
