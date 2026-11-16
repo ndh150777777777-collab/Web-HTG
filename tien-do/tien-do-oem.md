@@ -67,3 +67,4 @@
     - Ghi chú: slug một số trang khác link trong file cũ (VD 5926 = `ma-phanh-truoc-dung-cho-xe-wigo`, 5950 = `...-transit-ab-u986`, 5942 = `...-transit-ab-u984`) – đã đổi từ trước, link cũ vẫn tự chuyển hướng; không phải do lần sửa này.
   - ⏭️ **VFe34 (ID 4554): BỎ QUA** theo yêu cầu người dùng (15/11/2026) – dữ liệu nghi sai (mã 18268 là đĩa phanh; PN51047 trùng Transit). Không sửa trang.
   - **Kết thúc đợt sửa 8 trang thiếu mã: 7 trang ĐÃ XONG, 1 trang bỏ qua.**
+- 16/11/2026 – **Kiểm tra lại (chỉ đọc) 7 trang sửa ngày 15/11** (ID 5926, 5946, 4559, 5950, 5942, 7900, 3429): tất cả hiển thị đúng, đủ mã, tiêu đề đúng "Bảng mã OEM". Không sửa gì.

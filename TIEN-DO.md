@@ -34,6 +34,7 @@
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
 ### 16/11/2026
+- **Kiểm tra lại (chỉ đọc, trang công khai) 7 trang sửa ngày 15/11:** 6 trang tạo Bảng mã OEM (ID 5926, 5946, 4559, 5950, 5942, 7900) đều có đúng 1 tiêu đề "Bảng mã OEM", bảng 8 cột, đủ mã (Wigo 18 mã; Transit, lọc gió Wigo đủ như đã ghi). Trang Escape (ID 3429): 30/30 mã hiện trên web. Không sửa gì trên website.
 - **Tách CSS của trang học tập `index.html`** ra file `css/style.css` (không đụng website): `index.html` từ 157 dòng còn 60 dòng, thay khối `<style>` bằng 1 dòng `<link>`; đã so khớp CSS và phần HTML còn lại trùng 100% với bản cũ.
 - **Cập nhật sổ tay `CLAUDE.md`** (không đụng website): chuyển sang UTF-8 (trước đây UTF-16 làm Claude đọc sai tiếng Việt); sửa bảng skill theo plugin; bổ sung quy định Bảng mã OEM, kết quả kiểm tra 15/11, quy tắc "kiểm tra web thật trước khi sửa", mục Công cụ & môi trường, danh sách file dự án; tách quy định đẩy GitHub thành mục 1.6. Mục tiến độ đổi số từ 5.x → **6.x** (đã sửa các chỗ tham chiếu trong plugin và `cap-nhat-oem.bat`).
 - Xác nhận hook kết thúc phiên hoạt động: lần lưu tự động `29a8633` (15/11/2026 22:41).
