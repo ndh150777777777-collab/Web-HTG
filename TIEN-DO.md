@@ -37,6 +37,12 @@
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
+### 16/11/2026 – Thêm 669 mã OEM cho 14 trang nhóm B loại 1
+- Trang: 6705, 6699 (+19 mã/trang), 6384 (+12), 4394 (+4), 4391 (+8), 4335–4339 (+106 mã/trang), 3128 (+5), 2215, 2207 (+29 mã/trang), 1221 (+14). Nguồn azfilter (lọc) / sbparts (phanh), theo mã gốc ghi trên từng trang. Không xoá mã cũ.
+- Sự cố đã xử lý: 2215, 2207 có bảng 11 cột (cột trống xen giữa) – lần lưu đầu dòng mới có 12 ô, đã dựng lại đúng mẫu và lưu lại ngay.
+- Kiểm tra 14/14: nội dung lưu đúng, phần ngoài bảng không đổi, mọi dòng đúng số ô, trang công khai đủ mã. Ô ẩn 14/14; gõ `26669013` ra Aveo/Cruze/Fadil.
+- Còn lại: 7 ô lỗi Excel (4394, 4391, 4335–4339), 6225 Lux SA.
+
 ### 16/11/2026 – Thay bảng OEM sai cho 4 trang nhóm B (loại 2)
 - **1916** Má phanh trước Morning 2011-2017 (AB-K2326): bỏ bảng 88 mã má phanh sau (giống trang Sportage 2271), thay **25 mã** má phanh trước theo sbparts, mã gốc 58101-1YA00 đứng đầu.
 - **6095, 6098, 6099** Lọc gió điều hoà than hoạt tính AFC-K009C: bỏ bảng 6 mã Sedona AFC-K324, thay **7 mã** theo azfilter (mã gốc của từng trang đứng đầu).
