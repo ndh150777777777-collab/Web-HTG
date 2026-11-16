@@ -13,7 +13,7 @@
 | 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | 🔄 Đang làm | 15/11: 6 trang; 16/11: thêm 12 trang. Còn 55 trang chưa có bảng (ít/không có dữ liệu) |
 | 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | Đợt 1-6 xong; kiểm tra lại 429 trang; còn lọc gió điều hòa chưa kiểm |
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
-| 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel; điền lại ô ẩn cho 12 trang vừa tạo bảng (chờ duyệt) |
+| 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
 
 ## Mã OEM theo nhóm hàng
 | Đợt | Nhóm hàng | Nguồn tra | Trạng thái |
@@ -28,7 +28,6 @@
 ## Việc còn treo / chờ quyết định
 - **61 sản phẩm có mã OEM lỗi Excel** (hiện dạng `4,05E+09`) – cần lấy lại mã đúng. VD ID: 5883, 5877, 5658, 5655, 4657, 4396, 4395, 4394.
 - **55 sản phẩm còn chưa có bảng OEM** (kiểm tra 16/11: thực tế 67, không phải 130; đã làm 12). Danh sách: `du-lieu-oem/Trang_chua_co_bang_OEM_16-11-2026.csv`.
-- **Điền lại ô ẩn `oem_khong_gach`** cho 12 trang vừa tạo bảng (ID 3439, 7953, 7785, 6750, 6649, 6565, 6244, 6112, 5989, 4382, 3821, 2658) – đã chạy khô, chờ người dùng duyệt.
 - Khi thêm sản phẩm mới / sửa bảng OEM: phải **điền lại ô ẩn `oem_khong_gach`** (skill `hoathang-tim-ma-oem`).
 - Lọc gió điều hòa: dò 75 mã trong `Book1.xlsx` trên web để kiểm tra.
 - Guốc phanh: AS-J1265 (Xpander EPB), AS-J9012 (Celerio) chưa có trang; AS-C554, AS-K2286 không có trên sbparts; mã 18268, 18488 nghi là đĩa phanh.
@@ -39,6 +38,7 @@
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
 ### 16/11/2026
+- **Điền lại ô ẩn tìm kiếm `oem_khong_gach`** cho 12 trang vừa tạo bảng (người dùng duyệt): 12/12 ghi thành công, đọc lại khớp 12/12. Kiểm tra: gõ `43022SZAA00` vào ô tìm kiếm trang chủ → ra Má phanh sau Mux 2014-2020 (cùng Odyssey, Trailblazer – AB-J1281).
 - **Tạo "Bảng mã OEM" cho 12 trang chưa có bảng** (người dùng duyệt phạm vi + trang mẫu ID 3439):
   - Lọc toàn bộ 1.482 sản phẩm: **67 trang chưa có bảng có cột "Hãng"/"Chủ sở hữu"** (con số 130 trước đây đếm khác). Tra mã gốc của từng trang trên azfilter.jp (lọc) và sbparts.jp (má/guốc phanh).
   - Người dùng chọn: chỉ làm **12 trang có thêm mã mới**; đưa **hết** mã vào bảng; trang trống thì thêm bảng vào cuối.
@@ -46,7 +46,7 @@
   - Vị trí: sau bảng mã nhỏ có sẵn (mục OEM / "Mã thay thế tương đương"), nếu không có thì sau bảng thông số; ra ngoài khung div bao bảng cũ.
   - Kiểm tra: 12/12 trang nội dung lưu = nội dung cũ + khối bảng; trang công khai hiện đủ mã; chụp màn hình trang Mux hiển thị tốt.
   - Ghi chú dữ liệu: Mux (3439) sbparts ghi chung khuôn với má phanh Honda/Acura, SANGSIN SP1461 (bảng cũ ghi SP1281). Trang 5989, 7785 không có bài viết (chỉ có bảng).
-  - Còn lại: 55 trang chưa có bảng (14 trang mã đã có ở bảng khác, 23 trang chỉ 1 mã, 18 trang không tra được) → `du-lieu-oem/Trang_chua_co_bang_OEM_16-11-2026.csv`; điền lại ô ẩn tìm kiếm cho 12 trang (chờ duyệt).
+  - Còn lại: 55 trang chưa có bảng (14 trang mã đã có ở bảng khác, 23 trang chỉ 1 mã, 18 trang không tra được) → `du-lieu-oem/Trang_chua_co_bang_OEM_16-11-2026.csv` (ô ẩn tìm kiếm đã điền lại).
 - **Ô tìm kiếm tra được mã OEM gõ liền không gạch** (làm trong phiên Claude khác, ghi lại theo sổ tay mục 6.6): khách gõ `0446548210` không ra vì bảng ghi `04465-48210`; không thêm mã không gạch vào bảng.
   - Tạo nhóm trường ACF PRO "Mã OEM không gạch (ẩn, dùng cho tìm kiếm)" (ID 8571), trường `oem_khong_gach`, bật REST API.
   - Điền trường cho **1.482/1.482 sản phẩm** qua REST API (2 lượt; lượt 2 bổ sung 736 SP thiếu mã Asahi). Không đổi nội dung bài, bảng OEM, SEO.
