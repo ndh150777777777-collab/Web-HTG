@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 16/11/2026 (/init: thêm "Cách AI thao tác trên web", 6 Sub-agent, cập nhật danh sách file, đổi thứ tự 6.5/6.6). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 16/11/2026 (thêm mục 1.7 "Quy tắc dữ liệu": không bịa dữ liệu, cách ghi ô thiếu, xuất CSV UTF-8 có BOM). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -56,6 +56,20 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
 - **Kho:** https://github.com/ndh150777777777-collab/Web-HTG (Private, nhánh `main`). Lệnh tắt: `/hoathang:day-tien-do`.
 - **Lưới an toàn:** khi phiên Claude Code đóng, hook `SessionEnd` (`.claude/hooks/day-tien-do-github.sh`, khai báo trong `.claude/settings.local.json`) tự commit + push thay đổi còn sót. Đây chỉ là dự phòng – vẫn phải tự ghi nhật ký sau mỗi việc.
 
+### 1.7. Quy tắc dữ liệu (chuẩn hoá & xuất file) – chốt 16/11/2026
+- **Không bịa dữ liệu:** thiếu thông số kỹ thuật / mã OEM / giá thì KHÔNG tự điền, không suy đoán – hỏi người dùng hoặc tra nguồn (sbparts.jp, azfilter.jp).
+- **Ô thiếu dữ liệu ghi thống nhất:**
+  - Trong **file CSV kết quả**: để **trống** ô đó (không ghi `N/A`, `0`, `-`).
+  - Trong **bản nháp sản phẩm / SEO chờ duyệt**: ghi `[CẦN BỔ SUNG]` – agent đăng web sẽ dừng nếu còn dấu này.
+  - **Không bao giờ** đưa `N/A` hay `[CẦN BỔ SUNG]` lên trang công khai.
+- **File kết quả xuất ra dạng CSV** (sau khi kiểm tra / chuẩn hoá / chạy khô):
+  - Phân cách bằng **dấu phẩy**; ô có dấu phẩy hoặc xuống dòng thì đặt trong ngoặc kép `"..."`.
+  - Lưu **UTF-8 có BOM** để Excel hiện đúng tiếng Việt (PowerShell 5.1: `Export-Csv -NoTypeInformation -Encoding UTF8`).
+  - Dòng đầu là tiêu đề cột; file chờ duyệt có thêm cột **Duyệt** và **Kết quả**.
+  - Tên file: `<Nội_dung>_dd-mm-yyyy.csv`, để trong thư mục dữ liệu của dự án (VD `du-lieu-oem/`).
+- **Mã OEM giữ dạng chữ:** không mở rồi lưu lại CSV bằng Excel (Excel tự đổi mã số dài thành `4,05E+09` – lỗi đã gặp ở 61 SP, xem 6.6).
+- File `.xlsx` đầu vào phải **chuyển sang CSV trước** khi giao cho Sub-agent (đọc bằng `doc-xlsx.ps1`, mục 3).
+
 ---
 
 ## 2. Công nghệ sử dụng
@@ -84,7 +98,7 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
 `/hoathang:tien-do` · `/hoathang:cap-nhat-oem <nhóm hàng>` · `/hoathang:kiem-tra-oem <nhóm hàng>` · `/hoathang:day-tien-do`
 
 ### Sub-agent (trợ lý con – `.claude/agents/`, tạo 16/11/2026)
-Làm theo cặp: agent chỉ đọc ra kết quả → người dùng duyệt → agent sửa web. Agent sửa web chỉ chạy khi đầu vào ghi rõ **"người dùng đã duyệt"**. File `.xlsx` phải chuyển sang CSV trước khi giao cho agent.
+Làm theo cặp: agent chỉ đọc ra kết quả → người dùng duyệt → agent sửa web. Agent sửa web chỉ chạy khi đầu vào ghi rõ **"người dùng đã duyệt"**. Dữ liệu vào/ra theo mục **1.7** (CSV UTF-8 có BOM, không bịa dữ liệu).
 | Agent | Quyền | Dùng khi |
 |---|---|---|
 | `oem-checker` → `oem-updater` | chỉ đọc → sửa web | Đối chiếu mã OEM → thêm/sửa mã đã duyệt |
