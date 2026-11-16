@@ -27,7 +27,7 @@
 
 ## Việc còn treo / chờ quyết định
 - **61 sản phẩm có mã OEM lỗi Excel** (hiện dạng `4,05E+09`) – cần lấy lại mã đúng. VD ID: 5883, 5877, 5658, 5655, 4657, 4396, 4395, 4394.
-- **55 sản phẩm còn chưa có bảng OEM** (kiểm tra 16/11: thực tế 67, không phải 130; đã làm 12). Danh sách: `du-lieu-oem/Trang_chua_co_bang_OEM_16-11-2026.csv`.
+- **55 sản phẩm còn chưa có bảng OEM** – tra lại 16/11 (cả mã Asahi lẫn mã OEM): **không có mã mới** → người dùng quyết **để nguyên**, chỉ làm lại khi có nguồn mã mới. Kết quả: `du-lieu-oem/Tra_lai_55_trang_chua_co_bang_16-11-2026.csv`.
 - Khi thêm sản phẩm mới / sửa bảng OEM: phải **điền lại ô ẩn `oem_khong_gach`** (skill `hoathang-tim-ma-oem`).
 - Lọc gió điều hòa: dò 75 mã trong `Book1.xlsx` trên web để kiểm tra.
 - Guốc phanh: AS-J1265 (Xpander EPB), AS-J9012 (Celerio) chưa có trang; AS-C554, AS-K2286 không có trên sbparts; mã 18268, 18488 nghi là đĩa phanh.
@@ -36,6 +36,12 @@
 
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
+
+### 16/11/2026 – Tra lại 55 trang chưa có Bảng mã OEM (chỉ đọc)
+- **Làm gì:** đọc nội dung 55 trang (REST, chỉ đọc); tra lại azfilter.jp / sbparts.jp bằng **cả mã Asahi và mã OEM ghi trên trang** (lần trước chỉ tra mã Asahi).
+- **Kết quả:** không có mã mới nào. 23 trang: azfilter chỉ có đúng 1 mã OEM của trang; 14 trang: bài đã có bảng mã chéo khác (tạo thêm sẽ trùng); 18 trang: nguồn không có dữ liệu (5 trang lọc xăng 7789, 7806, 7808, 7809, 7810 không có bảng nào). Đối chứng: sbparts vẫn tra được mã 04465-48210 bình thường.
+- **Không sửa website.** File: `du-lieu-oem/Tra_lai_55_trang_chua_co_bang_16-11-2026.csv` (cột Đề xuất / Duyệt).
+- **Người dùng quyết:** để nguyên 55 trang, không tạo bảng 1 mã. Chỉ làm lại khi có nguồn mã mới.
 
 ### 16/11/2026 – Bổ sung quy tắc từ ghi chú Zalo vào CLAUDE.md
 - **Làm gì:** thêm "Mục tiêu ưu tiên" (OEM/thông số/SEO chính xác tuyệt đối) ở đầu phần 1; mục 1.7 thêm **Copy-First** (không ghi đè file dữ liệu gốc, lưu ra file mới) và **mã OEM giữ dạng chữ** (giữ số 0 đầu, không thành `4,05E+09`). Người dùng chọn 3 ý này; không thêm `/clear` và "báo cáo bằng bảng Markdown".

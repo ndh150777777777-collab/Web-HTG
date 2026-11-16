@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 16/11/2026 (thêm "Mục tiêu ưu tiên" đầu phần 1; mục 1.7 "Quy tắc dữ liệu": không bịa dữ liệu, cách ghi ô thiếu, xuất CSV UTF-8 có BOM, Copy-First, mã OEM giữ dạng chữ). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 16/11/2026 (tra lại 55 trang chưa có bảng OEM – không có mã mới; thêm "Mục tiêu ưu tiên" đầu phần 1; mục 1.7 "Quy tắc dữ liệu": không bịa dữ liệu, cách ghi ô thiếu, xuất CSV UTF-8 có BOM, Copy-First, mã OEM giữ dạng chữ). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -159,7 +159,9 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 - **Chỉ tạo bảng mới khi người dùng đồng ý.**
 - Đã làm 15/11/2026: tạo bảng cho 6 trang – Wigo má phanh trước (ID 5926), Transit má phanh trước (ID 5946, 4559), Transit má phanh sau (ID 5950, 5942), Wigo lọc gió động cơ (ID 7900).
 - **16/11/2026:** quét 1.482 SP → **67 trang chưa có bảng**. Đã tạo bảng cho **12 trang có thêm mã mới** (ID 3439, 7953, 7785, 6750, 6649, 6565, 6244, 6112, 5989, 4382, 3821, 2658) – đưa hết mã, trang trống thì thêm vào cuối. Còn 55 trang ít/không có dữ liệu: `du-lieu-oem/Trang_chua_co_bang_OEM_16-11-2026.csv`.
-- **Trạng thái:** sẽ tiếp tục (55 trang còn lại chờ người dùng quyết).
+- **16/11/2026 (sau):** tra lại 55 trang bằng cả mã Asahi lẫn mã OEM trên trang → **không có mã mới** (23 trang nguồn chỉ có 1 mã, 14 trang bài đã có bảng mã chéo khác, 18 trang nguồn không có dữ liệu). Kết quả: `du-lieu-oem/Tra_lai_55_trang_chua_co_bang_16-11-2026.csv`.
+- **Người dùng quyết 16/11/2026: ĐỂ NGUYÊN 55 trang, không tạo bảng 1 mã.** Chỉ làm lại khi có nguồn mã mới (file nhà cung cấp hoặc azfilter/sbparts có thêm dữ liệu).
+- **Trạng thái:** sẽ tiếp tục khi có nguồn mã mới.
 
 ### 6.4. Cập nhật mã OEM mới nhất lên các trang sản phẩm
 - Từ file Excel mã OEM, tra mã OEM theo nhóm hàng; **chỉ cập nhật mã có trang trên hoathang.vn**, mã không có trang thì bỏ qua.
