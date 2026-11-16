@@ -11,7 +11,7 @@
 | 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | ⏳ Chưa bắt đầu | |
 | 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5) | ⏳ Chưa bắt đầu | |
 | 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | 🔄 Đang làm | 15/11: 6 trang; 16/11: thêm 12 trang. Còn 55 trang chưa có bảng (ít/không có dữ liệu) |
-| 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | Đợt 1-6 xong; kiểm tra lại 429 trang; còn lọc gió điều hòa chưa kiểm |
+| 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 16/11: kiểm tra TOÀN BỘ 1.482 SP với azfilter/sbparts, thêm 408 mã vào 131 trang; còn 22 trang nghi bảng sai chờ xem |
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
 | 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
 
@@ -38,6 +38,13 @@
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
 ### 16/11/2026
+- **Kiểm tra lại toàn bộ mã OEM trên web và cập nhật** (người dùng duyệt):
+  - Quét 1.482 SP; lấy mã gốc từng trang, tra 623 mã trên azfilter.jp + 430 mã trên sbparts.jp, so với mọi ô bảng trên trang.
+  - Kết quả chạy khô: 1.165 trang đủ; **A** 137 trang thiếu ít/khớp ≥50% (419 mã); **B** 22 trang lệch hẳn (nghi bảng ghi mã sản phẩm khác, 727 mã) – không sửa; 60 trang nguồn không có dữ liệu; 97 trang không ghi mã gốc. File: `du-lieu-oem/Kiem_tra_toan_bo_OEM_16-11-2026_chay_kho.csv` (có cột Kết quả).
+  - Đã sửa: **131 trang, thêm 408 mã** vào bảng OEM có sẵn (thêm dòng cuối bảng, giữ đúng số cột kể cả bảng 11 cột có cột trống). Trang mẫu ID 1914 duyệt qua ảnh chụp. Kiểm tra 131/131: phần ngoài bảng không đổi, lưu đúng, trang công khai hiện đủ mã.
+  - Bỏ qua: 2 trang đã có sẵn mã (6039, 3305); 4 trang chỉ thiếu mã dạng bộ kit `_JTK`/`+A017` (2967-2969, 3809); VFe34 (4554).
+  - Điền lại ô ẩn `oem_khong_gach` cho 131 trang (131/131). Gõ `87139YZZ78` ra 16 SP lọc gió điều hoà Toyota.
+  - Còn lại: nhóm B 22 trang (VD lọc dầu Kia/Hyundai 4335-4339, má phanh trước Morning 1916, i30/Elantra 2207/2215) chờ người dùng xem; 61 SP mã lỗi Excel.
 - **Tạo 6 Sub-agent** trong `.claude/agents/` của thư mục dự án (không đụng website): `oem-checker` (chỉ đọc) → `oem-updater`; `seo-auditor` (chỉ đọc) → `seo-writer` (mặc định chỉ soạn nháp, áp dụng khi người dùng đã duyệt); `product-prep` (chỉ tạo nháp trong `du-lieu-sp-moi/nhap/`) → `product-uploader`. Các agent sửa web đều yêu cầu bảng/nháp đã được người dùng duyệt, người dùng tự đăng nhập, không dùng TinyMCE, kết quả ngắn gọn.
 - **Điền lại ô ẩn tìm kiếm `oem_khong_gach`** cho 12 trang vừa tạo bảng (người dùng duyệt): 12/12 ghi thành công, đọc lại khớp 12/12. Kiểm tra: gõ `43022SZAA00` vào ô tìm kiếm trang chủ → ra Má phanh sau Mux 2014-2020 (cùng Odyssey, Trailblazer – AB-J1281).
 - **Tạo "Bảng mã OEM" cho 12 trang chưa có bảng** (người dùng duyệt phạm vi + trang mẫu ID 3439):
