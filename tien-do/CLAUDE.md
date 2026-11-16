@@ -7,11 +7,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 16/11/2026 (thêm mục 1.7 "Quy tắc dữ liệu": không bịa dữ liệu, cách ghi ô thiếu, xuất CSV UTF-8 có BOM). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 16/11/2026 (thêm "Mục tiêu ưu tiên" đầu phần 1; mục 1.7 "Quy tắc dữ liệu": không bịa dữ liệu, cách ghi ô thiếu, xuất CSV UTF-8 có BOM, Copy-First, mã OEM giữ dạng chữ). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
 ## 1. Quy tắc bắt buộc cho AI (luôn tuân thủ)
+
+> **Mục tiêu ưu tiên:** mã OEM, thông số kỹ thuật và nội dung SEO phải **chính xác tuyệt đối**, không sai lệch sang sản phẩm khác. Nhanh mà sai thì không làm – chậm mà đúng.
 
 ### 1.1. Ngôn ngữ và cách trả lời
 - **Luôn trả lời bằng tiếng Việt**, dùng từ ngữ đơn giản, dễ hiểu.
@@ -67,7 +69,10 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
   - Lưu **UTF-8 có BOM** để Excel hiện đúng tiếng Việt (PowerShell 5.1: `Export-Csv -NoTypeInformation -Encoding UTF8`).
   - Dòng đầu là tiêu đề cột; file chờ duyệt có thêm cột **Duyệt** và **Kết quả**.
   - Tên file: `<Nội_dung>_dd-mm-yyyy.csv`, để trong thư mục dữ liệu của dự án (VD `du-lieu-oem/`).
-- **Mã OEM giữ dạng chữ:** không mở rồi lưu lại CSV bằng Excel (Excel tự đổi mã số dài thành `4,05E+09` – lỗi đã gặp ở 61 SP, xem 6.6).
+- **Copy-First – không ghi đè file gốc:** tuyệt đối không sửa trực tiếp file dữ liệu thô ban đầu (Excel/CSV đầu vào). Mọi thao tác lọc, chuẩn hoá, biến đổi đều lưu ra **file mới** (có ngày trong tên) để còn đối chiếu lại bản gốc.
+- **Mã OEM luôn giữ dạng chữ (Text):**
+  - Giữ nguyên số `0` ở đầu (VD `04465-48210`, `0446548210`) và mã dài – không để Excel / script tự đổi thành số hay dạng khoa học `4,05E+09` (lỗi đã gặp ở 61 SP, xem 6.6).
+  - Không mở rồi lưu lại file CSV mã OEM bằng Excel; khi đọc/ghi bằng PowerShell hay JS thì xử lý mã như chuỗi, không ép sang số.
 - File `.xlsx` đầu vào phải **chuyển sang CSV trước** khi giao cho Sub-agent (đọc bằng `doc-xlsx.ps1`, mục 3).
 
 ---

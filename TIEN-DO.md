@@ -37,6 +37,10 @@
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
+### 16/11/2026 – Bổ sung quy tắc từ ghi chú Zalo vào CLAUDE.md
+- **Làm gì:** thêm "Mục tiêu ưu tiên" (OEM/thông số/SEO chính xác tuyệt đối) ở đầu phần 1; mục 1.7 thêm **Copy-First** (không ghi đè file dữ liệu gốc, lưu ra file mới) và **mã OEM giữ dạng chữ** (giữ số 0 đầu, không thành `4,05E+09`). Người dùng chọn 3 ý này; không thêm `/clear` và "báo cáo bằng bảng Markdown".
+- **Không đụng website.**
+
 ### 16/11/2026 – Thêm "Quy tắc dữ liệu" vào sổ tay (CLAUDE.md mục 1.7)
 - **Làm gì:** gộp quy tắc chuẩn hoá dữ liệu vào `CLAUDE.md` mục 1.7: không bịa dữ liệu; ô thiếu trong CSV để trống, trong bản nháp ghi `[CẦN BỔ SUNG]`, không đưa `N/A` lên web; file kết quả xuất CSV dấu phẩy, UTF-8 có BOM, có cột Duyệt/Kết quả; không lưu lại CSV mã OEM bằng Excel (tránh lỗi `4,05E+09`). Mục 3 trỏ về 1.7.
 - **Sửa file dữ liệu:** thêm BOM UTF-8 cho `du-lieu-oem/Nhom_B_so_sanh_16-11-2026.csv` và `Nhom_B_loai1_chay_kho_16-11-2026.csv` (nội dung không đổi, +3 byte) – trước đó Excel mở dễ lỗi tiếng Việt.
