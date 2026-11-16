@@ -37,6 +37,12 @@
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
+### 16/11/2026 – Thay bảng OEM sai cho 4 trang nhóm B (loại 2)
+- **1916** Má phanh trước Morning 2011-2017 (AB-K2326): bỏ bảng 88 mã má phanh sau (giống trang Sportage 2271), thay **25 mã** má phanh trước theo sbparts, mã gốc 58101-1YA00 đứng đầu.
+- **6095, 6098, 6099** Lọc gió điều hoà than hoạt tính AFC-K009C: bỏ bảng 6 mã Sedona AFC-K324, thay **7 mã** theo azfilter (mã gốc của từng trang đứng đầu).
+- Kiểm tra 4/4: nội dung lưu đúng, phần ngoài bảng không đổi, trang công khai có mã mới và hết mã cũ. Điền lại ô ẩn 4/4; gõ `581011YA10` ở ô tìm kiếm trang chủ ra trang Morning.
+- Còn lại: loại 1 (14 trang thiếu mã), 7 ô lỗi Excel, 6225 Lux SA.
+
 ### 16/11/2026 – So sánh 22 trang nhóm B (chỉ đọc, chưa sửa web)
 - File: `du-lieu-oem/Nhom_B_so_sanh_16-11-2026.csv` (chưa đưa lên kho vì nằm ngoài plugin; tóm tắt ở `tien-do/tien-do-oem.md`).
 - **Loại 1 – 14 trang bảng đúng sản phẩm Asahi:** 6705, 6699, 6384, 4394, 4391, 4335–4339, 3128, 2215, 2207, 1221. Bảng khớp 90–100% với một mã gốc khác của cùng mã Asahi; chỉ thiếu mã của mã gốc ghi trên trang.
