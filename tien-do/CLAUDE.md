@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 16/11/2026 (tra lại 55 trang chưa có bảng OEM – không có mã mới; thêm "Mục tiêu ưu tiên" đầu phần 1; mục 1.7 "Quy tắc dữ liệu": không bịa dữ liệu, cách ghi ô thiếu, xuất CSV UTF-8 có BOM, Copy-First, mã OEM giữ dạng chữ). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 16/11/2026 (tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -70,9 +70,7 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
   - Dòng đầu là tiêu đề cột; file chờ duyệt có thêm cột **Duyệt** và **Kết quả**.
   - Tên file: `<Nội_dung>_dd-mm-yyyy.csv`, để trong thư mục dữ liệu của dự án (VD `du-lieu-oem/`).
 - **Copy-First – không ghi đè file gốc:** tuyệt đối không sửa trực tiếp file dữ liệu thô ban đầu (Excel/CSV đầu vào). Mọi thao tác lọc, chuẩn hoá, biến đổi đều lưu ra **file mới** (có ngày trong tên) để còn đối chiếu lại bản gốc.
-- **Mã OEM luôn giữ dạng chữ (Text):**
-  - Giữ nguyên số `0` ở đầu (VD `04465-48210`, `0446548210`) và mã dài – không để Excel / script tự đổi thành số hay dạng khoa học `4,05E+09` (lỗi đã gặp ở 61 SP, xem 6.6).
-  - Không mở rồi lưu lại file CSV mã OEM bằng Excel; khi đọc/ghi bằng PowerShell hay JS thì xử lý mã như chuỗi, không ép sang số.
+- **Mã OEM luôn giữ dạng chữ (Text)** – chi tiết ở `.claude/rules/oem-rules.md`.
 - File `.xlsx` đầu vào phải **chuyển sang CSV trước** khi giao cho Sub-agent (đọc bằng `doc-xlsx.ps1`, mục 3).
 
 ---
@@ -116,14 +114,11 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 - **Mô tả ngắn sản phẩm** nằm ở ô `excerpt` (textarea `name=excerpt` trong cùng form) – sửa hàng loạt phải xử lý cả ô này. Đọc bản gốc nhanh: REST `/wp-json/wp/v2/product/<ID>?context=edit` (header `X-WP-Nonce`).
 - **Nonce REST:** `/wp-admin/admin-ajax.php?action=rest-nonce`. Trường ACF (`oem_khong_gach`): POST `/wp-json/wp/v2/product/<ID>` với `{acf:{...}}`.
 - **CSS bổ sung:** trong `/wp-admin/customize.php` dùng `wp.customize('custom_css[bowmedia]')` → `.set(cũ + mới)` → `wp.customize.previewer.save()`. Chỉ thêm vào cuối, không sửa dòng cũ.
-- **Bảng mã OEM có 4 dạng 2 / 4 / 8 / 11 cột.** Dạng 11 cột có cột trống xen giữa các cặp (VD ID 1914, 2207, 2215) – dòng mới phải theo đúng mẫu của bảng đó (bài học 16/11: lần đầu thêm thành 12 ô). Kiểm tra mọi dòng đúng số ô sau khi lưu.
 - **Giới hạn công cụ:** kết quả JS trả về bị cắt ở ~1.000 ký tự và bị chặn nếu có `? & =` (thay ký tự trước khi trả). Việc dài: chạy nền trong trang, lưu tiến độ vào `window`/`localStorage`, đọc lại ≤10 giây/lần. Lỗi "classifier no verdict" là tạm thời – chờ rồi thử lại.
 - **Web chặn:** cài plugin, sửa file theme (403); đăng nhập không ở `/wp-login.php`. Ô tìm kiếm thật là Ivory Search (xem 6.6). Khung sao kk Star Ratings do theme gọi nên công tắc "tắt" từng bài không có tác dụng.
 - **Đọc Excel** (máy không có Python): `powershell -File plugin-hoathang/skills/hoathang-oem/scripts/doc-xlsx.ps1 -Path <file.xlsx> [-MaxRows 15] [-Filter <chữ>]`. Kiểm tra mã trên trang (chỉ đọc): `scripts/kiem-tra-ma.js`.
-- **Tra mã nguồn (không cần đăng nhập):**
-  - sbparts.jp: POST JSON `{part_no}` tới `/service/search_partnumber` (header `X-Requested-With: XMLHttpRequest`) → lấy id từ `catalogue/(\d+)` → mã chéo trong bảng ở `/catalogue/<id>` có dòng đầu "Chủ sở hữu | Số". Chỉ giữ sản phẩm có danh sách chứa đúng mã đã tra.
-  - azfilter.jp: `/catalogue/search-part-number?product_id=` → chỉ lấy `.search-res-crosses__line` trong khối tiêu đề **"Bản ghi chéo"** (khối "Số phiên bản" là mã Azumi – lấy nhầm sẽ lệch cột).
-  - Mã dạng bộ kit (đuôi `_JTK`, `_K1`, `+A017`…) không phải mã OEM thường → bỏ qua. Chuyển dữ liệu giữa 2 web trong cùng tab: `window.name`, sang hoathang thì chép vào `localStorage`. Lỗi khác đã gặp: `plugin-hoathang/skills/hoathang-oem/meo-ky-thuat.md`.
+- **Luật mã OEM** (nguồn tra sbparts/azfilter, cách lấy mã chéo, mã bộ kit, Bảng mã OEM 2/4/8/11 cột, ô ẩn tìm kiếm): xem **`.claude/rules/oem-rules.md`** (Claude tự đọc đầu mỗi phiên).
+- Chuyển dữ liệu giữa 2 web trong cùng tab: `window.name`, sang hoathang thì chép vào `localStorage`. Lỗi khác đã gặp: `plugin-hoathang/skills/hoathang-oem/meo-ky-thuat.md`.
 
 ## 4. Mục tiêu dự án
 1. Sửa SEO các trang/bài **dưới 85 điểm Rank Math**, và lọc ra những mã/trang dưới 85 điểm.
@@ -151,12 +146,7 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 - **Trạng thái:** chưa bắt đầu – sẽ tiếp tục.
 
 ### 6.3. Thêm "Bảng mã OEM" vào trang sản phẩm
-- **Mẫu chuẩn:** trang guốc phanh sau Navara NP300 2016-2023 (ID 3679).
-- **Tiêu đề bảng chỉ ghi đúng "Bảng mã OEM"** – KHÔNG thêm "của + tên sản phẩm" (người dùng chốt 15/11/2026).
-- Bảng **4 cặp cột Hãng | OEM** (8 cột, dòng đầu là tiêu đề); cặp đầu là mã gốc của sản phẩm, sau đó các mã tương đương.
-- **Vị trí:** cuối mục "5. Bảng mã OEM tham khảo" (sau bảng mã nhỏ có sẵn, trước `<hr>`); trang chỉ có bảng thông số thì đặt ngay sau bảng thông số. Không xoá bảng mã nhỏ.
-- Nguồn mã: sbparts.jp (má/guốc phanh), azfilter.jp (các loại lọc).
-- **Chỉ tạo bảng mới khi người dùng đồng ý.**
+- Luật tạo bảng (mẫu ID 3679, tiêu đề, 8 cột, vị trí, chỉ tạo khi đồng ý): xem `.claude/rules/oem-rules.md` mục 4.
 - Đã làm 15/11/2026: tạo bảng cho 6 trang – Wigo má phanh trước (ID 5926), Transit má phanh trước (ID 5946, 4559), Transit má phanh sau (ID 5950, 5942), Wigo lọc gió động cơ (ID 7900).
 - **16/11/2026:** quét 1.482 SP → **67 trang chưa có bảng**. Đã tạo bảng cho **12 trang có thêm mã mới** (ID 3439, 7953, 7785, 6750, 6649, 6565, 6244, 6112, 5989, 4382, 3821, 2658) – đưa hết mã, trang trống thì thêm vào cuối. Còn 55 trang ít/không có dữ liệu: `du-lieu-oem/Trang_chua_co_bang_OEM_16-11-2026.csv`.
 - **16/11/2026 (sau):** tra lại 55 trang bằng cả mã Asahi lẫn mã OEM trên trang → **không có mã mới** (23 trang nguồn chỉ có 1 mã, 14 trang bài đã có bảng mã chéo khác, 18 trang nguồn không có dữ liệu). Kết quả: `du-lieu-oem/Tra_lai_55_trang_chua_co_bang_16-11-2026.csv`.
@@ -164,10 +154,7 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 - **Trạng thái:** sẽ tiếp tục khi có nguồn mã mới.
 
 ### 6.4. Cập nhật mã OEM mới nhất lên các trang sản phẩm
-- Từ file Excel mã OEM, tra mã OEM theo nhóm hàng; **chỉ cập nhật mã có trang trên hoathang.vn**, mã không có trang thì bỏ qua.
-- **Nơi tra mã OEM (bắt buộc theo nhóm hàng):**
-  - **Má phanh, guốc phanh** → tra trên **sbparts.jp/catalogue**
-  - **Lọc dầu, lọc nhiên liệu, lọc gió động cơ, lọc gió điều hòa** → tra trên **azfilter.jp/catalogue**
+- Từ file Excel mã OEM, tra mã OEM theo nhóm hàng. Luật tra mã (nguồn theo nhóm hàng, chỉ cập nhật mã có trang): xem `.claude/rules/oem-rules.md` mục 2.
 - **Các đợt:**
   | Đợt | Nhóm hàng | Trạng thái |
   |---|---|---|
@@ -223,6 +210,7 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 | `plugin-hoathang/` | Plugin `hoathang` + kho GitHub `Web-HTG` (manifest `.claude-plugin/`, skill, lệnh tắt, script, `TIEN-DO.md`) |
 | `plugin-hoathang/tien-do/` | Bản sao `CLAUDE.md` và `tien-do-oem.md` để cả nhóm xem trên GitHub – chép đè sau mỗi việc (mục 1.6) |
 | `.claude/agents/` | 6 Sub-agent (xem mục 3) |
+| `.claude/rules/oem-rules.md` | Luật về mã OEM (nguồn tra, Bảng mã OEM, ô ẩn tìm kiếm) – Claude tự đọc đầu mỗi phiên; tách từ CLAUDE.md 16/11/2026 |
 | `cap-nhat-oem.bat` | Lệnh tắt: mở Claude Code làm tiếp dự án mã OEM |
 | `index.html`, `mo-trang-web.bat` | Trang web HTML học tập đầu tiên của người dùng + lệnh tắt mở trang |
 | `css/style.css` | Phần trang trí (CSS) của `index.html` – tách ra ngày 16/11/2026 |

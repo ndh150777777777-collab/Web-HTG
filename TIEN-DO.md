@@ -37,6 +37,11 @@
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
+### 16/11/2026 – Tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`
+- Tạo `.claude/rules/oem-rules.md` (Claude tự đọc đầu mỗi phiên): dữ liệu mã OEM, nguồn tra sbparts/azfilter, trước khi sửa web, Bảng mã OEM (mẫu ID 3679, 2/4/8/11 cột), ô ẩn `oem_khong_gach`.
+- `CLAUDE.md`: bỏ các dòng luật OEM ở mục 1.7, 3, 6.3, 6.4, thay bằng dòng trỏ tới file mới; phần tiến độ giữ nguyên. Bản sao ở `tien-do/oem-rules.md`.
+- Không thao tác trên website.
+
 ### 16/11/2026 – Tra lại 55 trang chưa có Bảng mã OEM (chỉ đọc)
 - **Làm gì:** đọc nội dung 55 trang (REST, chỉ đọc); tra lại azfilter.jp / sbparts.jp bằng **cả mã Asahi và mã OEM ghi trên trang** (lần trước chỉ tra mã Asahi).
 - **Kết quả:** không có mã mới nào. 23 trang: azfilter chỉ có đúng 1 mã OEM của trang; 14 trang: bài đã có bảng mã chéo khác (tạo thêm sẽ trùng); 18 trang: nguồn không có dữ liệu (5 trang lọc xăng 7789, 7806, 7808, 7809, 7810 không có bảng nào). Đối chứng: sbparts vẫn tra được mã 04465-48210 bình thường.
