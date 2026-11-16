@@ -37,6 +37,13 @@
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
+### 16/11/2026 – So sánh 22 trang nhóm B (chỉ đọc, chưa sửa web)
+- File: `du-lieu-oem/Nhom_B_so_sanh_16-11-2026.csv` (chưa đưa lên kho vì nằm ngoài plugin; tóm tắt ở `tien-do/tien-do-oem.md`).
+- **Loại 1 – 14 trang bảng đúng sản phẩm Asahi:** 6705, 6699, 6384, 4394, 4391, 4335–4339, 3128, 2215, 2207, 1221. Bảng khớp 90–100% với một mã gốc khác của cùng mã Asahi; chỉ thiếu mã của mã gốc ghi trên trang.
+- **Loại 2 – 4 trang nghi chép nhầm bảng:** 1916 (Morning má phanh trước) mang bảng má phanh sau Sportage (ID 2271); 6095, 6098, 6099 (AFC-K009C) mang bảng lọc gió điều hoà Sedona AFC-K324.
+- **Loại 3:** 6225 (Lux SA) cần người biết hàng xem; 3378–3380 nguồn chỉ có mã bộ kit `_K1/_K2` → bỏ qua.
+- Còn lại: chờ người dùng duyệt cách xử lý.
+
 ### 16/11/2026 – Quy tắc mới: luôn cập nhật CLAUDE.md và đẩy lên GitHub
 - Người dùng yêu cầu: sau mỗi việc **luôn cập nhật `CLAUDE.md`** và tải lên GitHub.
 - Đã sửa: `CLAUDE.md` mục 1.6 (thêm bước cập nhật CLAUDE.md), lệnh `/hoathang:day-tien-do`, hook `SessionEnd` (tự chép `CLAUDE.md` vào kho khi đóng phiên).

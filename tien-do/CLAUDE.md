@@ -3,7 +3,7 @@
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 16/11/2026 (kiểm tra toàn bộ mã OEM; thêm quy tắc luôn cập nhật CLAUDE.md và đẩy bản sao lên GitHub). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 16/11/2026 (so sánh 22 trang nhóm B OEM; quy tắc luôn cập nhật CLAUDE.md và đẩy lên GitHub). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -132,6 +132,7 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
   | 7 | *(chưa chọn nhóm hàng)* | Chưa làm |
 - **15/11/2026:** kiểm tra lại 429 trang → 421 đủ, 8 thiếu → sửa 7 trang (Escape 2001-2008 ID 3429 thêm 30 mã + 6 trang tạo bảng ở mục 6.3), **bỏ qua VFe34 (ID 4554)** theo quyết định người dùng (dữ liệu nghi sai).
 - **16/11/2026 – kiểm tra TOÀN BỘ 1.482 SP:** thêm 408 mã vào 131 trang (điền lại ô ẩn xong). **Nhóm B 22 trang** bảng lệch hẳn với nguồn (nghi ghi mã sản phẩm khác) – chờ người dùng xem. File: `du-lieu-oem/Kiem_tra_toan_bo_OEM_16-11-2026_chay_kho.csv`.
+- **16/11/2026 – so sánh 22 trang nhóm B** (`du-lieu-oem/Nhom_B_so_sanh_16-11-2026.csv`): **14 trang loại 1** bảng đúng sản phẩm Asahi (khớp mã gốc khác cùng mã Asahi, chỉ thiếu mã của mã gốc ghi trên trang); **4 trang loại 2** nghi chép nhầm bảng (1916 Morning má phanh trước mang bảng má phanh sau Sportage ID 2271; 6095/6098/6099 mang bảng lọc gió điều hoà Sedona AFC-K324); **4 trang loại 3** (6225 Lux SA cần người xem; 3378–3380 nguồn chỉ có mã bộ kit _K1/_K2 → bỏ qua). Chưa sửa – chờ người dùng duyệt.
 - **Còn treo:** guốc phanh AS-J1265 (Xpander EPB), AS-J9012 (Celerio) chưa có trang; AS-C554, AS-K2286 không có trên sbparts; mã 18268, 18488 nghi là đĩa phanh; vài trang má phanh có dòng mã nghi sai (xem `du-lieu-oem/tien-do-oem.md`).
 - **Trạng thái:** sẽ tiếp tục.
 

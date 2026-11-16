@@ -36,6 +36,7 @@
 
 ## 4. Nhật ký các phiên
 <!-- Mỗi phiên làm xong, AI ghi thêm 1 dòng: ngày – đã làm gì – còn lại gì -->
+$L
 - 15/11/2026 – Tạo tệp tiến độ và lệnh tắt `cap-nhat-oem.bat`.
 - 15/11/2026 – **Đợt 6 guốc phanh – chạy khô xong, người dùng đã duyệt.**
   - Nguồn: `Downloads\má phanh + guốc phanh asahi.xlsx` (55 mã guốc phanh) + `Doi_chieu_OEM_hoathang_tong_hop.xlsx` (đối chiếu sbparts ngày 13/11/2026).
