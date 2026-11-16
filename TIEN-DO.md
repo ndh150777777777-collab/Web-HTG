@@ -37,6 +37,12 @@
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
+### 16/11/2026 – Quy tắc mới: luôn cập nhật CLAUDE.md và đẩy lên GitHub
+- Người dùng yêu cầu: sau mỗi việc **luôn cập nhật `CLAUDE.md`** và tải lên GitHub.
+- Đã sửa: `CLAUDE.md` mục 1.6 (thêm bước cập nhật CLAUDE.md), lệnh `/hoathang:day-tien-do`, hook `SessionEnd` (tự chép `CLAUDE.md` vào kho khi đóng phiên).
+- Từ nay bản sao sổ tay nằm ở [`tien-do/CLAUDE.md`](tien-do/CLAUDE.md) – cả nhóm xem được trên GitHub.
+- Không thao tác trên website.
+
 ### 16/11/2026
 - **Kiểm tra lại toàn bộ mã OEM trên web và cập nhật** (người dùng duyệt):
   - Quét 1.482 SP; lấy mã gốc từng trang, tra 623 mã trên azfilter.jp + 430 mã trên sbparts.jp, so với mọi ô bảng trên trang.
