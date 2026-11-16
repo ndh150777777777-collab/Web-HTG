@@ -3,7 +3,7 @@
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 16/11/2026 (nhóm B: thay bảng 4 trang loại 2, thêm 669 mã cho 14 trang loại 1). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 16/11/2026 (8 hạng mục: xong mục 5 điểm tự chấm, mục 6 đuôi utm). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -157,12 +157,12 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 2. Giờ hotline 24/7
 3. Ngày thành lập (đã chốt 04/04/2024)
 4. Bài Automechanika 2022
-5. Điểm tự chấm 4.8/5
-6. Đuôi `utm_source=chatgpt.com` trong liên kết
+5. Điểm tự chấm 4.8/5 – **ĐÃ XONG 16/11/2026** (không còn 4.8/5; xoá dữ liệu bình chọn kk Star Ratings của bài Giới thiệu ID 712 – đang hiện 4.6/5 (9 bình chọn) – và SP MG ZS ID 3553 (khai báo sao gửi Google); 2 trang này cũng đặt "tắt" chấm sao. Giao diện Flatsome tự gọi khung sao nên công tắc "tắt" không ẩn được – giờ hiện khung trống "Rate this post")
+6. Đuôi `utm_source=chatgpt.com` trong liên kết – **ĐÃ XONG 16/11/2026** (xoá 3.105 link trên 1.155 sản phẩm: 1.740 trong mô tả + 1.365 trong mô tả ngắn; quét lại còn 0; trang/bài/menu không bị dính)
 7. Trang thiếu giá bán
 8. Địa chỉ cũ "Q. Hai Bà Trưng"
 
-- **Trạng thái:** chưa bắt đầu – sẽ tiếp tục.
+- **Trạng thái:** đang làm – xong mục 5, 6 (16/11/2026). Phát hiện thêm: trang Giới thiệu hiện nguyên chữ `[rt_reading_time] phút đọc` (shortcode hỏng); 971 link trỏ sang partsouq.com (web khác) trong mô tả sản phẩm – chờ người dùng quyết.
 
 ---
 

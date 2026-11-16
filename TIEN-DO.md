@@ -37,6 +37,11 @@
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
+### 16/11/2026 – 8 hạng mục: xoá điểm tự chấm + đuôi utm_source=chatgpt.com
+- **Mục 6 – đuôi link:** xoá `?utm_source=chatgpt.com` ở **3.105 link / 1.155 sản phẩm** (1.740 trong mô tả, 1.365 trong mô tả ngắn). Chỉ cắt đuôi, chữ giữ nguyên. Kiểm tra từng SP: nội dung sau = nội dung trước bỏ đuôi, trạng thái giữ nguyên; 1.155/1.155 OK, 0 lỗi; quét lại SP + trang + bài: còn 0.
+- **Mục 5 – điểm tự chấm:** web không còn "4.8/5". Xoá dữ liệu bình chọn kk Star Ratings (người dùng chọn, không lấy lại được) ở bài Giới thiệu ID 712 (đang hiện 4.6/5 – 9 bình chọn) và SP MG ZS ID 3553 (khai báo sao 5/5 gửi Google). Giờ trang Giới thiệu hiện khung trống "Rate this post"; MG ZS hết khai báo sao. Nội dung 2 trang không đổi.
+- Phát hiện thêm (chờ người dùng): `[rt_reading_time] phút đọc` hiện nguyên chữ trên trang Giới thiệu; 971 link trong mô tả SP trỏ sang partsouq.com.
+
 ### 16/11/2026 – Thêm 669 mã OEM cho 14 trang nhóm B loại 1
 - Trang: 6705, 6699 (+19 mã/trang), 6384 (+12), 4394 (+4), 4391 (+8), 4335–4339 (+106 mã/trang), 3128 (+5), 2215, 2207 (+29 mã/trang), 1221 (+14). Nguồn azfilter (lọc) / sbparts (phanh), theo mã gốc ghi trên từng trang. Không xoá mã cũ.
 - Sự cố đã xử lý: 2215, 2207 có bảng 11 cột (cột trống xen giữa) – lần lưu đầu dòng mới có 12 ô, đã dựng lại đúng mẫu và lưu lại ngay.
