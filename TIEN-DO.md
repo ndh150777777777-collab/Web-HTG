@@ -13,6 +13,7 @@
 | 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | 🔄 Đang làm | 6 trang đã tạo bảng (15/11/2026) |
 | 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | Đợt 1-6 xong; kiểm tra lại 429 trang; còn lọc gió điều hòa chưa kiểm |
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
+| 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel, 130 SP chưa có bảng OEM |
 
 ## Mã OEM theo nhóm hàng
 | Đợt | Nhóm hàng | Nguồn tra | Trạng thái |
@@ -25,6 +26,9 @@
 | 6 | Guốc phanh | sbparts.jp | ✅ Xong – 57/57 trang đủ 106 mã |
 
 ## Việc còn treo / chờ quyết định
+- **61 sản phẩm có mã OEM lỗi Excel** (hiện dạng `4,05E+09`) – cần lấy lại mã đúng. VD ID: 5883, 5877, 5658, 5655, 4657, 4396, 4395, 4394.
+- **130 sản phẩm chưa có bảng OEM** – chỉ tạo khi người dùng đồng ý. VD ID: 7953, 7810, 7809, 7808, 7806.
+- Khi thêm sản phẩm mới / sửa bảng OEM: phải **điền lại ô ẩn `oem_khong_gach`** (skill `hoathang-tim-ma-oem`).
 - Lọc gió điều hòa: dò 75 mã trong `Book1.xlsx` trên web để kiểm tra.
 - Guốc phanh: AS-J1265 (Xpander EPB), AS-J9012 (Celerio) chưa có trang; AS-C554, AS-K2286 không có trên sbparts; mã 18268, 18488 nghi là đĩa phanh.
 - Má phanh sau VFe34 (ID 4554): **bỏ qua** theo quyết định người dùng – dữ liệu nghi sai.
@@ -34,6 +38,14 @@
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
 ### 16/11/2026
+- **Ô tìm kiếm tra được mã OEM gõ liền không gạch** (làm trong phiên Claude khác, ghi lại theo sổ tay mục 6.6): khách gõ `0446548210` không ra vì bảng ghi `04465-48210`; không thêm mã không gạch vào bảng.
+  - Tạo nhóm trường ACF PRO "Mã OEM không gạch (ẩn, dùng cho tìm kiếm)" (ID 8571), trường `oem_khong_gach`, bật REST API.
+  - Điền trường cho **1.482/1.482 sản phẩm** qua REST API (2 lượt; lượt 2 bổ sung 736 SP thiếu mã Asahi). Không đổi nội dung bài, bảng OEM, SEO.
+  - Ivory Search (form 2644) → Includes → Custom Fields: chọn `oem_khong_gach`.
+  - Kiểm tra: gõ `0446548210` ra Má phanh Sienna 2011-2020 và Highlander 2005-2019 (AB-J1324); gõ có gạch vẫn ra như cũ.
+  - Phát hiện: web chặn cài plugin và sửa file theme (nghi Hide My WP).
+  - Thêm skill mới `hoathang-tim-ma-oem` (quy trình điền lại ô ẩn).
+  - Còn treo: 61 SP mã OEM lỗi Excel, 130 SP chưa có bảng OEM.
 - **Kiểm tra lại (chỉ đọc, trang công khai) 7 trang sửa ngày 15/11:** 6 trang tạo Bảng mã OEM (ID 5926, 5946, 4559, 5950, 5942, 7900) đều có đúng 1 tiêu đề "Bảng mã OEM", bảng 8 cột, đủ mã (Wigo 18 mã; Transit, lọc gió Wigo đủ như đã ghi). Trang Escape (ID 3429): 30/30 mã hiện trên web. Không sửa gì trên website.
 - **Tách CSS của trang học tập `index.html`** ra file `css/style.css` (không đụng website): `index.html` từ 157 dòng còn 60 dòng, thay khối `<style>` bằng 1 dòng `<link>`; đã so khớp CSS và phần HTML còn lại trùng 100% với bản cũ.
 - **Cập nhật sổ tay `CLAUDE.md`** (không đụng website): chuyển sang UTF-8 (trước đây UTF-16 làm Claude đọc sai tiếng Việt); sửa bảng skill theo plugin; bổ sung quy định Bảng mã OEM, kết quả kiểm tra 15/11, quy tắc "kiểm tra web thật trước khi sửa", mục Công cụ & môi trường, danh sách file dự án; tách quy định đẩy GitHub thành mục 1.6. Mục tiến độ đổi số từ 5.x → **6.x** (đã sửa các chỗ tham chiếu trong plugin và `cap-nhat-oem.bat`).
