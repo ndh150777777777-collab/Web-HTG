@@ -8,7 +8,7 @@
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
 |---|---|---|---|
-| 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | ⏳ Chưa bắt đầu | |
+| 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | 🔄 Đang làm | 16/11: quét xong – 604 SP dưới 87 điểm + 218 trang chưa có từ khoá; điểm đã lưu là điểm cũ, chấm lại thực tế tối đa ~86 – chờ người dùng chọn hướng |
 | 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5) | ⏳ Chưa bắt đầu | |
 | 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | 🔄 Đang làm | 15/11: 6 trang; 16/11: thêm 12 trang. Còn 55 trang chưa có bảng (ít/không có dữ liệu) |
 | 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 16/11: kiểm tra TOÀN BỘ 1.482 SP với azfilter/sbparts, thêm 408 mã vào 131 trang; còn 22 trang nghi bảng sai chờ xem |
@@ -36,6 +36,14 @@
 
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
+
+### 16/11/2026 – Kiểm tra SEO Rank Math toàn web + làm thử 1 trang
+- Quét điểm Rank Math 1.482 SP + 18 trang + 8 bài (chỉ đọc): **604 SP dưới 87 điểm** (308 trang 85, 264 trang 86, 18 trang 80–84, 14 trang 53–57), **218 chưa đặt từ khoá** (192 SP, 18 trang, 8 bài). File: `du-lieu-seo/SEO_duoi_87_diem_16-11-2026.csv`.
+- Nguyên nhân chính: từ khoá chính quá chung ("má phanh trước" 156 trang, "lọc gió động cơ" 111…) → trùng giữa các trang.
+- **Phát hiện quan trọng:** điểm trong danh sách là điểm lưu lần cuối (phiên bản Rank Math cũ). Mở lại trình soạn thảo, Rank Math hiện tại chấm thêm mục Content AI (0/5) → trang đang ghi 90 (VD 8367) chấm lại thực tế chỉ 86. Mẫu bài hiện tại tối đa ~86: luôn mất TOC 2, ảnh/video 4, độ dài 4, Content AI 5.
+- Làm thử (người dùng duyệt): **ID 8387** Lọc xăng Innova – đổi từ khoá chính "Lọc xăng" → "lọc xăng dùng cho xe Innova" (giữ từ khoá phụ) qua REST `rankmath/v1/updateMeta`; nội dung không đổi (đã so khớp). Điểm thật 86 (đã ghi đúng 86; lúc đầu lỡ ghi 90 do Content AI chưa tải – đã sửa).
+- Chưa làm: ID 8308 Elantra (thêm link hoathang.vn) – tạm dừng vì không đạt 90 được. ID 7813 Vios: trang chỉ có bảng OEM, cần viết bài.
+- Còn lại: chờ người dùng chọn hướng (chấp nhận mức 86 / thêm ảnh / Content AI).
 
 ### 16/11/2026 – Tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`
 - Tạo `.claude/rules/oem-rules.md` (Claude tự đọc đầu mỗi phiên): dữ liệu mã OEM, nguồn tra sbparts/azfilter, trước khi sửa web, Bảng mã OEM (mẫu ID 3679, 2/4/8/11 cột), ô ẩn `oem_khong_gach`.

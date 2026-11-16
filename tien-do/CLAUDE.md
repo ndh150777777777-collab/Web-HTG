@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 16/11/2026 (tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 16/11/2026 (kiểm tra SEO Rank Math toàn web – mục 6.1; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -137,8 +137,10 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 > Nhật ký chi tiết cho cả nhóm: `plugin-hoathang/TIEN-DO.md` (trên GitHub). Nhật ký OEM: `du-lieu-oem/tien-do-oem.md`.
 
 ### 6.1. Sửa SEO các trang/bài trên web
-- Lọc trang/bài có điểm Rank Math dưới 85, sửa SEO trực tiếp trên website.
-- **Trạng thái:** chưa bắt đầu – sẽ tiếp tục.
+- Lọc trang/bài có điểm Rank Math dưới 85, sửa SEO trực tiếp trên website. Người dùng 16/11/2026 nâng mục tiêu: **trang dưới 87 → lên 90**.
+- **16/11/2026:** quét xong – 604 SP dưới 87 + 218 trang chưa đặt từ khoá (`du-lieu-seo/SEO_duoi_87_diem_16-11-2026.csv`). Nguyên nhân: từ khoá chính chung chung, trùng nhiều trang. **Điểm trong danh sách là điểm cũ** – Rank Math hiện tại chấm thêm Content AI (0/5) nên trang ghi 90 chấm lại chỉ 86; mẫu bài hiện tại tối đa ~86 (mất TOC, ảnh/video, độ dài, Content AI). Đã đổi từ khoá trang 8387 → 'lọc xăng dùng cho xe Innova' (điểm thật 86).
+- **Cách đọc/lưu điểm:** trong trang sửa, `wp.data.select('rank-math').getAnalysisScore()` và `rankMathEditor.resultManager.getResults()` (chờ ≥6 giây cho Content AI tải, nếu không điểm sẽ cao giả); lưu từ khoá + điểm bằng REST `/wp-json/rankmath/v1/updateMeta` (không cần lưu nội dung qua TinyMCE).
+- **Trạng thái:** đang làm – chờ người dùng chọn hướng.
 
 ### 6.2. Viết lại SEO trang sản phẩm mã AFT-U520
 - Lọc dầu hộp số AT cho Territory 1.5 2021+, hãng Asahi, OEM 516013A.
