@@ -37,6 +37,12 @@
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
+### 16/11/2026 – Ẩn dòng "[rt_reading_time] phút đọc" ở đầu bài viết
+- Dòng này do theme in ra ở đầu **cả 8 bài viết** (không nằm trong nội dung bài); không có plugin đếm thời gian đọc, không sửa được file theme (403).
+- Đã thêm vào **cuối** *Giao diện → Tuỳ biến → CSS bổ sung* (giữ nguyên CSS cũ): `#readTime, span:has(> #readTime) { display: none !important; }`. Muốn hiện lại thì xoá 2 dòng đó.
+- Kiểm tra trang Giới thiệu (ID 712): không còn chữ "[rt_reading_time] phút đọc".
+- 971 link sang partsouq.com trong mô tả SP: người dùng quyết **không làm**.
+
 ### 16/11/2026 – 8 hạng mục: xoá điểm tự chấm + đuôi utm_source=chatgpt.com
 - **Mục 6 – đuôi link:** xoá `?utm_source=chatgpt.com` ở **3.105 link / 1.155 sản phẩm** (1.740 trong mô tả, 1.365 trong mô tả ngắn). Chỉ cắt đuôi, chữ giữ nguyên. Kiểm tra từng SP: nội dung sau = nội dung trước bỏ đuôi, trạng thái giữ nguyên; 1.155/1.155 OK, 0 lỗi; quét lại SP + trang + bài: còn 0.
 - **Mục 5 – điểm tự chấm:** web không còn "4.8/5". Xoá dữ liệu bình chọn kk Star Ratings (người dùng chọn, không lấy lại được) ở bài Giới thiệu ID 712 (đang hiện 4.6/5 – 9 bình chọn) và SP MG ZS ID 3553 (khai báo sao 5/5 gửi Google). Giờ trang Giới thiệu hiện khung trống "Rate this post"; MG ZS hết khai báo sao. Nội dung 2 trang không đổi.

@@ -3,7 +3,7 @@
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 16/11/2026 (8 hạng mục: xong mục 5 điểm tự chấm, mục 6 đuôi utm). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 16/11/2026 (8 hạng mục: xong mục 5, 6; ẩn dòng phút đọc hỏng). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -162,7 +162,7 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 7. Trang thiếu giá bán
 8. Địa chỉ cũ "Q. Hai Bà Trưng"
 
-- **Trạng thái:** đang làm – xong mục 5, 6 (16/11/2026). Phát hiện thêm: trang Giới thiệu hiện nguyên chữ `[rt_reading_time] phút đọc` (shortcode hỏng); 971 link trỏ sang partsouq.com (web khác) trong mô tả sản phẩm – chờ người dùng quyết.
+- **Trạng thái:** đang làm – xong mục 5, 6 (16/11/2026). Đã ẩn dòng `[rt_reading_time] phút đọc` (shortcode hỏng do theme in ra ở đầu cả 8 bài viết) bằng CSS thêm vào cuối *Giao diện → Tuỳ biến → CSS bổ sung* (`#readTime, span:has(> #readTime) { display: none !important; }`) – 16/11/2026; muốn hiện lại thì xoá 2 dòng đó. 971 link partsouq.com trong mô tả SP: **người dùng quyết giữ nguyên, không làm**.
 
 ---
 
