@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 16/11/2026 (đổi từ khoá SEO 105/613 SP, tạm dừng – mục 6.1; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 17/11/2026 (đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -140,8 +140,8 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 - Lọc trang/bài có điểm Rank Math dưới 85, sửa SEO trực tiếp trên website. Người dùng 16/11/2026 nâng mục tiêu: **trang dưới 87 → lên 90**.
 - **16/11/2026:** quét xong – 604 SP dưới 87 + 218 trang chưa đặt từ khoá (`du-lieu-seo/SEO_duoi_87_diem_16-11-2026.csv`). Nguyên nhân: từ khoá chính chung chung, trùng nhiều trang. **Điểm trong danh sách là điểm cũ** – Rank Math hiện tại chấm thêm Content AI (0/5) nên trang ghi 90 chấm lại chỉ 86; mẫu bài hiện tại tối đa ~86 (mất TOC, ảnh/video, độ dài, Content AI). Đã đổi từ khoá trang 8387 → 'lọc xăng dùng cho xe Innova' (điểm thật 86).
 - **Cách đọc/lưu điểm:** trong trang sửa, `wp.data.select('rank-math').getAnalysisScore()` và `rankMathEditor.resultManager.getResults()` (chờ ≥6 giây cho Content AI tải, nếu không điểm sẽ cao giả); lưu từ khoá + điểm bằng REST `/wp-json/rankmath/v1/updateMeta` (không cần lưu nội dung qua TinyMCE).
-- **16/11/2026 (tối) – phương án A (người dùng chọn):** lấy ~86 làm mức đạt; đặt từ khoá chính riêng (tên SP trước dấu phẩy/năm, VD 'Lọc nhiên liệu dùng cho xe D-MAX', giữ từ khoá phụ) cho **613 SP đã duyệt** (chỉ sản phẩm). Chỉ lưu khi điểm mới ≥ điểm cũ (chấm cả 2 trong iframe trang sửa). **Tạm dừng ở 105/613** theo yêu cầu người dùng: 45 tăng điểm, 6 bằng, 54 giữ nguyên, 0 lỗi. Làm tiếp: đọc `du-lieu-seo/SEO_doi_tu_khoa_ket_qua_16-11-2026.csv`, chạy các dòng 'Chưa làm' (508 SP). Để riêng: 183 SP ít nội dung (<300 chữ, cần viết bài), 26 trang/bài (cần người dùng chọn từ khoá) – xem `SEO_tu_khoa_moi_chay_kho_16-11-2026.csv`.
-- **Trạng thái:** đang làm – tạm dừng, sẽ tiếp tục 508 SP.
+- **16/11/2026 (tối) – phương án A (người dùng chọn):** lấy ~86 làm mức đạt; đặt từ khoá chính riêng (tên SP trước dấu phẩy/năm, VD 'Lọc nhiên liệu dùng cho xe D-MAX', giữ từ khoá phụ) cho **613 SP đã duyệt** (chỉ sản phẩm). Chỉ lưu khi điểm mới ≥ điểm cũ (chấm cả 2 trong iframe trang sửa). **17/11: tạm dừng ở 214/613** theo yêu cầu người dùng: 101 tăng điểm, 7 bằng, 106 giữ nguyên, 0 lỗi. Làm tiếp: đọc `du-lieu-seo/SEO_doi_tu_khoa_ket_qua_17-11-2026.csv`, chạy các dòng 'Chưa làm' (399 SP). Mẹo: chạy 2 trang song song; không chờ `onload` của iframe (tài nguyên phụ treo) mà chờ `rankMathEditor` sẵn sàng; tiến độ còn lưu trong localStorage `seo_job_16_11` / `seo_dry_16_11` của tab wp-admin. Để riêng: 183 SP ít nội dung (<300 chữ, cần viết bài), 26 trang/bài (cần người dùng chọn từ khoá) – xem `SEO_tu_khoa_moi_chay_kho_16-11-2026.csv`.
+- **Trạng thái:** đang làm – tạm dừng, sẽ tiếp tục 399 SP.
 
 ### 6.2. Viết lại SEO trang sản phẩm mã AFT-U520
 - Lọc dầu hộp số AT cho Territory 1.5 2021+, hãng Asahi, OEM 516013A.

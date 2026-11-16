@@ -3,12 +3,12 @@
 > File này được **cập nhật và đẩy lên GitHub sau mỗi lần thao tác trên website**, để mọi người trong nhóm biết đã làm gì, làm tới đâu.
 > Nhật ký chi tiết dự án mã OEM: [`tien-do/tien-do-oem.md`](tien-do/tien-do-oem.md).
 
-**Cập nhật lần cuối:** 16/11/2026 (tối)
+**Cập nhật lần cuối:** 17/11/2026
 
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
 |---|---|---|---|
-| 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | 🔄 Đang làm | 16/11: đổi từ khoá riêng cho SP (phương án A, duyệt 613 SP) – **tạm dừng ở 105/613**: 51 đã lưu (45 tăng điểm), 54 giữ nguyên; còn 508 |
+| 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | 🔄 Đang làm | 16/11: đổi từ khoá riêng cho SP (phương án A, duyệt 613 SP) – **tạm dừng ở 214/613** (17/11): 108 đã lưu (101 tăng điểm), 106 giữ nguyên; còn 399 |
 | 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5) | ⏳ Chưa bắt đầu | |
 | 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | 🔄 Đang làm | 15/11: 6 trang; 16/11: thêm 12 trang. Còn 55 trang chưa có bảng (ít/không có dữ liệu) |
 | 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 16/11: kiểm tra TOÀN BỘ 1.482 SP với azfilter/sbparts, thêm 408 mã vào 131 trang; còn 22 trang nghi bảng sai chờ xem |
@@ -36,6 +36,12 @@
 
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
+
+### 17/11/2026 – Đổi từ khoá SEO sản phẩm (tiếp) – TẠM DỪNG ở 214/613
+- Chạy tiếp từ 105 → **214/613** SP (cùng cách đã duyệt: chỉ lưu khi điểm mới ≥ cũ, chỉ đổi từ khoá + điểm). Tổng: **101 tăng điểm**, 7 điểm bằng, 106 giữ nguyên, 0 lỗi. Người dùng bảo tạm dừng.
+- Kết quả từng trang: `du-lieu-seo/SEO_doi_tu_khoa_ket_qua_17-11-2026.csv` (399 dòng "Chưa làm").
+- Bài học kỹ thuật: (1) trang sửa có tài nguyên phụ bị treo → KHÔNG chờ sự kiện `onload` của iframe, chờ `rankMathEditor` + `wp.data.select('rank-math')` sẵn sàng; (2) iframe cùng tên miền dùng chung sức xử lý của tab → chạy **2 trang song song** là tốt nhất (4 trang chậm hơn, 3 trang làm tab đơ); (3) máy khoá màn hình làm Chrome chạy chậm/dừng.
+- Còn lại: 399 SP chưa làm; 183 SP ít nội dung cần viết bài; 26 trang/bài chọn từ khoá riêng.
 
 ### 16/11/2026 (tối) – Đổi từ khoá chính riêng cho sản phẩm (SEO 6.1, phương án A) – TẠM DỪNG
 - Người dùng chọn **phương án A**: lấy ~86 điểm làm mức đạt, đặt từ khoá chính riêng cho từng SP; **duyệt 613 SP** nhóm 1 ("chỉ làm những sản phẩm"). Chạy khô: `du-lieu-seo/SEO_tu_khoa_moi_chay_kho_16-11-2026.csv` (613 đổi từ khoá; 183 SP ít nội dung <300 chữ – cần viết bài; 26 trang/bài – để riêng).
