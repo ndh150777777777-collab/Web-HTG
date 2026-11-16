@@ -8,7 +8,7 @@
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
 |---|---|---|---|
-| 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | 🔄 Đang làm | 16/11: quét xong – 604 SP dưới 87 điểm + 218 trang chưa có từ khoá; điểm đã lưu là điểm cũ, chấm lại thực tế tối đa ~86 – chờ người dùng chọn hướng |
+| 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | 🔄 Đang làm | 16/11: đổi từ khoá riêng cho SP (phương án A, duyệt 613 SP) – **tạm dừng ở 105/613**: 51 đã lưu (45 tăng điểm), 54 giữ nguyên; còn 508 |
 | 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5) | ⏳ Chưa bắt đầu | |
 | 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | 🔄 Đang làm | 15/11: 6 trang; 16/11: thêm 12 trang. Còn 55 trang chưa có bảng (ít/không có dữ liệu) |
 | 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 16/11: kiểm tra TOÀN BỘ 1.482 SP với azfilter/sbparts, thêm 408 mã vào 131 trang; còn 22 trang nghi bảng sai chờ xem |
@@ -36,6 +36,14 @@
 
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
+
+### 16/11/2026 (tối) – Đổi từ khoá chính riêng cho sản phẩm (SEO 6.1, phương án A) – TẠM DỪNG
+- Người dùng chọn **phương án A**: lấy ~86 điểm làm mức đạt, đặt từ khoá chính riêng cho từng SP; **duyệt 613 SP** nhóm 1 ("chỉ làm những sản phẩm"). Chạy khô: `du-lieu-seo/SEO_tu_khoa_moi_chay_kho_16-11-2026.csv` (613 đổi từ khoá; 183 SP ít nội dung <300 chữ – cần viết bài; 26 trang/bài – để riêng).
+- Từ khoá mới = tên SP phần trước dấu phẩy/năm, VD "Lọc nhiên liệu dùng cho xe D-MAX"; giữ từ khoá phụ cũ.
+- Cách làm: mở ngầm trang sửa (iframe), chấm Rank Math với từ khoá cũ rồi mới (chờ mục Content AI tải), **chỉ lưu khi điểm mới ≥ điểm cũ**, lưu từ khoá + điểm qua REST `rankmath/v1/updateMeta`; không đụng nội dung.
+- **Người dùng bảo dừng, để lúc khác làm** → dừng ở **105/613**: 45 đã lưu tăng điểm, 6 đã lưu điểm bằng, 54 giữ nguyên (từ khoá mới thấp hơn – thường do đường dẫn/alt ảnh không chứa từ khoá, mật độ thấp), 0 lỗi. Kết quả từng trang: `du-lieu-seo/SEO_doi_tu_khoa_ket_qua_16-11-2026.csv` (cột Kết quả "Chưa làm" = 508 trang còn lại).
+- Lưu ý: khi lưu, điểm trong danh sách đổi từ điểm cũ (85–86, chấm bằng bản Rank Math cũ) sang điểm thật hiện tại (thường ~80–85).
+- Còn lại: 508 SP chưa làm; 183 SP ít nội dung cần viết bài; 26 trang/bài chọn từ khoá riêng.
 
 ### 16/11/2026 – Kiểm tra SEO Rank Math toàn web + làm thử 1 trang
 - Quét điểm Rank Math 1.482 SP + 18 trang + 8 bài (chỉ đọc): **604 SP dưới 87 điểm** (308 trang 85, 264 trang 86, 18 trang 80–84, 14 trang 53–57), **218 chưa đặt từ khoá** (192 SP, 18 trang, 8 bài). File: `du-lieu-seo/SEO_duoi_87_diem_16-11-2026.csv`.
