@@ -1,9 +1,13 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # Sổ tay dự án: Website hoathang.vn
 
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 16/11/2026 (8 hạng mục: xong mục 5, 6; ẩn dòng phút đọc hỏng). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 16/11/2026 (/init: thêm "Cách AI thao tác trên web", 6 Sub-agent, cập nhật danh sách file, đổi thứ tự 6.5/6.6). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -40,7 +44,7 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
 
 ### 1.5. Làm tiếp giữa các phiên
 - Mọi dự án bên dưới đều **SẼ TIẾP TỤC** ở các phiên sau.
-- **Đầu mỗi phiên**: đọc mục **"5. Tiến độ các dự án"** (và `du-lieu-oem/tien-do-oem.md`) để biết đang làm tới đâu, rồi làm tiếp — **không làm lại từ đầu**.
+- **Đầu mỗi phiên**: đọc mục **"6. Tiến độ các dự án"** (và `du-lieu-oem/tien-do-oem.md`) để biết đang làm tới đâu, rồi làm tiếp — **không làm lại từ đầu**.
 - Khi hoàn thành việc gì, **cập nhật lại mục tiến độ** (sau khi báo người dùng).
 
 ### 1.6. Đẩy tiến độ lên GitHub (người dùng đã cho phép sẵn – không cần hỏi lại)
@@ -78,6 +82,29 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
 
 ### Lệnh tắt (slash command)
 `/hoathang:tien-do` · `/hoathang:cap-nhat-oem <nhóm hàng>` · `/hoathang:kiem-tra-oem <nhóm hàng>` · `/hoathang:day-tien-do`
+
+### Sub-agent (trợ lý con – `.claude/agents/`, tạo 16/11/2026)
+Làm theo cặp: agent chỉ đọc ra kết quả → người dùng duyệt → agent sửa web. Agent sửa web chỉ chạy khi đầu vào ghi rõ **"người dùng đã duyệt"**. File `.xlsx` phải chuyển sang CSV trước khi giao cho agent.
+| Agent | Quyền | Dùng khi |
+|---|---|---|
+| `oem-checker` → `oem-updater` | chỉ đọc → sửa web | Đối chiếu mã OEM → thêm/sửa mã đã duyệt |
+| `seo-auditor` → `seo-writer` | chỉ đọc → mặc định chỉ soạn nháp vào `du-lieu-seo/nhap/` | Kiểm tra SEO → viết lại (áp dụng khi đã duyệt) |
+| `product-prep` → `product-uploader` | chỉ tạo nháp trong `du-lieu-sp-moi/nhap/` → đăng web | Chuẩn bị sản phẩm mới → đăng |
+
+### Cách AI thao tác trên web (không có build / lint / test)
+Dự án không có code để build hay chạy thử. Mọi thay đổi trên hoathang.vn làm bằng **JavaScript chạy trong tab Chrome đã đăng nhập wp-admin** (Claude in Chrome, `javascript_tool`).
+- **Sửa nội dung bài / sản phẩm:** fetch `/wp-admin/post.php?post=<ID>&action=edit` → lấy `#content` và `form#post` → so nội dung với bản đã đọc (khác thì dừng) → `new FormData(form)`, đặt `content` mới, `save=Cập nhật`, bỏ `delete` → POST `/wp-admin/post.php` → đọc lại để kiểm tra. Mẫu: `plugin-hoathang/skills/hoathang-oem/scripts/luu-noi-dung.js`.
+- **Mô tả ngắn sản phẩm** nằm ở ô `excerpt` (textarea `name=excerpt` trong cùng form) – sửa hàng loạt phải xử lý cả ô này. Đọc bản gốc nhanh: REST `/wp-json/wp/v2/product/<ID>?context=edit` (header `X-WP-Nonce`).
+- **Nonce REST:** `/wp-admin/admin-ajax.php?action=rest-nonce`. Trường ACF (`oem_khong_gach`): POST `/wp-json/wp/v2/product/<ID>` với `{acf:{...}}`.
+- **CSS bổ sung:** trong `/wp-admin/customize.php` dùng `wp.customize('custom_css[bowmedia]')` → `.set(cũ + mới)` → `wp.customize.previewer.save()`. Chỉ thêm vào cuối, không sửa dòng cũ.
+- **Bảng mã OEM có 4 dạng 2 / 4 / 8 / 11 cột.** Dạng 11 cột có cột trống xen giữa các cặp (VD ID 1914, 2207, 2215) – dòng mới phải theo đúng mẫu của bảng đó (bài học 16/11: lần đầu thêm thành 12 ô). Kiểm tra mọi dòng đúng số ô sau khi lưu.
+- **Giới hạn công cụ:** kết quả JS trả về bị cắt ở ~1.000 ký tự và bị chặn nếu có `? & =` (thay ký tự trước khi trả). Việc dài: chạy nền trong trang, lưu tiến độ vào `window`/`localStorage`, đọc lại ≤10 giây/lần. Lỗi "classifier no verdict" là tạm thời – chờ rồi thử lại.
+- **Web chặn:** cài plugin, sửa file theme (403); đăng nhập không ở `/wp-login.php`. Ô tìm kiếm thật là Ivory Search (xem 6.6). Khung sao kk Star Ratings do theme gọi nên công tắc "tắt" từng bài không có tác dụng.
+- **Đọc Excel** (máy không có Python): `powershell -File plugin-hoathang/skills/hoathang-oem/scripts/doc-xlsx.ps1 -Path <file.xlsx> [-MaxRows 15] [-Filter <chữ>]`. Kiểm tra mã trên trang (chỉ đọc): `scripts/kiem-tra-ma.js`.
+- **Tra mã nguồn (không cần đăng nhập):**
+  - sbparts.jp: POST JSON `{part_no}` tới `/service/search_partnumber` (header `X-Requested-With: XMLHttpRequest`) → lấy id từ `catalogue/(\d+)` → mã chéo trong bảng ở `/catalogue/<id>` có dòng đầu "Chủ sở hữu | Số". Chỉ giữ sản phẩm có danh sách chứa đúng mã đã tra.
+  - azfilter.jp: `/catalogue/search-part-number?product_id=` → chỉ lấy `.search-res-crosses__line` trong khối tiêu đề **"Bản ghi chéo"** (khối "Số phiên bản" là mã Azumi – lấy nhầm sẽ lệch cột).
+  - Mã dạng bộ kit (đuôi `_JTK`, `_K1`, `+A017`…) không phải mã OEM thường → bỏ qua. Chuyển dữ liệu giữa 2 web trong cùng tab: `window.name`, sang hoathang thì chép vào `localStorage`. Lỗi khác đã gặp: `plugin-hoathang/skills/hoathang-oem/meo-ky-thuat.md`.
 
 ## 4. Mục tiêu dự án
 1. Sửa SEO các trang/bài **dưới 85 điểm Rank Math**, và lọc ra những mã/trang dưới 85 điểm.
@@ -136,6 +163,19 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
 - **Còn treo:** guốc phanh AS-J1265 (Xpander EPB), AS-J9012 (Celerio) chưa có trang; AS-C554, AS-K2286 không có trên sbparts; mã 18268, 18488 nghi là đĩa phanh; vài trang má phanh có dòng mã nghi sai (xem `du-lieu-oem/tien-do-oem.md`).
 - **Trạng thái:** sẽ tiếp tục.
 
+### 6.5. Danh sách 8 hạng mục sửa nội dung
+Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
+1. Nhãn "BÁN CHẠY NHẤT"
+2. Giờ hotline 24/7
+3. Ngày thành lập (đã chốt 04/04/2024)
+4. Bài Automechanika 2022
+5. Điểm tự chấm 4.8/5 – **ĐÃ XONG 16/11/2026** (không còn 4.8/5; xoá dữ liệu bình chọn kk Star Ratings của bài Giới thiệu ID 712 – đang hiện 4.6/5 (9 bình chọn) – và SP MG ZS ID 3553 (khai báo sao gửi Google); 2 trang này cũng đặt "tắt" chấm sao. Giao diện Flatsome tự gọi khung sao nên công tắc "tắt" không ẩn được – giờ hiện khung trống "Rate this post")
+6. Đuôi `utm_source=chatgpt.com` trong liên kết – **ĐÃ XONG 16/11/2026** (xoá 3.105 link trên 1.155 sản phẩm: 1.740 trong mô tả + 1.365 trong mô tả ngắn; quét lại còn 0; trang/bài/menu không bị dính)
+7. Trang thiếu giá bán
+8. Địa chỉ cũ "Q. Hai Bà Trưng"
+
+- **Trạng thái:** đang làm – xong mục 5, 6 (16/11/2026). Đã ẩn dòng `[rt_reading_time] phút đọc` (shortcode hỏng do theme in ra ở đầu cả 8 bài viết) bằng CSS thêm vào cuối *Giao diện → Tuỳ biến → CSS bổ sung* (`#readTime, span:has(> #readTime) { display: none !important; }`) – 16/11/2026; muốn hiện lại thì xoá 2 dòng đó. 971 link partsouq.com trong mô tả SP: **người dùng quyết giữ nguyên, không làm**.
+
 ### 6.6. Ô tìm kiếm tra được mã OEM gõ liền không gạch (làm 16/11/2026)
 - **Vấn đề:** khách gửi mã `0446548210` (không gạch) nhưng bảng OEM ghi `04465-48210` → ô tìm kiếm không ra. **Người dùng KHÔNG muốn thêm mã không gạch vào bảng OEM.**
 - **Ô tìm kiếm thật của web là plugin Ivory Search** (form ID **2644**, gợi ý khi gõ bằng AJAX) – KHÔNG phải tìm kiếm mặc định của WordPress/Flatsome. Khi kiểm tra phải gõ vào ô trên trang chủ (hoặc gọi AJAX của Ivory Search); thử bằng `?s=...&post_type=product` hay `flatsome_ajax_search_products` sẽ cho kết quả sai.
@@ -151,30 +191,20 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
   - ~~130 sản phẩm không có bảng OEM~~ → kiểm tra 16/11: thực tế 67, đã tạo 12 (xem 6.3). Đã điền lại ô ẩn cho 12 trang đó (16/11, 12/12 đúng).
 - **Trạng thái:** ✅ Xong phần tìm kiếm; sẽ tiếp tục xử lý 2 việc treo ở trên.
 
-### 6.5. Danh sách 8 hạng mục sửa nội dung
-Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
-1. Nhãn "BÁN CHẠY NHẤT"
-2. Giờ hotline 24/7
-3. Ngày thành lập (đã chốt 04/04/2024)
-4. Bài Automechanika 2022
-5. Điểm tự chấm 4.8/5 – **ĐÃ XONG 16/11/2026** (không còn 4.8/5; xoá dữ liệu bình chọn kk Star Ratings của bài Giới thiệu ID 712 – đang hiện 4.6/5 (9 bình chọn) – và SP MG ZS ID 3553 (khai báo sao gửi Google); 2 trang này cũng đặt "tắt" chấm sao. Giao diện Flatsome tự gọi khung sao nên công tắc "tắt" không ẩn được – giờ hiện khung trống "Rate this post")
-6. Đuôi `utm_source=chatgpt.com` trong liên kết – **ĐÃ XONG 16/11/2026** (xoá 3.105 link trên 1.155 sản phẩm: 1.740 trong mô tả + 1.365 trong mô tả ngắn; quét lại còn 0; trang/bài/menu không bị dính)
-7. Trang thiếu giá bán
-8. Địa chỉ cũ "Q. Hai Bà Trưng"
-
-- **Trạng thái:** đang làm – xong mục 5, 6 (16/11/2026). Đã ẩn dòng `[rt_reading_time] phút đọc` (shortcode hỏng do theme in ra ở đầu cả 8 bài viết) bằng CSS thêm vào cuối *Giao diện → Tuỳ biến → CSS bổ sung* (`#readTime, span:has(> #readTime) { display: none !important; }`) – 16/11/2026; muốn hiện lại thì xoá 2 dòng đó. 971 link partsouq.com trong mô tả SP: **người dùng quyết giữ nguyên, không làm**.
-
 ---
 
 ## 7. Các file trong dự án
 | File / thư mục | Dùng để |
 |---|---|
 | `CLAUDE.md` | Sổ tay này – Claude tự đọc đầu mỗi phiên |
-| `du-lieu-oem/` | Dữ liệu mã OEM: file Excel đối chiếu (`Doi_chieu_OEM_hoathang_tong_hop.xlsx`, `Them_OEM_loc_*.xlsx`, `Ma_khong_co_du_lieu.xlsx`, `Ma_OEM_chua_co_tren_web.xlsx`, `Book1.xlsx`), CSV chạy khô / kiểm tra, nhật ký `tien-do-oem.md` |
-| `plugin-hoathang/` | Plugin `hoathang` + kho GitHub `Web-HTG` (skill, lệnh tắt, script, `TIEN-DO.md`) |
+| `du-lieu-oem/` | Dữ liệu mã OEM: file Excel đối chiếu (`Doi_chieu_OEM_hoathang_tong_hop.xlsx`, `Them_OEM_loc_*.xlsx`, `Ma_khong_co_du_lieu.xlsx`, `Ma_OEM_chua_co_tren_web.xlsx`, `Book1.xlsx`), nhật ký `tien-do-oem.md` |
+| `du-lieu-oem/*.csv` | Kết quả chạy khô / kiểm tra (có cột Duyệt, Kết quả): `Kiem_tra_toan_bo_OEM_16-11-2026_chay_kho.csv` (1.482 SP), `Nhom_B_so_sanh_16-11-2026.csv` (22 trang nhóm B), `Nhom_B_loai1_chay_kho_16-11-2026.csv`, `Trang_chua_co_bang_OEM_16-11-2026.csv` (55 trang), `Dot6_guoc_phanh_chay_kho.csv`, `Kiem_tra_lai_15-11-2026_con_thieu.csv` |
+| `plugin-hoathang/` | Plugin `hoathang` + kho GitHub `Web-HTG` (manifest `.claude-plugin/`, skill, lệnh tắt, script, `TIEN-DO.md`) |
+| `plugin-hoathang/tien-do/` | Bản sao `CLAUDE.md` và `tien-do-oem.md` để cả nhóm xem trên GitHub – chép đè sau mỗi việc (mục 1.6) |
+| `.claude/agents/` | 6 Sub-agent (xem mục 3) |
 | `cap-nhat-oem.bat` | Lệnh tắt: mở Claude Code làm tiếp dự án mã OEM |
 | `index.html`, `mo-trang-web.bat` | Trang web HTML học tập đầu tiên của người dùng + lệnh tắt mở trang |
 | `css/style.css` | Phần trang trí (CSS) của `index.html` – tách ra ngày 16/11/2026 |
 | `js/`, `images/` | Để dành cho trang học tập (đang trống) |
-| `.claude/` | Cấu hình riêng của dự án: hook `SessionEnd` đẩy tiến độ lên GitHub |
+| `.claude/` | Cấu hình riêng của dự án: hook `SessionEnd` (`hooks/day-tien-do-github.sh`, khai báo trong `settings.local.json`) đẩy tiến độ lên GitHub |
 

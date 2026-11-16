@@ -37,6 +37,11 @@
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
+### 16/11/2026 – Bổ sung sổ tay CLAUDE.md (/init)
+- Thêm dòng mở đầu chuẩn của Claude Code; mục 3 thêm **6 Sub-agent** và **"Cách AI thao tác trên web"** (lưu bài bằng form#post, ô excerpt, REST/ACF, CSS bổ sung, bảng OEM 2/4/8/11 cột, giới hạn công cụ, cách tra sbparts/azfilter, đọc Excel).
+- Mục 7 thêm các file CSV, thư mục `tien-do/`, `.claude/agents/`; đổi thứ tự 6.5 trước 6.6; sửa 1.5 trỏ đúng mục 6.
+- Không xoá nội dung cũ. Không thao tác web.
+
 ### 16/11/2026 – Ẩn dòng "[rt_reading_time] phút đọc" ở đầu bài viết
 - Dòng này do theme in ra ở đầu **cả 8 bài viết** (không nằm trong nội dung bài); không có plugin đếm thời gian đọc, không sửa được file theme (403).
 - Đã thêm vào **cuối** *Giao diện → Tuỳ biến → CSS bổ sung* (giữ nguyên CSS cũ): `#readTime, span:has(> #readTime) { display: none !important; }`. Muốn hiện lại thì xoá 2 dòng đó.
