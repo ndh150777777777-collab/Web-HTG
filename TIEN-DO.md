@@ -38,6 +38,7 @@
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
 ### 16/11/2026
+- **Tạo 6 Sub-agent** trong `.claude/agents/` của thư mục dự án (không đụng website): `oem-checker` (chỉ đọc) → `oem-updater`; `seo-auditor` (chỉ đọc) → `seo-writer` (mặc định chỉ soạn nháp, áp dụng khi người dùng đã duyệt); `product-prep` (chỉ tạo nháp trong `du-lieu-sp-moi/nhap/`) → `product-uploader`. Các agent sửa web đều yêu cầu bảng/nháp đã được người dùng duyệt, người dùng tự đăng nhập, không dùng TinyMCE, kết quả ngắn gọn.
 - **Điền lại ô ẩn tìm kiếm `oem_khong_gach`** cho 12 trang vừa tạo bảng (người dùng duyệt): 12/12 ghi thành công, đọc lại khớp 12/12. Kiểm tra: gõ `43022SZAA00` vào ô tìm kiếm trang chủ → ra Má phanh sau Mux 2014-2020 (cùng Odyssey, Trailblazer – AB-J1281).
 - **Tạo "Bảng mã OEM" cho 12 trang chưa có bảng** (người dùng duyệt phạm vi + trang mẫu ID 3439):
   - Lọc toàn bộ 1.482 sản phẩm: **67 trang chưa có bảng có cột "Hãng"/"Chủ sở hữu"** (con số 130 trước đây đếm khác). Tra mã gốc của từng trang trên azfilter.jp (lọc) và sbparts.jp (má/guốc phanh).
