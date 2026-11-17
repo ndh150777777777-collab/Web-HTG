@@ -36,6 +36,12 @@
 
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
+### 17/11/2026 (khuya) – Sửa mô tả 81 trang lọc xăng/lọc nhiên liệu ghi nhầm "lọc dầu hộp số"
+- Người dùng duyệt cách A, xem 2 trang mẫu (3083, 3163) rồi cho làm tiếp.
+- Thay khối cuối bài bằng nội dung đúng loại hàng: 48 lọc xăng, 33 lọc nhiên liệu (ID 3083–3251).
+- Kiểm tra: lưu đúng 81/81, phần trên/mô tả ngắn/tiêu đề giữ nguyên; trang công khai không còn "dầu hộp số".
+- File: `du-lieu-oem/Trang_loc_xang_mo_ta_ghi_nham_loc_dau_hop_so_17-11-2026.csv`. Còn: 7797 Xpander bảng mã Mazda, 2257 Sorento sau.
+
 ### 17/11/2026 (khuya) – OEM Đợt 5 lọc gió điều hoà: kiểm tra lại lần đầu 221 trang
 - Chạy khô: 205 đủ, 5 trang thiếu 27 mã, 11 trang azfilter không có dữ liệu (VinFast, Lux, Peugeot).
 - Người dùng duyệt → đã thêm: 6704 Orlando, 6703 Spark (+2 mã BYD); 6705 Cruze, 6699 Fadil (+11 mã BYD/Dongfeng/Opel); 6111 Innova (+TOYOTA 87139-YZZ78).
