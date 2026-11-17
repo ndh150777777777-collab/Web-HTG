@@ -8,7 +8,7 @@
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
 |---|---|---|---|
-| 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | 🔄 Đang làm | 16/11: đổi từ khoá riêng cho SP (phương án A, duyệt 613 SP) – **tạm dừng ở 214/613** (17/11): 108 đã lưu (101 tăng điểm), 106 giữ nguyên; còn 399 |
+| 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | 🔄 Đang làm | 17/11: phát hiện lần đo trước cộng oan 5 điểm cho từ khoá mới (~96/108 trang đã lưu thật ra giảm ~2 điểm) – đang chấm lại để khôi phục; chạy tiếp 24 SP bằng cách đo mới; còn 375 SP. Tạm dừng |
 | 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5) | ⏳ Chưa bắt đầu | |
 | 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | 🔄 Đang làm | 15/11: 6 trang; 16/11: thêm 12 trang. Còn 55 trang chưa có bảng (ít/không có dữ liệu) |
 | 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 16/11: kiểm tra TOÀN BỘ 1.482 SP với azfilter/sbparts, thêm 408 mã vào 131 trang; còn 22 trang nghi bảng sai chờ xem |
@@ -38,6 +38,12 @@
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
 
+
+### 17/11/2026 – Đổi từ khoá SEO (tiếp) – phát hiện lỗi đo, TẠM DỪNG
+- Lần chạy 16–17/11 so điểm không công bằng: từ khoá cũ chấm lúc trang vừa tải (bị trừ 5 điểm Content AI), từ khoá mới chấm sau khi phân tích lại → mới được cộng oan 5. Đo lại 8384 (80→85 thực 85=85), 6459 (81→84 thực 86→84), 6486 (84→87 thực 89→87).
+- Người dùng chọn: chấm lại công bằng 108 trang đã lưu → CSV → duyệt → khôi phục từ khoá cũ trang bị giảm; chạy tiếp SP còn lại bằng cách đo mới.
+- Đã chạy 24 SP bằng cách mới: 1 lưu (5926, bằng điểm), 2 có sẵn, 21 giữ nguyên. Chấm lại 2/108 (6385 bằng, 6459 giảm). Tạm dừng theo yêu cầu người dùng.
+- File: `du-lieu-seo/SEO_doi_tu_khoa_ket_qua_lan2_17-11-2026.csv` (còn 375 SP). Còn lại: chấm lại 106 trang, duyệt khôi phục, chạy 375 SP.
 ### 17/11/2026 – Xoá 6 sub-agent (theo yêu cầu người dùng)
 - Xoá thư mục `.claude/agents/` (oem-checker, oem-updater, seo-auditor, seo-writer, product-prep, product-uploader) – trở về cách làm như lúc đầu (Claude tự làm theo skill + quy tắc, không qua trợ lý con).
 - Bỏ các dòng nhắc sub-agent trong `CLAUDE.md` (mục 1.7, 3, 7) và `.claude/rules/oem-rules.md`. Quy tắc chạy khô → người dùng duyệt → mới sửa web vẫn giữ nguyên.
