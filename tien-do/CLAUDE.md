@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 17/11/2026 (kiểm tra lại mã OEM theo thứ tự đợt: xong Đợt 1 má phanh (27 mã / 9 trang), Đợt 2 lọc dầu (3 mã / 3 trang), Đợt 3 lọc nhiên liệu (đủ, phát hiện 81 trang mô tả sai), Đợt 4 lọc gió (đủ), Đợt 5 lọc gió điều hoà (27 mã / 5 trang); sửa mô tả 81 trang lọc xăng ghi nhầm "lọc dầu hộp số"; lọc dầu hộp số 208 trang (4 mã / 4 trang) – mục 6.4; trước đó: dừng đổi từ khoá SEO, khôi phục từ khoá cũ 104 trang – mục 6.1; trước đó: phát hiện lỗi đo điểm SEO; trước đó: xoá 6 sub-agent; trước đó: đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 17/11/2026 (cài Python 3.14.10 + openpyxl để chuẩn bị làm công cụ ra đơn bán hàng / báo giá 50–60 đơn/ngày; trước đó: kiểm tra lại mã OEM theo thứ tự đợt: xong Đợt 1 má phanh (27 mã / 9 trang), Đợt 2 lọc dầu (3 mã / 3 trang), Đợt 3 lọc nhiên liệu (đủ, phát hiện 81 trang mô tả sai), Đợt 4 lọc gió (đủ), Đợt 5 lọc gió điều hoà (27 mã / 5 trang); sửa mô tả 81 trang lọc xăng ghi nhầm "lọc dầu hộp số"; lọc dầu hộp số 208 trang (4 mã / 4 trang) – mục 6.4; trước đó: dừng đổi từ khoá SEO, khôi phục từ khoá cũ 104 trang – mục 6.1; trước đó: phát hiện lỗi đo điểm SEO; trước đó: xoá 6 sub-agent; trước đó: đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -83,7 +83,7 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
 - Plugin khác đang bật: **Ivory Search** (ô tìm kiếm của web), **ACF PRO**, WooCommerce, Hide My WP (đổi đường dẫn đăng nhập, nghi chặn cài plugin), Contact Form 7, GTranslate, Really Simple SSL, kk Star Ratings.
 
 ## 3. Công cụ & môi trường làm việc
-- Máy: Windows 10 LTSC, PowerShell 5.1, **không có Python** (đọc Excel bằng script PowerShell trong plugin), **không có winget**.
+- Máy: Windows 10 LTSC, PowerShell 5.1, **đã cài Python 3.14.10** (17/11/2026, cài cho tài khoản Admin, có trong PATH, kèm thư viện `openpyxl` 3.1.5 để đọc/ghi Excel; script PowerShell `doc-xlsx.ps1` vẫn dùng được), **không có winget**.
 - **Git** đã cài (bản 2.56) và đã đăng nhập GitHub tài khoản `ndh150777777777-collab`.
 - Mở Claude Code có điều khiển trình duyệt: `claude --chrome --resume` (cần tiện ích Claude in Chrome).
 - **Plugin `hoathang`** (thư mục `plugin-hoathang/`, cũng là kho GitHub `Web-HTG`) – chứa toàn bộ kiến thức, quy trình, script và tiến độ. Cài cho người khác: `/plugin marketplace add ndh150777777777-collab/Web-HTG` rồi `/plugin install hoathang@hoathang-local`.
@@ -108,7 +108,7 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 - **CSS bổ sung:** trong `/wp-admin/customize.php` dùng `wp.customize('custom_css[bowmedia]')` → `.set(cũ + mới)` → `wp.customize.previewer.save()`. Chỉ thêm vào cuối, không sửa dòng cũ.
 - **Giới hạn công cụ:** kết quả JS trả về bị cắt ở ~1.000 ký tự và bị chặn nếu có `? & =` (thay ký tự trước khi trả). Việc dài: chạy nền trong trang, lưu tiến độ vào `window`/`localStorage`, đọc lại ≤10 giây/lần. Lỗi "classifier no verdict" là tạm thời – chờ rồi thử lại.
 - **Web chặn:** cài plugin, sửa file theme (403); đăng nhập không ở `/wp-login.php`. Ô tìm kiếm thật là Ivory Search (xem 6.6). Khung sao kk Star Ratings do theme gọi nên công tắc "tắt" từng bài không có tác dụng.
-- **Đọc Excel** (máy không có Python): `powershell -File plugin-hoathang/skills/hoathang-oem/scripts/doc-xlsx.ps1 -Path <file.xlsx> [-MaxRows 15] [-Filter <chữ>]`. Kiểm tra mã trên trang (chỉ đọc): `scripts/kiem-tra-ma.js`.
+- **Đọc Excel** (PowerShell; hoặc dùng Python + openpyxl): `powershell -File plugin-hoathang/skills/hoathang-oem/scripts/doc-xlsx.ps1 -Path <file.xlsx> [-MaxRows 15] [-Filter <chữ>]`. Kiểm tra mã trên trang (chỉ đọc): `scripts/kiem-tra-ma.js`.
 - **Luật mã OEM** (nguồn tra sbparts/azfilter, cách lấy mã chéo, mã bộ kit, Bảng mã OEM 2/4/8/11 cột, ô ẩn tìm kiếm): xem **`.claude/rules/oem-rules.md`** (Claude tự đọc đầu mỗi phiên).
 - Chuyển dữ liệu giữa 2 web trong cùng tab: `window.name`, sang hoathang thì chép vào `localStorage`. Lỗi khác đã gặp: `plugin-hoathang/skills/hoathang-oem/meo-ky-thuat.md`.
 

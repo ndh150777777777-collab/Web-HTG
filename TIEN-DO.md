@@ -36,6 +36,11 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 17/11/2026 (khuya) – Cài Python cho máy làm việc
+- Cài **Python 3.14.10** (bộ cài chính thức python.org, chữ ký số hợp lệ) cho tài khoản Admin, thêm vào PATH; cài thư viện `openpyxl` 3.1.5.
+- Mục đích: làm công cụ ra **đơn bán hàng / báo giá** (50–60 đơn/ngày) từ file Excel.
+- Còn lại: chờ người dùng gửi mẫu đơn, mẫu báo giá, bảng giá và thông tin công ty.
+
 ### 17/11/2026 (khuya) – Sửa trang 2257 Sorento sau; 7797 Xpander chờ người dùng
 - 2257: tra lại sbparts → không phải bảng nhầm, chỉ thiếu mã; thêm 40 mã, sửa nhãn 48413380A0 HYUNDAI→SSANGYONG. Kiểm tra OK, ô ẩn OK.
 - 7797 Lọc xăng Xpander: AFF-J5015 / PE01-13-ZE0 là lọc xăng Mazda (trùng 7796, 7793) – người dùng quyết để nguyên (17/11).
