@@ -158,7 +158,7 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
   |---|---|---|
   | 1 | Má phanh | ✅ Xong – kiểm tra lại 17/11: 418 trang, thêm 27 mã vào 9 trang (3122, 2221, 2218, 2216, 2214, 1914, 2215, 2207, 1992), ô ẩn OK; 2257 Sorento sau đã sửa 17/11 (thêm 40 mã, sửa nhãn SSANGYONG). File `du-lieu-oem/Dot1_ma_phanh_kiem_tra_lai_chay_kho_17-11-2026.csv` |
   | 2 | Lọc dầu | ✅ Xong – kiểm tra lại 17/11: 164 trang, thêm 3 mã vào 3 trang (6039, 7429, 7436), ô ẩn OK; 208 trang lọc dầu hộp số chưa kiểm |
-  | 3 | Lọc nhiên liệu | ✅ Xong – kiểm tra lại 17/11: 162 trang (gồm lọc xăng) đủ mã. **Đã sửa 17/11:** 81 trang lọc xăng Azumi (ID 3083–3251) mô tả ghi nhầm "lọc dầu hộp số" → thay bằng nội dung đúng loại hàng (cách A). Còn: 7797 Xpander – mã AFF-J5015/PE01-13-ZE0 là lọc xăng Mazda (trùng 7796, 7793), chờ người dùng. File `du-lieu-oem/Dot3_loc_nhien_lieu_kiem_tra_lai_17-11-2026.csv` |
+  | 3 | Lọc nhiên liệu | ✅ Xong – kiểm tra lại 17/11: 162 trang (gồm lọc xăng) đủ mã. **Đã sửa 17/11:** 81 trang lọc xăng Azumi (ID 3083–3251) mô tả ghi nhầm "lọc dầu hộp số" → thay bằng nội dung đúng loại hàng (cách A). 7797 Xpander (mã AFF-J5015/PE01-13-ZE0 là lọc xăng Mazda) – người dùng quyết ĐỂ NGUYÊN 17/11, chỉ làm lại khi có mã đúng. File `du-lieu-oem/Dot3_loc_nhien_lieu_kiem_tra_lai_17-11-2026.csv` |
   | 4 | Lọc gió động cơ | ✅ Xong – kiểm tra lại 17/11: 187 trang, 184 đủ mã, 3 trang azfilter không có dữ liệu (6880, 6288, 6244) |
   | 5 | Lọc gió điều hòa | ✅ Xong – kiểm tra lại 17/11: 221 trang, thêm 27 mã vào 5 trang (6704, 6703, 6705, 6699, 6111), ô ẩn OK; 11 trang azfilter không có dữ liệu. File `du-lieu-oem/Dot5_loc_gio_dieu_hoa_kiem_tra_lai_chay_kho_17-11-2026.csv` |
   | 6 | Guốc phanh | ✅ Xong – 57/57 trang đủ 106 mã |

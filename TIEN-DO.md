@@ -38,7 +38,7 @@
 ## Nhật ký thao tác trên website
 ### 17/11/2026 (khuya) – Sửa trang 2257 Sorento sau; 7797 Xpander chờ người dùng
 - 2257: tra lại sbparts → không phải bảng nhầm, chỉ thiếu mã; thêm 40 mã, sửa nhãn 48413380A0 HYUNDAI→SSANGYONG. Kiểm tra OK, ô ẩn OK.
-- 7797 Lọc xăng Xpander: AFF-J5015 / PE01-13-ZE0 là lọc xăng Mazda (trùng 7796, 7793) – chưa sửa, chờ người dùng cho mã đúng hoặc quyết ẩn/sửa tên trang.
+- 7797 Lọc xăng Xpander: AFF-J5015 / PE01-13-ZE0 là lọc xăng Mazda (trùng 7796, 7793) – người dùng quyết để nguyên (17/11).
 
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 ### 17/11/2026 (khuya) – OEM lọc dầu hộp số: kiểm tra lần đầu 208 trang
