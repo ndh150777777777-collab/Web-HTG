@@ -18,11 +18,11 @@
 ## Mã OEM theo nhóm hàng
 | Đợt | Nhóm hàng | Nguồn tra | Trạng thái |
 |---|---|---|---|
-| 1 | Má phanh | sbparts.jp | ✅ Xong – kiểm tra lại 15/11: 321 trang, đã bổ sung 6 trang thiếu |
-| 2 | Lọc dầu | azfilter.jp | ✅ Xong – kiểm tra lại 15/11: 80/80 trang đủ |
-| 3 | Lọc nhiên liệu | azfilter.jp | ✅ Xong – kiểm tra lại 15/11: 14/14 trang đủ |
-| 4 | Lọc gió động cơ | azfilter.jp | ✅ Xong – 14 trang, đã bổ sung trang Wigo (ID 7900) |
-| 5 | Lọc gió điều hòa | azfilter.jp | ❓ Đã làm trước đây – **chưa kiểm tra lại được** (thiếu file ghi trang) |
+| 1 | Má phanh | sbparts.jp | ✅ Xong – kiểm tra lại 17/11: 418 trang, thêm 27 mã vào 9 trang; 2257 Sorento sau nghi bảng sai |
+| 2 | Lọc dầu | azfilter.jp | ✅ Xong – kiểm tra lại 17/11: 164 trang, thêm 3 mã vào 3 trang; lọc dầu hộp số (208 trang) chưa kiểm |
+| 3 | Lọc nhiên liệu | azfilter.jp | ✅ Xong – kiểm tra lại 17/11: 162 trang (cả lọc xăng) đủ mã; 81 trang lọc xăng Azumi mô tả ghi nhầm "lọc dầu hộp số" – chờ quyết |
+| 4 | Lọc gió động cơ | azfilter.jp | ✅ Xong – kiểm tra lại 17/11: 187 trang, 184 đủ, 3 nguồn không có dữ liệu |
+| 5 | Lọc gió điều hòa | azfilter.jp | ✅ Xong – kiểm tra lại 17/11: 221 trang, thêm 27 mã vào 5 trang; 11 trang nguồn không có dữ liệu |
 | 6 | Guốc phanh | sbparts.jp | ✅ Xong – 57/57 trang đủ 106 mã |
 
 ## Việc còn treo / chờ quyết định
@@ -36,6 +36,33 @@
 
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
+### 17/11/2026 (khuya) – OEM Đợt 5 lọc gió điều hoà: kiểm tra lại lần đầu 221 trang
+- Chạy khô: 205 đủ, 5 trang thiếu 27 mã, 11 trang azfilter không có dữ liệu (VinFast, Lux, Peugeot).
+- Người dùng duyệt → đã thêm: 6704 Orlando, 6703 Spark (+2 mã BYD); 6705 Cruze, 6699 Fadil (+11 mã BYD/Dongfeng/Opel); 6111 Innova (+TOYOTA 87139-YZZ78).
+- Kiểm tra: lưu đúng 5/5, web hiện đủ, bảng đúng số ô; điền lại ô ẩn 5/5.
+- File: `du-lieu-oem/Dot5_loc_gio_dieu_hoa_kiem_tra_lai_chay_kho_17-11-2026.csv`. Đã kiểm tra lại xong 5 đợt; guốc phanh (đợt 6) đã kiểm 15/11.
+
+### 17/11/2026 (khuya) – OEM Đợt 4 lọc gió động cơ: kiểm tra lại 187 trang (chỉ đọc)
+- Tra azfilter: 184/184 đủ mã, không cần thêm; 3 trang nguồn không có dữ liệu (6880, 6288, 6244). Mô tả không ghi nhầm loại hàng.
+- File: `du-lieu-oem/Dot4_loc_gio_kiem_tra_lai_17-11-2026.csv`. Tiếp theo: Đợt 5 lọc gió điều hoà.
+
+### 17/11/2026 (khuya) – OEM Đợt 3 lọc nhiên liệu: kiểm tra lại 162 trang (chỉ đọc)
+- Tra azfilter: 161/161 đủ mã, không cần thêm; 7789 K3/Cerato azfilter không có dữ liệu.
+- Phát hiện (chưa sửa, chờ người dùng): 81 trang lọc xăng Azumi (ID 3083–3251) mô tả ghi nhầm "Bộ lọc dầu hộp số tự động AZUMI…"; 7797 Lọc xăng Xpander có bảng mã Mazda PE01-13-ZE0.
+- File: `du-lieu-oem/Dot3_loc_nhien_lieu_kiem_tra_lai_17-11-2026.csv`.
+
+### 17/11/2026 (khuya) – OEM Đợt 2 lọc dầu: kiểm tra lại 164 trang
+- Chạy khô: 161 đủ, 3 trang thiếu 1 mã. Người dùng duyệt → đã thêm: 6039 Peugeot 3008 (+PEUGEOT 92365780), 7429 Peugeot 2008 và 7436 Traveller (+FIAT 5984044).
+- Kiểm tra: lưu đúng 3/3, web hiện mã, bảng đúng số ô; điền lại ô ẩn 3/3.
+- File: `du-lieu-oem/Dot2_loc_dau_kiem_tra_lai_chay_kho_17-11-2026.csv`. Còn: 208 trang lọc dầu hộp số chưa kiểm; vài ô mã lạ dạng `41500 0000` nghi hỏng.
+
+### 17/11/2026 (khuya) – OEM: kiểm tra lại theo thứ tự đợt – Đợt 1 má phanh
+- Chạy khô (chỉ đọc) 418 trang má phanh, tra sbparts.jp bằng mã OEM gốc trên trang: 383 đủ, 9 trang thiếu 27 mã (nhóm A), 1 trang nghi bảng sai (2257 Sorento sau), 4554 VFe34 bỏ qua, 24 trang sbparts không có dữ liệu.
+- Người dùng duyệt → **đã thêm 27 mã vào 9 trang**: 3122, 2221, 2218, 2216, 2214, 1914 (+KASHIYAMA D11268, D11283); 2215, 2207 (+7 mã, bảng 11 cột); 1992 (+KASHIYAMA D-11280).
+- Kiểm tra: nội dung lưu đúng 9/9, trang công khai đủ mã, mọi dòng bảng đúng số ô; điền lại ô ẩn `oem_khong_gach` 9/9.
+- File: `du-lieu-oem/Dot1_ma_phanh_kiem_tra_lai_chay_kho_17-11-2026.csv`.
+- Còn lại: 2257 Sorento sau chờ người dùng xem; tiếp theo Đợt 2 lọc dầu.
+
 ### 17/11/2026 (tối) – Dừng đổi từ khoá SEO, khôi phục từ khoá cũ 104 trang- Chấm lại công bằng 60/109 trang đã lưu: 55 giảm (~2 điểm), 5 bằng, 0 tăng. Chạy mới 24 SP: 0 tăng.- Người dùng quyết dừng hẳn (không chạy 375 SP còn lại) và khôi phục. Đã đặt lại từ khoá cũ + điểm cũ cho 104 trang (55 giảm + 49 chưa chấm), đọc lại 104/104 đúng.- Giữ từ khoá mới: 5926, 6385, 6481, 6857, 8384 (bằng điểm). Không đổi nội dung bài.- File: `du-lieu-seo/SEO_khoi_phuc_tu_khoa_ket_qua_17-11-2026.csv`.
 
 

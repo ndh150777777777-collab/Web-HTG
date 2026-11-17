@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 17/11/2026 (dừng đổi từ khoá SEO, khôi phục từ khoá cũ 104 trang – mục 6.1; trước đó: phát hiện lỗi đo điểm SEO; trước đó: xoá 6 sub-agent; trước đó: đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 17/11/2026 (kiểm tra lại mã OEM theo thứ tự đợt: xong Đợt 1 má phanh (27 mã / 9 trang), Đợt 2 lọc dầu (3 mã / 3 trang), Đợt 3 lọc nhiên liệu (đủ, phát hiện 81 trang mô tả sai), Đợt 4 lọc gió (đủ), Đợt 5 lọc gió điều hoà (27 mã / 5 trang) – mục 6.4; trước đó: dừng đổi từ khoá SEO, khôi phục từ khoá cũ 104 trang – mục 6.1; trước đó: phát hiện lỗi đo điểm SEO; trước đó: xoá 6 sub-agent; trước đó: đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -156,11 +156,11 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 - **Các đợt:**
   | Đợt | Nhóm hàng | Trạng thái |
   |---|---|---|
-  | 1 | Má phanh | ✅ Xong – kiểm tra lại 15/11: 321 trang, đã bổ sung trang thiếu |
-  | 2 | Lọc dầu | ✅ Xong – kiểm tra lại 15/11: 80/80 trang đủ |
-  | 3 | Lọc nhiên liệu | ✅ Xong – kiểm tra lại 15/11: 14/14 trang đủ |
-  | 4 | Lọc gió động cơ | ✅ Xong – 14 trang, đã bổ sung trang Wigo (ID 7900) |
-  | 5 | Lọc gió điều hòa | ❓ Đã làm trước đây – **chưa kiểm tra lại được** (thiếu file ghi trang; có 75 mã trong `Book1.xlsx`) |
+  | 1 | Má phanh | ✅ Xong – kiểm tra lại 17/11: 418 trang, thêm 27 mã vào 9 trang (3122, 2221, 2218, 2216, 2214, 1914, 2215, 2207, 1992), ô ẩn OK; 2257 Sorento sau nghi bảng sai – chờ xem. File `du-lieu-oem/Dot1_ma_phanh_kiem_tra_lai_chay_kho_17-11-2026.csv` |
+  | 2 | Lọc dầu | ✅ Xong – kiểm tra lại 17/11: 164 trang, thêm 3 mã vào 3 trang (6039, 7429, 7436), ô ẩn OK; 208 trang lọc dầu hộp số chưa kiểm |
+  | 3 | Lọc nhiên liệu | ✅ Xong – kiểm tra lại 17/11: 162 trang (gồm lọc xăng) đủ mã. Phát hiện: 81 trang lọc xăng Azumi (ID 3083–3251) mô tả ghi nhầm "lọc dầu hộp số"; 7797 Xpander bảng mã Mazda – chờ người dùng. File `du-lieu-oem/Dot3_loc_nhien_lieu_kiem_tra_lai_17-11-2026.csv` |
+  | 4 | Lọc gió động cơ | ✅ Xong – kiểm tra lại 17/11: 187 trang, 184 đủ mã, 3 trang azfilter không có dữ liệu (6880, 6288, 6244) |
+  | 5 | Lọc gió điều hòa | ✅ Xong – kiểm tra lại 17/11: 221 trang, thêm 27 mã vào 5 trang (6704, 6703, 6705, 6699, 6111), ô ẩn OK; 11 trang azfilter không có dữ liệu. File `du-lieu-oem/Dot5_loc_gio_dieu_hoa_kiem_tra_lai_chay_kho_17-11-2026.csv` |
   | 6 | Guốc phanh | ✅ Xong – 57/57 trang đủ 106 mã |
   | 7 | *(chưa chọn nhóm hàng)* | Chưa làm |
 - **15/11/2026:** kiểm tra lại 429 trang → 421 đủ, 8 thiếu → sửa 7 trang (Escape 2001-2008 ID 3429 thêm 30 mã + 6 trang tạo bảng ở mục 6.3), **bỏ qua VFe34 (ID 4554)** theo quyết định người dùng (dữ liệu nghi sai).
