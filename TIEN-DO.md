@@ -24,6 +24,7 @@
 | 4 | Lọc gió động cơ | azfilter.jp | ✅ Xong – kiểm tra lại 17/11: 187 trang, 184 đủ, 3 nguồn không có dữ liệu |
 | 5 | Lọc gió điều hòa | azfilter.jp | ✅ Xong – kiểm tra lại 17/11: 221 trang, thêm 27 mã vào 5 trang; 11 trang nguồn không có dữ liệu |
 | 6 | Guốc phanh | sbparts.jp | ✅ Xong – 57/57 trang đủ 106 mã |
+| – | Lọc dầu hộp số | azfilter.jp | ✅ Kiểm tra lần đầu 17/11: 208 trang, thêm 4 mã vào 4 trang; 4 trang nguồn không có dữ liệu |
 
 ## Việc còn treo / chờ quyết định
 - **61 sản phẩm có mã OEM lỗi Excel** (hiện dạng `4,05E+09`) – cần lấy lại mã đúng. VD ID: 5883, 5877, 5658, 5655, 4657, 4396, 4395, 4394.
@@ -36,6 +37,12 @@
 
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
+### 17/11/2026 (khuya) – OEM lọc dầu hộp số: kiểm tra lần đầu 208 trang
+- Tra azfilter: 200 đủ, 4 trang thiếu 1 mã, 4 trang nguồn không có dữ liệu (8526, 3751, 3746, 3715). Mô tả đúng loại hàng.
+- Người dùng duyệt → đã thêm: 3305 Swift (+SUZUKI 26445-79C10-000); 2592 LC100, 2596 Fortuner, 2435 Prado 150 (+GM 97207143).
+- Kiểm tra: lưu đúng 4/4, web hiện mã, bảng đúng số ô; ô ẩn 4/4.
+- File: `du-lieu-oem/Loc_dau_hop_so_kiem_tra_OEM_chay_kho_17-11-2026.csv`.
+
 ### 17/11/2026 (khuya) – Sửa mô tả 81 trang lọc xăng/lọc nhiên liệu ghi nhầm "lọc dầu hộp số"
 - Người dùng duyệt cách A, xem 2 trang mẫu (3083, 3163) rồi cho làm tiếp.
 - Thay khối cuối bài bằng nội dung đúng loại hàng: 48 lọc xăng, 33 lọc nhiên liệu (ID 3083–3251).
