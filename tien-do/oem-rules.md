@@ -9,7 +9,7 @@
   - Giữ nguyên số `0` ở đầu (VD `04465-48210`, `0446548210`) và mã dài – không để Excel / script đổi thành số hay dạng khoa học `4,05E+09` (lỗi đã gặp ở 61 SP).
   - Không mở rồi lưu lại file CSV mã OEM bằng Excel; đọc/ghi bằng PowerShell hay JS thì xử lý mã như chuỗi, không ép sang số.
 - **Copy-First:** không sửa trực tiếp file mã OEM gốc (Excel/CSV đầu vào); kết quả lọc / chuẩn hoá lưu ra file mới có ngày trong tên.
-- File `.xlsx` đầu vào chuyển sang CSV trước khi giao cho Sub-agent (đọc bằng `doc-xlsx.ps1`).
+- File `.xlsx` đầu vào chuyển sang CSV trước khi xử lý (đọc bằng `doc-xlsx.ps1`).
 - Kết quả kiểm tra / chạy khô xuất **CSV UTF-8 có BOM**, ô thiếu để trống, có cột **Duyệt** và **Kết quả**, đặt trong `du-lieu-oem/`, tên `<Nội_dung>_dd-mm-yyyy.csv`.
 
 ## 2. Nguồn tra mã (bắt buộc theo nhóm hàng)
@@ -27,7 +27,6 @@
 - **Luôn kiểm tra trang web thật trước** – file đối chiếu cũ có thể đã lỗi thời (bài học 15/11/2026: file cũ báo 57 trang guốc phanh thiếu mã, thực tế đã đủ).
 - **Sửa hàng loạt:** chạy khô trước, báo **số trang / số mã sẽ thay đổi** kèm danh sách (file CSV), chờ người dùng duyệt rồi mới làm.
 - Bảng trên trang **lệch hẳn với nguồn** (nghi chép nhầm bảng sản phẩm khác) → không tự thay, báo người dùng xem.
-- Sub-agent làm theo cặp `oem-checker` (chỉ đọc) → người dùng duyệt → `oem-updater` (chỉ chạy khi đầu vào ghi rõ **"người dùng đã duyệt"**).
 
 ## 4. Bảng mã OEM trên trang sản phẩm
 - **Mẫu chuẩn:** trang guốc phanh sau Navara NP300 2016-2023 (ID 3679).

@@ -37,6 +37,11 @@
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 
+
+### 17/11/2026 – Xoá 6 sub-agent (theo yêu cầu người dùng)
+- Xoá thư mục `.claude/agents/` (oem-checker, oem-updater, seo-auditor, seo-writer, product-prep, product-uploader) – trở về cách làm như lúc đầu (Claude tự làm theo skill + quy tắc, không qua trợ lý con).
+- Bỏ các dòng nhắc sub-agent trong `CLAUDE.md` (mục 1.7, 3, 7) và `.claude/rules/oem-rules.md`. Quy tắc chạy khô → người dùng duyệt → mới sửa web vẫn giữ nguyên.
+- Không đụng tới website.
 ### 17/11/2026 – Đổi từ khoá SEO sản phẩm (tiếp) – TẠM DỪNG ở 214/613
 - Chạy tiếp từ 105 → **214/613** SP (cùng cách đã duyệt: chỉ lưu khi điểm mới ≥ cũ, chỉ đổi từ khoá + điểm). Tổng: **101 tăng điểm**, 7 điểm bằng, 106 giữ nguyên, 0 lỗi. Người dùng bảo tạm dừng.
 - Kết quả từng trang: `du-lieu-seo/SEO_doi_tu_khoa_ket_qua_17-11-2026.csv` (399 dòng "Chưa làm").

@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 17/11/2026 (đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 17/11/2026 (xoá 6 sub-agent theo yêu cầu người dùng; trước đó: đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -62,7 +62,7 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
 - **Không bịa dữ liệu:** thiếu thông số kỹ thuật / mã OEM / giá thì KHÔNG tự điền, không suy đoán – hỏi người dùng hoặc tra nguồn (sbparts.jp, azfilter.jp).
 - **Ô thiếu dữ liệu ghi thống nhất:**
   - Trong **file CSV kết quả**: để **trống** ô đó (không ghi `N/A`, `0`, `-`).
-  - Trong **bản nháp sản phẩm / SEO chờ duyệt**: ghi `[CẦN BỔ SUNG]` – agent đăng web sẽ dừng nếu còn dấu này.
+  - Trong **bản nháp sản phẩm / SEO chờ duyệt**: ghi `[CẦN BỔ SUNG]` – không đăng lên web khi còn dấu này.
   - **Không bao giờ** đưa `N/A` hay `[CẦN BỔ SUNG]` lên trang công khai.
 - **File kết quả xuất ra dạng CSV** (sau khi kiểm tra / chuẩn hoá / chạy khô):
   - Phân cách bằng **dấu phẩy**; ô có dấu phẩy hoặc xuống dòng thì đặt trong ngoặc kép `"..."`.
@@ -71,7 +71,7 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
   - Tên file: `<Nội_dung>_dd-mm-yyyy.csv`, để trong thư mục dữ liệu của dự án (VD `du-lieu-oem/`).
 - **Copy-First – không ghi đè file gốc:** tuyệt đối không sửa trực tiếp file dữ liệu thô ban đầu (Excel/CSV đầu vào). Mọi thao tác lọc, chuẩn hoá, biến đổi đều lưu ra **file mới** (có ngày trong tên) để còn đối chiếu lại bản gốc.
 - **Mã OEM luôn giữ dạng chữ (Text)** – chi tiết ở `.claude/rules/oem-rules.md`.
-- File `.xlsx` đầu vào phải **chuyển sang CSV trước** khi giao cho Sub-agent (đọc bằng `doc-xlsx.ps1`, mục 3).
+- File `.xlsx` đầu vào phải **chuyển sang CSV trước** khi xử lý (đọc bằng `doc-xlsx.ps1`, mục 3).
 
 ---
 
@@ -99,14 +99,6 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
 
 ### Lệnh tắt (slash command)
 `/hoathang:tien-do` · `/hoathang:cap-nhat-oem <nhóm hàng>` · `/hoathang:kiem-tra-oem <nhóm hàng>` · `/hoathang:day-tien-do`
-
-### Sub-agent (trợ lý con – `.claude/agents/`, tạo 16/11/2026)
-Làm theo cặp: agent chỉ đọc ra kết quả → người dùng duyệt → agent sửa web. Agent sửa web chỉ chạy khi đầu vào ghi rõ **"người dùng đã duyệt"**. Dữ liệu vào/ra theo mục **1.7** (CSV UTF-8 có BOM, không bịa dữ liệu).
-| Agent | Quyền | Dùng khi |
-|---|---|---|
-| `oem-checker` → `oem-updater` | chỉ đọc → sửa web | Đối chiếu mã OEM → thêm/sửa mã đã duyệt |
-| `seo-auditor` → `seo-writer` | chỉ đọc → mặc định chỉ soạn nháp vào `du-lieu-seo/nhap/` | Kiểm tra SEO → viết lại (áp dụng khi đã duyệt) |
-| `product-prep` → `product-uploader` | chỉ tạo nháp trong `du-lieu-sp-moi/nhap/` → đăng web | Chuẩn bị sản phẩm mới → đăng |
 
 ### Cách AI thao tác trên web (không có build / lint / test)
 Dự án không có code để build hay chạy thử. Mọi thay đổi trên hoathang.vn làm bằng **JavaScript chạy trong tab Chrome đã đăng nhập wp-admin** (Claude in Chrome, `javascript_tool`).
@@ -212,7 +204,6 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 | `du-lieu-oem/*.csv` | Kết quả chạy khô / kiểm tra (có cột Duyệt, Kết quả): `Kiem_tra_toan_bo_OEM_16-11-2026_chay_kho.csv` (1.482 SP), `Nhom_B_so_sanh_16-11-2026.csv` (22 trang nhóm B), `Nhom_B_loai1_chay_kho_16-11-2026.csv`, `Trang_chua_co_bang_OEM_16-11-2026.csv` (55 trang), `Dot6_guoc_phanh_chay_kho.csv`, `Kiem_tra_lai_15-11-2026_con_thieu.csv` |
 | `plugin-hoathang/` | Plugin `hoathang` + kho GitHub `Web-HTG` (manifest `.claude-plugin/`, skill, lệnh tắt, script, `TIEN-DO.md`) |
 | `plugin-hoathang/tien-do/` | Bản sao `CLAUDE.md` và `tien-do-oem.md` để cả nhóm xem trên GitHub – chép đè sau mỗi việc (mục 1.6) |
-| `.claude/agents/` | 6 Sub-agent (xem mục 3) |
 | `.claude/rules/oem-rules.md` | Luật về mã OEM (nguồn tra, Bảng mã OEM, ô ẩn tìm kiếm) – Claude tự đọc đầu mỗi phiên; tách từ CLAUDE.md 16/11/2026 |
 | `cap-nhat-oem.bat` | Lệnh tắt: mở Claude Code làm tiếp dự án mã OEM |
 | `index.html`, `mo-trang-web.bat` | Trang web HTML học tập đầu tiên của người dùng + lệnh tắt mở trang |
