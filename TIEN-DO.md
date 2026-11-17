@@ -8,7 +8,7 @@
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
 |---|---|---|---|
-| 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | 🔄 Đang làm | 17/11: phát hiện lần đo trước cộng oan 5 điểm cho từ khoá mới (~96/108 trang đã lưu thật ra giảm ~2 điểm) – đang chấm lại để khôi phục; chạy tiếp 24 SP bằng cách đo mới; còn 375 SP. Tạm dừng |
+| 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | ⏸ Dừng đổi từ khoá | 17/11: đổi từ khoá chỉ làm giảm điểm → dừng; đã khôi phục từ khoá cũ 104 trang (giữ 5 trang bằng điểm). Hướng tiếp: sửa nội dung để tăng điểm |
 | 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5) | ⏳ Chưa bắt đầu | |
 | 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | 🔄 Đang làm | 15/11: 6 trang; 16/11: thêm 12 trang. Còn 55 trang chưa có bảng (ít/không có dữ liệu) |
 | 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 16/11: kiểm tra TOÀN BỘ 1.482 SP với azfilter/sbparts, thêm 408 mã vào 131 trang; còn 22 trang nghi bảng sai chờ xem |
@@ -36,6 +36,7 @@
 
 ## Nhật ký thao tác trên website
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
+### 17/11/2026 (tối) – Dừng đổi từ khoá SEO, khôi phục từ khoá cũ 104 trang- Chấm lại công bằng 60/109 trang đã lưu: 55 giảm (~2 điểm), 5 bằng, 0 tăng. Chạy mới 24 SP: 0 tăng.- Người dùng quyết dừng hẳn (không chạy 375 SP còn lại) và khôi phục. Đã đặt lại từ khoá cũ + điểm cũ cho 104 trang (55 giảm + 49 chưa chấm), đọc lại 104/104 đúng.- Giữ từ khoá mới: 5926, 6385, 6481, 6857, 8384 (bằng điểm). Không đổi nội dung bài.- File: `du-lieu-seo/SEO_khoi_phuc_tu_khoa_ket_qua_17-11-2026.csv`.
 
 
 
