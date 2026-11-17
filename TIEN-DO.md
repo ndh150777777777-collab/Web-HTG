@@ -36,6 +36,10 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 17/11/2026 (khuya) – Sửa trang 2257 Sorento sau; 7797 Xpander chờ người dùng
+- 2257: tra lại sbparts → không phải bảng nhầm, chỉ thiếu mã; thêm 40 mã, sửa nhãn 48413380A0 HYUNDAI→SSANGYONG. Kiểm tra OK, ô ẩn OK.
+- 7797 Lọc xăng Xpander: AFF-J5015 / PE01-13-ZE0 là lọc xăng Mazda (trùng 7796, 7793) – chưa sửa, chờ người dùng cho mã đúng hoặc quyết ẩn/sửa tên trang.
+
 <!-- Mỗi lần thao tác trên web: thêm 1 mục MỚI NHẤT LÊN ĐẦU. Ghi: ngày – làm gì – trang (ID) – kết quả kiểm tra – còn lại gì. -->
 ### 17/11/2026 (khuya) – OEM lọc dầu hộp số: kiểm tra lần đầu 208 trang
 - Tra azfilter: 200 đủ, 4 trang thiếu 1 mã, 4 trang nguồn không có dữ liệu (8526, 3751, 3746, 3715). Mô tả đúng loại hàng.
