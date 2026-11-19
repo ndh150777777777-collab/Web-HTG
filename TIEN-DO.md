@@ -36,11 +36,16 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
-### 19/11/2026 – Thêm SP mới: Lọc gió điều hòa Xpander 2019- | Asahi AFC-J3005 | 7850A002 (ID 8600) – BẢN NHÁP, chờ ảnh
+### 19/11/2026 – Thêm SP mới: Lọc gió điều hòa dùng cho xe VF3 | Asahi AFC-V331 | BIN 34036070 (ID 8604) – BẢN NHÁP, chờ ảnh
+- Web đã có bản than **AFC-V331C** VF3 (ID 6089) cùng OEM. **azfilter KHÔNG có dữ liệu** BIN 34036070 → không có mã chéo, không có kích thước.
+- Người dùng chọn: **bỏ phần kích thước**, **không ghi năm**, giữ 3 chỗ cụt chữ. Chỉ 1 mã OEM → không tạo bảng 8 cột (luật), chỉ bảng nhỏ ASAHI / VINFAST.
+- Slug `loc-gio-dieu-hoa-dung-cho-xe-vf3`. Rank Math + ô ẩn `AFCV331 BIN34036070` OK, nội dung lưu khớp bản duyệt.
+- **Còn lại:** người dùng chèn ảnh → xuất bản.
+
+### 19/11/2026 – Thêm SP mới: Lọc gió điều hòa Xpander 2019- | Asahi AFC-J3005 | 7850A002 (ID 8600) – ✅ HOÀN THÀNH (người dùng tự chèn ảnh + xuất bản; kiểm tra: publish, ảnh đại diện 8603)
 - Web đã có **AFC-J304** Xpander 2018-2025 (ID 6191) cùng OEM 7850A002 → người dùng xác nhận **AFC-J3005 là mã Asahi khác, tạo trang riêng**.
 - azfilter: 7850A002 ↔ AZUMI AC23304, 180×178×18 mm, 16 mã (Mitsubishi, Citroen, Hyundai/Kia, Nissan, Peugeot) – khớp bảng trang 6191.
 - Chép y mẫu 8584 (giữ 3 chỗ cụt chữ), lọc thường, gợi ý bản than AFC-J304C (ID 6222). Slug `loc-gio-dieu-hoa-dung-cho-xe-xpander`. Rank Math + ô ẩn (16 mã) OK, nội dung lưu khớp bản duyệt.
-- **Còn lại:** người dùng chèn ảnh → xuất bản → thử tìm `7850A002` / `AFCJ3005`.
 
 ### 19/11/2026 – Thêm 2 sản phẩm mới – ✅ HOÀN THÀNH
 - **Người dùng tự chèn ảnh, hoàn thiện và xuất bản cả 2 trang.** Kiểm tra lại: 8585 và 8595 đều `publish`, có ảnh đại diện (8586, 8598) và ảnh trong bài; mọi mã trong bảng OEM đều có trong ô ẩn `oem_khong_gach`.
