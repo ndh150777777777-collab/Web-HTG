@@ -41,11 +41,10 @@
 - Trên web, 5 xe (D-Max 6151, MU-X 6155, BT-50 6156, Outlander 6158, Lancer 6157) dùng AFC-J507C (AZUMI AC23507, 7803A004, 216×200×30); Navara NP300 6100 dùng AFC-J212C (AC22012, 216×200×32); Triton chỉ có 2010-2015 AFC-J3503.
 - Đưa 3 hướng: A không làm / làm AFC-J507 bản thường; B làm U201 ghi "lắp tương đương theo kích thước"; C làm U201 cho xe Nissan trên vỏ hộp. Người dùng: "để tôi hỏi lại sau". CHƯA tạo trang nào.
 
-### 19/11/2026 – Thêm 2 SP mới AFC-J001: Mazda 6 2014-2023 (ID 8610) và CX-5 2013-2023 (ID 8611) – BẢN NHÁP, chờ người dùng xuất bản
+### 19/11/2026 – Thêm 2 SP mới AFC-J001: Mazda 6 2014-2023 (ID 8610) và CX-5 2013-2023 (ID 8611) – ✅ HOÀN THÀNH (người dùng xuất bản; kiểm tra 20/11: publish 2/2, ảnh 8593, gõ `KD4561J6X` / `AFC-J001` ra cả 6 trang J001/J001C)
 - azfilter AC25001 (= AFC-J001): CX-5 09.11 → nay, Mazda 6 08.12 → nay → khớp.
 - Chép nguyên trang Mazda 3 2014-2019 (ID 8577), chỉ đổi dòng xe/năm (Mazda 3 → Mazda 6 / CX-5; 2014–2019 → 2014–2023 / 2013–2023). Giữ câu "nhóm mã này cho Mazda 3 / Axela, Mazda 6 / Atenza và CX-5". Ảnh chung 8593, danh mục 111. Slug `loc-gio-dieu-hoa-dung-cho-xe-mazda-6`, `…-cx-5`.
 - Rank Math: từ khoá `Lọc gió điều hòa,<Xe>,AFC-J001` + mô tả meta (kèm 233×209×31 mm). Ô ẩn chép từ 8577 (13 mã). Nội dung + mô tả ngắn lưu = bản nháp (2/2).
-- Còn lại: người dùng xuất bản → thử ô tìm kiếm.
 
 ### 19/11/2026 – Thêm SP mới: Lọc gió điều hòa dùng cho xe CX-30 2.0 2021-2025 | Asahi AFC-J504 | BDGF-61-J6X (ID 8609) – ✅ HOÀN THÀNH (người dùng xuất bản; kiểm tra: publish, ảnh 8586, gõ `BDGF61J6X` / `AFC-J504` ra trang CX-30 + Mazda 3 + 2 bản than)
 - azfilter AC25004 (= AFC-J504): Mazda CX-30 03.19~, máy 2.0L PE-VPS → khớp. Mã chéo giống trang Mazda 3 (8585): BDGF-61-J6X, B0J8-V9-030, BDGG-61-J6X-9A, BDTS-61-J6X.
