@@ -36,6 +36,10 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 19/11/2026 – Xử lý 2 việc treo (người dùng duyệt "làm cả 2 việc đi")
+- **Đổi slug trang 8577** (Mazda 3 2014-2019 AFC-J001): `loc-gio-dieu-hoa-dung-cho-xe-mazda` → **`loc-gio-dieu-hoa-dung-cho-xe-mazda-3`** (REST, chỉ đổi slug). Kiểm tra: nội dung/tiêu đề/ảnh/trạng thái giữ nguyên; link cũ tự chuyển hướng sang link mới (200).
+- **Sửa kích thước trang 6337** (than hoạt tính Mazda 3 2020-2025 AFC-J504C) theo azfilter AC25004C (207×200×49/25 mm): thay "203"→"207" (3 chỗ) và "40/22"→"49/25" (3 chỗ) trong mô tả; mô tả ngắn và phần khác giữ nguyên, nội dung lưu = bản cũ + 6 chỗ sửa; trang công khai không còn "203". Mô tả meta Rank Math trống – không có số cần sửa.
+
 ### 19/11/2026 – Thêm SP mới: Lọc gió điều hòa dùng cho xe VF3 | Asahi AFC-V331 | BIN 34036070 (ID 8604) – ✅ HOÀN THÀNH (người dùng tự chèn ảnh + xuất bản; kiểm tra: publish, ảnh đại diện 8607, ô ẩn đủ mã)
 - Web đã có bản than **AFC-V331C** VF3 (ID 6089) cùng OEM. **azfilter KHÔNG có dữ liệu** BIN 34036070 → không có mã chéo, không có kích thước.
 - Người dùng chọn: **bỏ phần kích thước**, **không ghi năm**, giữ 3 chỗ cụt chữ. Chỉ 1 mã OEM → không tạo bảng 8 cột (luật), chỉ bảng nhỏ ASAHI / VINFAST.
