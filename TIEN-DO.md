@@ -36,7 +36,8 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
-### 19/11/2026 – Thêm 2 sản phẩm mới (BẢN NHÁP, chờ người dùng chèn ảnh rồi xuất bản)
+### 19/11/2026 – Thêm 2 sản phẩm mới – ✅ HOÀN THÀNH
+- **Người dùng tự chèn ảnh, hoàn thiện và xuất bản cả 2 trang.** Kiểm tra lại: 8585 và 8595 đều `publish`, có ảnh đại diện (8586, 8598) và ảnh trong bài; mọi mã trong bảng OEM đều có trong ô ẩn `oem_khong_gach`.
 - **ID 8585 – Lọc gió điều hòa dùng cho xe Mazda 3 1.5 2.0 2019-2025 | Asahi AFC-J504 | BDGF-61-J6X**
   - Người dùng ghi "AFC-U504" → web đã có bản than AFC-J504C (ID 6337) cùng OEM → người dùng xác nhận mã đúng **AFC-J504**.
   - azfilter: BDGF-61-J6X ↔ AZUMI AC25004, 207×200×49/25 mm, 4 mã Mazda (BDGF-61-J6X, B0J8-V9-030, BDGG-61-J6X-9A, BDTS-61-J6X); ứng dụng Mazda 3, CX-30, CX-5, CX-50.
@@ -46,7 +47,6 @@
   - Người dùng ghi "AFC-K1010" rồi sửa lại **AFA-K1010** (28113 là lọc gió động cơ).
   - azfilter: 28113-A0200 ↔ AZUMI A11010, 267×146×55 mm, 2 mã (28113-A0200, 28113-A5800); ứng dụng Kia Seltos, K3/Cerato/Forte, Cee'd, Hyundai Creta, Elantra/Avante, i30.
   - Người dùng chọn: **bố cục 8584 đổi sang lọc gió động cơ**, viết đủ câu (không cụt chữ), năm để mở "2020-". Slug `loc-gio-dong-co-dung-cho-xe-seltos-1-4`, filter-sys 81. Rank Math + ô ẩn OK.
-- **Còn lại:** người dùng chèn ảnh 2 trang → đặt ảnh đại diện → xuất bản → thử tìm `BDGF61J6X`, `28113A0200`.
 
 ### 19/11/2026 – Thêm sản phẩm mới: Lọc gió điều hòa Transit 2014-2021 | Asahi AFC-U201 | 1748 479 (ID 8584) – mẫu SEO chuẩn lọc gió điều hòa
 - Người dùng gửi "AFC-U201 cho Triton 14-25, OEM 1748 479" → azfilter: 1748 479 (FORD) ↔ AZUMI AC22201C, ứng dụng Ford Transit / Nissan / Geely / Jetour – không có Triton, cũng không có D-MAX/MU-X (D-MAX dùng AFC-J507C). Người dùng chọn làm trang **Transit 2014-2021**.
