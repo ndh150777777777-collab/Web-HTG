@@ -36,12 +36,11 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
-### 19/11/2026 – Thêm SP mới: Lọc gió động cơ dùng cho xe Creta 1.6 2015-2018 | Asahi AFA-K1010 | 28113-A0200 (ID 8608) – BẢN NHÁP, chờ người dùng xuất bản
+### 19/11/2026 – Thêm SP mới: Lọc gió động cơ dùng cho xe Creta 1.6 2015-2018 | Asahi AFA-K1010 | 28113-A0200 (ID 8608) – ✅ HOÀN THÀNH (người dùng xuất bản; kiểm tra: publish, ảnh 8598, gõ `28113A0200` / `28113-A0200` ra Creta + Seltos)
 - azfilter A11010: Hyundai Creta 07.15–06.18 PA016, máy 1.6L D4FB → khớp. Mã chéo 28113-A0200, 28113-A5800 (giống trang Seltos 8595).
 - Theo yêu cầu người dùng: chép nguyên trang Seltos 1.4 (ID 8595), chỉ đổi dòng xe/năm (Seltos 1.4 → Creta 1.6, 2020 trở đi → 2015-2018). Ảnh đại diện dùng chung 8598, danh mục 111. Slug `loc-gio-dong-co-dung-cho-xe-creta-1-6`.
 - Rank Math: từ khoá `Lọc gió động cơ,Creta 1.6,AFA-K1010` + mô tả meta. Ô ẩn: `AFAK1010 28113A0200 28113A5800`.
 - Kiểm tra: nội dung + mô tả ngắn lưu = bản nháp (WordPress chỉ bỏ dấu `;` cuối 1 thuộc tính style), không còn "Seltos 1.4".
-- Còn lại: người dùng xuất bản → thử ô tìm kiếm gõ `28113A0200`.
 
 ### 19/11/2026 – Xử lý 2 việc treo (người dùng duyệt "làm cả 2 việc đi")
 - **Đổi slug trang 8577** (Mazda 3 2014-2019 AFC-J001): `loc-gio-dieu-hoa-dung-cho-xe-mazda` → **`loc-gio-dieu-hoa-dung-cho-xe-mazda-3`** (REST, chỉ đổi slug). Kiểm tra: nội dung/tiêu đề/ảnh/trạng thái giữ nguyên; link cũ tự chuyển hướng sang link mới (200).
