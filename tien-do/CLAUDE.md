@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 17/11/2026 (cài Python 3.14.10 + openpyxl để chuẩn bị làm công cụ ra đơn bán hàng / báo giá 50–60 đơn/ngày; trước đó: kiểm tra lại mã OEM theo thứ tự đợt: xong Đợt 1 má phanh (27 mã / 9 trang), Đợt 2 lọc dầu (3 mã / 3 trang), Đợt 3 lọc nhiên liệu (đủ, phát hiện 81 trang mô tả sai), Đợt 4 lọc gió (đủ), Đợt 5 lọc gió điều hoà (27 mã / 5 trang); sửa mô tả 81 trang lọc xăng ghi nhầm "lọc dầu hộp số"; lọc dầu hộp số 208 trang (4 mã / 4 trang) – mục 6.4; trước đó: dừng đổi từ khoá SEO, khôi phục từ khoá cũ 104 trang – mục 6.1; trước đó: phát hiện lỗi đo điểm SEO; trước đó: xoá 6 sub-agent; trước đó: đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 19/11/2026 (thêm SP mới Lọc gió điều hòa Mazda 3 2014-2019 Asahi AFC-J001 – ID 8577, đã xuất bản; chốt mẫu trang SP mới – mục 6.7; trước đó 17/11: cài Python 3.14.10 + openpyxl để chuẩn bị làm công cụ ra đơn bán hàng / báo giá 50–60 đơn/ngày; trước đó: kiểm tra lại mã OEM theo thứ tự đợt: xong Đợt 1 má phanh (27 mã / 9 trang), Đợt 2 lọc dầu (3 mã / 3 trang), Đợt 3 lọc nhiên liệu (đủ, phát hiện 81 trang mô tả sai), Đợt 4 lọc gió (đủ), Đợt 5 lọc gió điều hoà (27 mã / 5 trang); sửa mô tả 81 trang lọc xăng ghi nhầm "lọc dầu hộp số"; lọc dầu hộp số 208 trang (4 mã / 4 trang) – mục 6.4; trước đó: dừng đổi từ khoá SEO, khôi phục từ khoá cũ 104 trang – mục 6.1; trước đó: phát hiện lỗi đo điểm SEO; trước đó: xoá 6 sub-agent; trước đó: đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -197,6 +197,15 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
   - **61 sản phẩm có mã OEM lỗi Excel** trong bảng OEM, hiện dạng `4,05E+09`, `4,68E+07` (mất số khi nhập từ Excel). Chưa sửa; mã đúng phải lấy lại từ file Excel gốc hoặc azfilter.jp / sbparts.jp. Ví dụ ID: 5883, 5877, 5658, 5655, 4657, 4396, 4395, 4394.
   - ~~130 sản phẩm không có bảng OEM~~ → kiểm tra 16/11: thực tế 67, đã tạo 12 (xem 6.3). Đã điền lại ô ẩn cho 12 trang đó (16/11, 12/12 đúng).
 - **Trạng thái:** ✅ Xong phần tìm kiếm; sẽ tiếp tục xử lý 2 việc treo ở trên.
+
+### 6.7. Thêm sản phẩm mới
+- **Mẫu trang SP mới (người dùng chốt 19/11/2026, rút từ chỗ họ tự sửa ở ID 8577):**
+  - Tên SP: `<Loại> dùng cho xe <Dòng xe> <năm> | Asahi <mã> | <mã OEM>`; **slug KHÔNG có năm** (VD `loc-gio-dieu-hoa-dung-cho-xe-mazda-3`).
+  - Bố cục 9 mục theo trang mẫu cùng loại; mục 5 tên **"5. Bảng mã OEM"** (bảng nhỏ Hãng | Mã + "Bảng mã OEM" 8 cột); tiêu đề mục 8 thêm tên loại hàng ("…bảo dưỡng lọc gió điều hòa").
+  - Cuối bài: Hotline/Zalo, Website, **giữ link partsouq** (`https://partsouq.com/`, không utm).
+  - Ảnh: người dùng tự chèn; giá để trống như trang mẫu. Làm xong phải điền ô ẩn `oem_khong_gach` và thử ô tìm kiếm.
+- **19/11/2026:** thêm **Lọc gió điều hòa Mazda 3 2014-2019 | Asahi AFC-J001 | KD45-61-J6X (ID 8577)** – đã xuất bản, Bảng mã OEM 12 mã theo azfilter (KD45-61-J6X ↔ AZUMI AC25001), ô ẩn OK, gõ `KD4561J6X` ra trang. **Còn:** chưa đặt Ảnh sản phẩm (ảnh đại diện) và alt ảnh.
+- **Trạng thái:** sẽ tiếp tục khi người dùng gửi sản phẩm mới.
 
 ---
 

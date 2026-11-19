@@ -3,7 +3,7 @@
 > File này được **cập nhật và đẩy lên GitHub sau mỗi lần thao tác trên website**, để mọi người trong nhóm biết đã làm gì, làm tới đâu.
 > Nhật ký chi tiết dự án mã OEM: [`tien-do/tien-do-oem.md`](tien-do/tien-do-oem.md).
 
-**Cập nhật lần cuối:** 17/11/2026
+**Cập nhật lần cuối:** 19/11/2026
 
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
@@ -36,6 +36,13 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 19/11/2026 – Thêm sản phẩm mới: Lọc gió điều hòa Mazda 3 2014-2019 | Asahi AFC-J001 | KD45-61-J6X (ID 8577)
+- Kiểm tra trước: web chưa có AFC-J001 (chỉ có bản than hoạt tính AFC-J001C: ID 6300 Mazda 3, 6301 CX-5, 6305 Mazda 6). azfilter.jp: AFC-J001 không có dữ liệu; KD45-61-J6X → AZUMI AC25001 (catalogue/285174), 12 mã chéo, kích thước 233×209×31 mm.
+- Viết bản nháp theo mẫu 6300 (bản nháp: `du-lieu-seo/Ban_nhap_SP_AFC-J001_Mazda3_19-11-2026.html`), người dùng duyệt → tạo SP ở Bản nháp: danh mục Asahi (111), nhóm lọc (82), giá để trống; Bảng mã OEM 8 cột 12 mã (4 dòng × 8 ô); Rank Math từ khoá `Lọc gió điều hòa,Mazda 3,AFC-J001` + mô tả meta; ô ẩn `oem_khong_gach` 13 mã.
+- Người dùng tự sửa: slug bỏ năm (`/san-pham/loc-gio-dieu-hoa-dung-cho-xe-mazda-3/`), mục 5 → "5. Bảng mã OEM", mục 8 thêm "lọc gió điều hòa", thêm link partsouq cuối bài, chèn ảnh (ID 8578) đầu bài → đã ghi nhớ làm mẫu cho trang SP mới (CLAUDE.md mục 6.7).
+- Xuất bản 19/11: nội dung sau xuất bản = nội dung người dùng sửa; gõ `KD4561J6X` vào ô tìm kiếm trang chủ → trang mới hiện đầu tiên.
+- Còn lại: chưa đặt **Ảnh sản phẩm** (ảnh đại diện) → danh sách/tìm kiếm chưa có hình nhỏ; ảnh trong bài chưa có chữ thay thế (alt).
+
 ### 17/11/2026 (khuya) – Cài Python cho máy làm việc
 - Cài **Python 3.14.10** (bộ cài chính thức python.org, chữ ký số hợp lệ) cho tài khoản Admin, thêm vào PATH; cài thư viện `openpyxl` 3.1.5.
 - Mục đích: làm công cụ ra **đơn bán hàng / báo giá** (50–60 đơn/ngày) từ file Excel.
