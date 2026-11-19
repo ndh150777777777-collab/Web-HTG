@@ -36,11 +36,10 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
-### 19/11/2026 – Thêm SP mới: Lọc gió điều hòa dùng cho xe CX-30 2.0 2021-2025 | Asahi AFC-J504 | BDGF-61-J6X (ID 8609) – BẢN NHÁP, chờ người dùng xuất bản
+### 19/11/2026 – Thêm SP mới: Lọc gió điều hòa dùng cho xe CX-30 2.0 2021-2025 | Asahi AFC-J504 | BDGF-61-J6X (ID 8609) – ✅ HOÀN THÀNH (người dùng xuất bản; kiểm tra: publish, ảnh 8586, gõ `BDGF61J6X` / `AFC-J504` ra trang CX-30 + Mazda 3 + 2 bản than)
 - azfilter AC25004 (= AFC-J504): Mazda CX-30 03.19~, máy 2.0L PE-VPS → khớp. Mã chéo giống trang Mazda 3 (8585): BDGF-61-J6X, B0J8-V9-030, BDGG-61-J6X-9A, BDTS-61-J6X.
 - Theo yêu cầu người dùng: chép nguyên trang Mazda 3 (ID 8585), chỉ đổi dòng xe/năm (Mazda 3 1.5 2.0 → CX-30 2.0, 2019–2025 → 2021–2025, "Ứng dụng cho Mazda 3" → "Ứng dụng cho CX-30"). Giữ câu "nhóm mã này cho Mazda 3, CX-30, CX-5 và CX-50". Ảnh chung 8586, danh mục 111, slug `loc-gio-dieu-hoa-dung-cho-xe-cx-30-2-0`.
 - Rank Math: từ khoá `Lọc gió điều hòa,CX-30,AFC-J504` + mô tả meta. Ô ẩn chép từ 8585 (5 mã). Nội dung + mô tả ngắn lưu = bản nháp.
-- Còn lại: người dùng xuất bản → thử ô tìm kiếm.
 
 ### 19/11/2026 – Thêm SP mới: Lọc gió động cơ dùng cho xe Creta 1.6 2015-2018 | Asahi AFA-K1010 | 28113-A0200 (ID 8608) – ✅ HOÀN THÀNH (người dùng xuất bản; kiểm tra: publish, ảnh 8598, gõ `28113A0200` / `28113-A0200` ra Creta + Seltos)
 - azfilter A11010: Hyundai Creta 07.15–06.18 PA016, máy 1.6L D4FB → khớp. Mã chéo 28113-A0200, 28113-A5800 (giống trang Seltos 8595).
