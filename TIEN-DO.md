@@ -36,6 +36,11 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 20/11/2026 – AFC-U201 cho 6 dòng xe (Triton, D-Max/MU-X 1.9, BT-50 1.9, Navara, Outlander, Lancer) – ⏸ TẠM DỪNG, chờ người dùng hỏi lại
+- azfilter AC22201 (= AFC-U201, 1748 479, 215×200×30 mm) chỉ ghi Ford Transit + các xe Nissan/Infiniti/Geely/Jetour/Chery – KHÔNG có 6 xe trên. Vỏ hộp (người dùng xem) cũng chỉ ghi Transit + Nissan.
+- Trên web, 5 xe (D-Max 6151, MU-X 6155, BT-50 6156, Outlander 6158, Lancer 6157) dùng AFC-J507C (AZUMI AC23507, 7803A004, 216×200×30); Navara NP300 6100 dùng AFC-J212C (AC22012, 216×200×32); Triton chỉ có 2010-2015 AFC-J3503.
+- Đưa 3 hướng: A không làm / làm AFC-J507 bản thường; B làm U201 ghi "lắp tương đương theo kích thước"; C làm U201 cho xe Nissan trên vỏ hộp. Người dùng: "để tôi hỏi lại sau". CHƯA tạo trang nào.
+
 ### 19/11/2026 – Thêm 2 SP mới AFC-J001: Mazda 6 2014-2023 (ID 8610) và CX-5 2013-2023 (ID 8611) – BẢN NHÁP, chờ người dùng xuất bản
 - azfilter AC25001 (= AFC-J001): CX-5 09.11 → nay, Mazda 6 08.12 → nay → khớp.
 - Chép nguyên trang Mazda 3 2014-2019 (ID 8577), chỉ đổi dòng xe/năm (Mazda 3 → Mazda 6 / CX-5; 2014–2019 → 2014–2023 / 2013–2023). Giữ câu "nhóm mã này cho Mazda 3 / Axela, Mazda 6 / Atenza và CX-5". Ảnh chung 8593, danh mục 111. Slug `loc-gio-dieu-hoa-dung-cho-xe-mazda-6`, `…-cx-5`.
