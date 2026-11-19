@@ -36,6 +36,13 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 19/11/2026 – Thêm sản phẩm mới: Lọc gió điều hòa Transit 2014-2021 | Asahi AFC-U201 | 1748 479 (ID 8584) – mẫu SEO chuẩn lọc gió điều hòa
+- Người dùng gửi "AFC-U201 cho Triton 14-25, OEM 1748 479" → azfilter: 1748 479 (FORD) ↔ AZUMI AC22201C, ứng dụng Ford Transit / Nissan / Geely / Jetour – không có Triton, cũng không có D-MAX/MU-X (D-MAX dùng AFC-J507C). Người dùng chọn làm trang **Transit 2014-2021**.
+- Dựng nội dung từ trang mẫu 8577; Bảng mã OEM 8 cột 42 mã lấy thẳng từ azfilter (khớp 42/42 với trang AFC-U201C ID 6043). Tạo Bản nháp, Rank Math `Lọc gió điều hòa,Transit,AFC-U201` + mô tả meta, ô ẩn 42 mã.
+- Người dùng tự sửa giảm lặp từ khoá rồi **chốt trang này làm mẫu SEO chuẩn lọc gió điều hòa** (CLAUDE.md 6.7). 3 chỗ cụt chữ ("khi chọn cho Transit", "là l dùng…", "6. Dấu hiệu cần kiểm tra hoặc") người dùng chọn giữ nguyên.
+- Xuất bản 19/11: `/san-pham/loc-gio-dieu-hoa-dung-cho-xe-transit/`, ảnh đại diện 8578 (dùng chung với Mazda 3, người dùng xác nhận). Nội dung sau xuất bản = bản người dùng sửa. Gõ `1748479` ở ô tìm kiếm → trang mới hiện đầu tiên.
+- Còn: trang 8577 slug thành `loc-gio-dieu-hoa-dung-cho-xe-mazda` (mất số 3) – chờ người dùng trả lời.
+
 ### 19/11/2026 – Thêm sản phẩm mới: Lọc gió điều hòa Mazda 3 2014-2019 | Asahi AFC-J001 | KD45-61-J6X (ID 8577)
 - Kiểm tra trước: web chưa có AFC-J001 (chỉ có bản than hoạt tính AFC-J001C: ID 6300 Mazda 3, 6301 CX-5, 6305 Mazda 6). azfilter.jp: AFC-J001 không có dữ liệu; KD45-61-J6X → AZUMI AC25001 (catalogue/285174), 12 mã chéo, kích thước 233×209×31 mm.
 - Viết bản nháp theo mẫu 6300 (bản nháp: `du-lieu-seo/Ban_nhap_SP_AFC-J001_Mazda3_19-11-2026.html`), người dùng duyệt → tạo SP ở Bản nháp: danh mục Asahi (111), nhóm lọc (82), giá để trống; Bảng mã OEM 8 cột 12 mã (4 dòng × 8 ô); Rank Math từ khoá `Lọc gió điều hòa,Mazda 3,AFC-J001` + mô tả meta; ô ẩn `oem_khong_gach` 13 mã.

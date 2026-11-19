@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 19/11/2026 (thêm SP mới Lọc gió điều hòa Mazda 3 2014-2019 Asahi AFC-J001 – ID 8577, đã xuất bản; chốt mẫu trang SP mới – mục 6.7; trước đó 17/11: cài Python 3.14.10 + openpyxl để chuẩn bị làm công cụ ra đơn bán hàng / báo giá 50–60 đơn/ngày; trước đó: kiểm tra lại mã OEM theo thứ tự đợt: xong Đợt 1 má phanh (27 mã / 9 trang), Đợt 2 lọc dầu (3 mã / 3 trang), Đợt 3 lọc nhiên liệu (đủ, phát hiện 81 trang mô tả sai), Đợt 4 lọc gió (đủ), Đợt 5 lọc gió điều hoà (27 mã / 5 trang); sửa mô tả 81 trang lọc xăng ghi nhầm "lọc dầu hộp số"; lọc dầu hộp số 208 trang (4 mã / 4 trang) – mục 6.4; trước đó: dừng đổi từ khoá SEO, khôi phục từ khoá cũ 104 trang – mục 6.1; trước đó: phát hiện lỗi đo điểm SEO; trước đó: xoá 6 sub-agent; trước đó: đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> **Cập nhật lần cuối:** 19/11/2026 (thêm SP mới Lọc gió điều hòa Transit 2014-2021 Asahi AFC-U201 – ID 8584 và Mazda 3 2014-2019 AFC-J001 – ID 8577, đã xuất bản; **chốt trang 8584 làm mẫu SEO chuẩn lọc gió điều hòa** – mục 6.7; trước đó 17/11: cài Python 3.14.10 + openpyxl để chuẩn bị làm công cụ ra đơn bán hàng / báo giá 50–60 đơn/ngày; trước đó: kiểm tra lại mã OEM theo thứ tự đợt: xong Đợt 1 má phanh (27 mã / 9 trang), Đợt 2 lọc dầu (3 mã / 3 trang), Đợt 3 lọc nhiên liệu (đủ, phát hiện 81 trang mô tả sai), Đợt 4 lọc gió (đủ), Đợt 5 lọc gió điều hoà (27 mã / 5 trang); sửa mô tả 81 trang lọc xăng ghi nhầm "lọc dầu hộp số"; lọc dầu hộp số 208 trang (4 mã / 4 trang) – mục 6.4; trước đó: dừng đổi từ khoá SEO, khôi phục từ khoá cũ 104 trang – mục 6.1; trước đó: phát hiện lỗi đo điểm SEO; trước đó: xoá 6 sub-agent; trước đó: đổi từ khoá SEO 214/613 SP, tạm dừng – mục 6.1; trước đó 16/11: 105/613; trước đó: kiểm tra SEO Rank Math toàn web; trước đó: tách luật mã OEM ra file riêng `.claude/rules/oem-rules.md`; trước đó: tra lại 55 trang chưa có bảng OEM – không có mã mới; mục 1.7 "Quy tắc dữ liệu"). File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
 
 ---
 
@@ -199,12 +199,15 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 - **Trạng thái:** ✅ Xong phần tìm kiếm; sẽ tiếp tục xử lý 2 việc treo ở trên.
 
 ### 6.7. Thêm sản phẩm mới
-- **Mẫu trang SP mới (người dùng chốt 19/11/2026, rút từ chỗ họ tự sửa ở ID 8577):**
-  - Tên SP: `<Loại> dùng cho xe <Dòng xe> <năm> | Asahi <mã> | <mã OEM>`; **slug KHÔNG có năm** (VD `loc-gio-dieu-hoa-dung-cho-xe-mazda-3`).
-  - Bố cục 9 mục theo trang mẫu cùng loại; mục 5 tên **"5. Bảng mã OEM"** (bảng nhỏ Hãng | Mã + "Bảng mã OEM" 8 cột); tiêu đề mục 8 thêm tên loại hàng ("…bảo dưỡng lọc gió điều hòa").
-  - Cuối bài: Hotline/Zalo, Website, **giữ link partsouq** (`https://partsouq.com/`, không utm).
-  - Ảnh: người dùng tự chèn; giá để trống như trang mẫu. Làm xong phải điền ô ẩn `oem_khong_gach` và thử ô tìm kiếm.
-- **19/11/2026:** thêm **Lọc gió điều hòa Mazda 3 2014-2019 | Asahi AFC-J001 | KD45-61-J6X (ID 8577)** – đã xuất bản, Bảng mã OEM 12 mã theo azfilter (KD45-61-J6X ↔ AZUMI AC25001), ô ẩn OK, gõ `KD4561J6X` ra trang. **Còn:** chưa đặt Ảnh sản phẩm (ảnh đại diện) và alt ảnh.
+- **MẪU SEO CHUẨN LỌC GIÓ ĐIỀU HÒA = trang ID 8584** (Transit AFC-U201) – người dùng tự sửa và chốt 19/11/2026 ("đây là cách viết seo chuẩn của lọc gió điều hòa"). Trang mới: đọc `content.raw`/`excerpt.raw` của 8584, giữ nguyên bố cục, chỉ thay mã Asahi / OEM / hãng / dòng xe / năm / kích thước / 2 bảng mã.
+  - Tên SP: `Lọc gió điều hòa dùng cho xe <Xe> <năm> | Asahi <mã> | <OEM>`; **slug KHÔNG có năm** (`loc-gio-dieu-hoa-dung-cho-xe-<xe>`).
+  - Mẫu giảm lặp từ khoá: phụ đề h2 cỡ 75% "Lọc Gió Điều Hòa-Lọc bụi bẩn…"; "2. Lọc gió là gì?…"; "3./7. … Lọc Gió Điều Hòa Asahi <mã>"; **"8. Hướng dẫn thay thế và bảo dưỡng"** (không thêm loại hàng); mục 5 **"5. Bảng mã OEM"** (bảng nhỏ + "Bảng mã OEM" 8 cột, mã gốc đứng đầu).
+  - Cuối bài: Hotline/Zalo, Website, **link partsouq** (`https://partsouq.com/`). Giá để trống; ảnh người dùng tự chèn, đặt làm Ảnh sản phẩm khi được đồng ý.
+  - Rank Math: từ khoá `Lọc gió điều hòa,<Xe>,<mã>` + mô tả meta. Xong phải điền ô ẩn `oem_khong_gach` và thử ô tìm kiếm.
+  - **Luôn tra azfilter trước:** mã OEM người dùng đưa có thể lệch dòng xe (19/11: 1748 479 ghi Triton → thực tế Ford Transit; không phải D-MAX) → hỏi lại.
+  - 8584 có 3 chỗ cụt chữ người dùng chọn giữ nguyên ("khi chọn cho Transit", "là l dùng để đối chiếu", "6. Dấu hiệu cần kiểm tra hoặc") – khi chép sang trang mới thì hỏi.
+- **19/11/2026:** thêm **Lọc gió điều hòa Mazda 3 2014-2019 | Asahi AFC-J001 | KD45-61-J6X (ID 8577)** – đã xuất bản, Bảng mã OEM 12 mã theo azfilter (KD45-61-J6X ↔ AZUMI AC25001), ô ẩn OK, gõ `KD4561J6X` ra trang, ảnh đại diện 8578 đã đặt. **Chờ người dùng trả lời:** slug đang là `loc-gio-dieu-hoa-dung-cho-xe-mazda` (mất số 3) – cố ý hay sửa lại `-mazda-3`; ảnh chưa có alt.
+- **19/11/2026:** thêm **Lọc gió điều hòa Transit 2014-2021 | Asahi AFC-U201 | 1748 479 (ID 8584)** – đã xuất bản, `/san-pham/loc-gio-dieu-hoa-dung-cho-xe-transit/`, Bảng mã OEM 42 mã theo azfilter (1748 479 ↔ AZUMI AC22201C, khớp trang AFC-U201C ID 6043), ảnh đại diện 8578 (người dùng xác nhận dùng chung ảnh với Mazda 3), ô ẩn 42 mã, gõ `1748479` ra trang.
 - **Trạng thái:** sẽ tiếp tục khi người dùng gửi sản phẩm mới.
 
 ---
