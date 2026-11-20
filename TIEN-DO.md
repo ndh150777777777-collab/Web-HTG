@@ -11,7 +11,7 @@
 | 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | ⏸ Dừng đổi từ khoá | 17/11: đổi từ khoá chỉ làm giảm điểm → dừng; đã khôi phục từ khoá cũ 104 trang (giữ 5 trang bằng điểm). Hướng tiếp: sửa nội dung để tăng điểm |
 | 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5) | ⏳ Chưa bắt đầu | |
 | 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | 🔄 Đang làm | 15/11: 6 trang; 16/11: thêm 12 trang. Còn 55 trang chưa có bảng (ít/không có dữ liệu) |
-| 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 16/11: kiểm tra TOÀN BỘ 1.482 SP với azfilter/sbparts, thêm 408 mã vào 131 trang; còn 22 trang nghi bảng sai chờ xem |
+| 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 20/11: tra lại TOÀN BỘ 1.498 SP, thêm 11 mã vào 11 trang (SE003122 cho AB-K1157, PN1322/E cho Camry 4657) |
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
 | 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
 | 6.8 | Làm gợi ý tìm kiếm nhanh hơn | ⏸ Gác lại | 20/11: gợi ý chậm ~3,5–5 giây; đề xuất chỉ tìm trong Sản phẩm – chờ người dùng hỏi ý kiến |
@@ -37,6 +37,12 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 20/11/2026 – Cập nhật mã OEM mới: tra lại TOÀN BỘ 1.498 SP với azfilter/sbparts – ✅ XONG
+- Chạy khô (chỉ đọc): azfilter 990 trang lọc → 959 đủ, 29 nguồn không có dữ liệu, 2 lệch (6225 Lux SA – treo cũ; 3820 Matiz – mã bộ kit `_JT` → bỏ qua). sbparts 508 trang má/guốc phanh → 471 đủ, 25 không có dữ liệu, 12 thiếu.
+- Người dùng duyệt "thêm hết" → **đã thêm 11 mã vào 11 trang**: SOUEAST SE003122 (AB-K1157) cho 2271, 2270, 2269, 2268, 2267, 2266, 2265, 2264, 2263, 1927; NiBK PN1322/E cho 4657 Camry 1998-2002. Mỗi trang thêm 1 dòng 8 ô cuối Bảng mã OEM.
+- Kiểm tra: lưu đúng 11/11, mô tả ngắn giữ nguyên, web hiện mã 11/11, ô ẩn `oem_khong_gach` 11/11; gõ `SE003122` ra các trang AB-K1157, `PN1322E` ra Camry. VFe34 (4554) vẫn bỏ qua.
+- File: `du-lieu-oem/Ma_OEM_moi_azfilter_sbparts_chay_kho_20-11-2026.csv`.
+
 ### 20/11/2026 – Kiểm tra ô tìm kiếm (gợi ý chậm) – ⏸ GÁC LẠI, người dùng cần hỏi ý kiến
 - Chỉ đọc, KHÔNG sửa gì trên web. Ivory Search (form 2644) tìm được cả chữ lẫn mã: "má phanh vios", "vios má phanh", "ma phanh vios", "AB-J822", "abj822", "j822", "0446548210", "04465 48210"… đều ra (cả khách chưa đăng nhập). Gõ thừa/sai ký tự (`0446548210X`) không ra – sbparts/azfilter cũng không ra.
 - Nguyên nhân người dùng thấy "không gợi ý": **gợi ý mất ~3,5–5 giây**. Form 2644 đang tìm cả Post, Page, **Attachment** (ảnh/video/PDF), Featured item + nội dung bài dài.
