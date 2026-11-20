@@ -3,7 +3,7 @@
 > File này được **cập nhật và đẩy lên GitHub sau mỗi lần thao tác trên website**, để mọi người trong nhóm biết đã làm gì, làm tới đâu.
 > Nhật ký chi tiết dự án mã OEM: [`tien-do/tien-do-oem.md`](tien-do/tien-do-oem.md).
 
-**Cập nhật lần cuối:** 19/11/2026
+**Cập nhật lần cuối:** 20/11/2026
 
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
@@ -14,6 +14,7 @@
 | 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 16/11: kiểm tra TOÀN BỘ 1.482 SP với azfilter/sbparts, thêm 408 mã vào 131 trang; còn 22 trang nghi bảng sai chờ xem |
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
 | 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
+| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | ⏸ Gác lại | 20/11: gợi ý chậm ~3,5–5 giây; đề xuất chỉ tìm trong Sản phẩm – chờ người dùng hỏi ý kiến |
 
 ## Mã OEM theo nhóm hàng
 | Đợt | Nhóm hàng | Nguồn tra | Trạng thái |
@@ -36,6 +37,12 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 20/11/2026 – Kiểm tra ô tìm kiếm (gợi ý chậm) – ⏸ GÁC LẠI, người dùng cần hỏi ý kiến
+- Chỉ đọc, KHÔNG sửa gì trên web. Ivory Search (form 2644) tìm được cả chữ lẫn mã: "má phanh vios", "vios má phanh", "ma phanh vios", "AB-J822", "abj822", "j822", "0446548210", "04465 48210"… đều ra (cả khách chưa đăng nhập). Gõ thừa/sai ký tự (`0446548210X`) không ra – sbparts/azfilter cũng không ra.
+- Nguyên nhân người dùng thấy "không gợi ý": **gợi ý mất ~3,5–5 giây**. Form 2644 đang tìm cả Post, Page, **Attachment** (ảnh/video/PDF), Featured item + nội dung bài dài.
+- Đề xuất (chờ quyết): Bước 1 – Includes chỉ để Product (giữ tên, mô tả ngắn, nội dung, `oem_khong_gach`); Bước 2 (tuỳ chọn) – bỏ tìm nội dung, bổ sung mã có gạch vào ô ẩn. Ghi lại cấu hình cũ trước khi sửa.
+- Tham khảo: sbparts bỏ gạch/cách, khớp đầu mã; azfilter gợi ý từ 5 ký tự, dòng "Mã || Hãng || Loại". Menu "Check mã" trên web đang là link `#`.
+
 ### 20/11/2026 – Quy tắc mới: từ khoá Rank Math trang lọc gió điều hòa chỉ để "Lọc gió điều hòa" + 6 trang U201 đã xuất bản
 - Người dùng: "áp dụng hết". Kiểm tra 8 trang mới làm trước: 8577, 8584, 8585, 8600, 8604 đã đúng sẵn; đổi 3 trang 8609 (CX-30), 8610 (Mazda 6), 8611 (CX-5) → đọc lại 3/3 OK.
 - 6 trang AFC-U201 8612–8617: người dùng đã xuất bản, kiểm tra 6/6 publish + ảnh 8590; gõ `1748479` ra Lancer, Outlander, Navara, BT-50, D-Max MU-X, Triton, Transit (+ bản than).
