@@ -36,6 +36,9 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 20/11/2026 – Đổi từ khoá Rank Math 6 trang AFC-U201 (8612–8617) thành chỉ "Lọc gió điều hòa"
+- Theo yêu cầu người dùng ("Rank math hãy để lọc gió điều hoà thôi"). Lưu bằng REST updateMeta, đọc lại 6/6 = "Lọc gió điều hòa". Mô tả meta giữ nguyên.
+
 ### 20/11/2026 – Thêm 6 SP AFC-U201 (1748 479) – BẢN NHÁP, chờ người dùng xuất bản
 - Người dùng xác nhận: "nó lắp được vào những dòng xe đó" (dù azfilter + vỏ hộp chỉ ghi Transit + Nissan) → làm 6 trang.
 - ID 8612 Triton 2014-2025 · 8613 D-Max MU-X 1.9 2019- · 8614 BT-50 1.9 2019-2025 · 8615 Navara 2015-2023 · 8616 Outlander 2012-2025 · 8617 Lancer 2007-2015. Slug `loc-gio-dieu-hoa-dung-cho-xe-<xe>` (không năm).
