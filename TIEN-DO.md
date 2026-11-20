@@ -39,7 +39,7 @@
 ### 20/11/2026 – Quy tắc mới: từ khoá Rank Math trang lọc gió điều hòa chỉ để "Lọc gió điều hòa" + 6 trang U201 đã xuất bản
 - Người dùng: "áp dụng hết". Kiểm tra 8 trang mới làm trước: 8577, 8584, 8585, 8600, 8604 đã đúng sẵn; đổi 3 trang 8609 (CX-30), 8610 (Mazda 6), 8611 (CX-5) → đọc lại 3/3 OK.
 - 6 trang AFC-U201 8612–8617: người dùng đã xuất bản, kiểm tra 6/6 publish + ảnh 8590; gõ `1748479` ra Lancer, Outlander, Navara, BT-50, D-Max MU-X, Triton, Transit (+ bản than).
-- Chưa động tới các trang lọc gió điều hòa cũ (~221 trang) – chỉ làm khi người dùng yêu cầu (đổi từ khoá hàng loạt từng làm giảm điểm, mục 6.1).
+- Các trang lọc gió điều hòa cũ (~221 trang): **người dùng quyết KHÔNG đổi** (20/11).
 
 ### 20/11/2026 – Đổi từ khoá Rank Math 6 trang AFC-U201 (8612–8617) thành chỉ "Lọc gió điều hòa"
 - Theo yêu cầu người dùng ("Rank math hãy để lọc gió điều hoà thôi"). Lưu bằng REST updateMeta, đọc lại 6/6 = "Lọc gió điều hòa". Mô tả meta giữ nguyên.

@@ -203,7 +203,7 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
   - Tên SP: `Lọc gió điều hòa dùng cho xe <Xe> <năm> | Asahi <mã> | <OEM>`; **slug KHÔNG có năm** (`loc-gio-dieu-hoa-dung-cho-xe-<xe>`).
   - Mẫu giảm lặp từ khoá: phụ đề h2 cỡ 75% "Lọc Gió Điều Hòa-Lọc bụi bẩn…"; "2. Lọc gió là gì?…"; "3./7. … Lọc Gió Điều Hòa Asahi <mã>"; **"8. Hướng dẫn thay thế và bảo dưỡng"** (không thêm loại hàng); mục 5 **"5. Bảng mã OEM"** (bảng nhỏ + "Bảng mã OEM" 8 cột, mã gốc đứng đầu).
   - Cuối bài: Hotline/Zalo, Website, **link partsouq** (`https://partsouq.com/`). Giá để trống; ảnh người dùng tự chèn, đặt làm Ảnh sản phẩm khi được đồng ý.
-  - Rank Math: **từ khoá chỉ để `Lọc gió điều hòa`** (người dùng chốt 20/11/2026: "áp dụng hết" – không thêm tên xe/mã) + mô tả meta. Xong phải điền ô ẩn `oem_khong_gach` và thử ô tìm kiếm.
+  - Rank Math: **từ khoá chỉ để `Lọc gió điều hòa`** (người dùng chốt 20/11/2026: "áp dụng hết" – không thêm tên xe/mã; **chỉ cho trang mới, KHÔNG đổi các trang lọc gió điều hòa cũ** – người dùng quyết 20/11) + mô tả meta. Xong phải điền ô ẩn `oem_khong_gach` và thử ô tìm kiếm.
   - **Luôn tra azfilter trước:** mã OEM người dùng đưa có thể lệch dòng xe (19/11: 1748 479 ghi Triton → thực tế Ford Transit; không phải D-MAX) → hỏi lại.
   - 8584 có 3 chỗ cụt chữ người dùng chọn giữ nguyên ("khi chọn cho Transit", "là l dùng để đối chiếu", "6. Dấu hiệu cần kiểm tra hoặc") – khi chép sang trang mới thì hỏi.
 - **19/11/2026:** thêm **Lọc gió điều hòa Mazda 3 2014-2019 | Asahi AFC-J001 | KD45-61-J6X (ID 8577)** – đã xuất bản, Bảng mã OEM 12 mã theo azfilter (KD45-61-J6X ↔ AZUMI AC25001), ô ẩn OK, gõ `KD4561J6X` ra trang, ảnh đại diện 8578 đã đặt. Slug đã sửa thành `loc-gio-dieu-hoa-dung-cho-xe-mazda-3` (19/11, người dùng duyệt).
