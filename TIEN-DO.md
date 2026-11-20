@@ -36,6 +36,13 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 20/11/2026 – Thêm 6 SP AFC-U201 (1748 479) – BẢN NHÁP, chờ người dùng xuất bản
+- Người dùng xác nhận: "nó lắp được vào những dòng xe đó" (dù azfilter + vỏ hộp chỉ ghi Transit + Nissan) → làm 6 trang.
+- ID 8612 Triton 2014-2025 · 8613 D-Max MU-X 1.9 2019- · 8614 BT-50 1.9 2019-2025 · 8615 Navara 2015-2023 · 8616 Outlander 2012-2025 · 8617 Lancer 2007-2015. Slug `loc-gio-dieu-hoa-dung-cho-xe-<xe>` (không năm).
+- Chép nguyên trang Transit (ID 8584): chỉ đổi tên xe/năm (cả bảng thông số, "Ứng dụng cho …"). GIỮ đúng sự thật: Bảng mã OEM 42 mã của U201, câu "mã OEM chính của Ford", câu "catalogue ghi nhận nhóm mã này cho Ford Transit và một số dòng xe Nissan, Geely, Jetour", kích thước 215×200×30. Giữ 3 chỗ cụt chữ như các trang chép trước. Ảnh chung 8590.
+- Rank Math: từ khoá `Lọc gió điều hòa,<Xe>,AFC-U201` + mô tả meta theo mẫu 8584. Ô ẩn chép từ 8584. Kiểm tra 6/6: nội dung + mô tả ngắn lưu = bản nháp.
+- Còn lại: người dùng xuất bản → thử ô tìm kiếm.
+
 ### 20/11/2026 – AFC-U201 cho 6 dòng xe (Triton, D-Max/MU-X 1.9, BT-50 1.9, Navara, Outlander, Lancer) – ⏸ TẠM DỪNG, chờ người dùng hỏi lại
 - azfilter AC22201 (= AFC-U201, 1748 479, 215×200×30 mm) chỉ ghi Ford Transit + các xe Nissan/Infiniti/Geely/Jetour/Chery – KHÔNG có 6 xe trên. Vỏ hộp (người dùng xem) cũng chỉ ghi Transit + Nissan.
 - Trên web, 5 xe (D-Max 6151, MU-X 6155, BT-50 6156, Outlander 6158, Lancer 6157) dùng AFC-J507C (AZUMI AC23507, 7803A004, 216×200×30); Navara NP300 6100 dùng AFC-J212C (AC22012, 216×200×32); Triton chỉ có 2010-2015 AFC-J3503.
