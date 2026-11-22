@@ -27,7 +27,7 @@ description: Dùng khi cập nhật, kiểm tra hoặc thêm mã OEM / tạo "B�
    - Lưu bằng `POST /wp-admin/post.php` với `new FormData(form)`, đặt `content` = nội dung mới, `save` = `Cập nhật`. **Không dùng TinyMCE** (nó viết lại cả bài). Form gửi lại đúng `post_name` hiện có nên **không đổi slug**.
    - Nhiều trang: chạy nền (`(async()=>{...})()` ghi vào `window.__log`) rồi đọc kết quả sau mỗi ≤ 10 giây (lệnh JS bị ngắt ~45 giây).
 6. **Kiểm tra sau khi lưu**: (a) nội dung đã lưu == nội dung dự kiến (chỉ khác đúng phần thêm); (b) trang công khai (`/?p=<ID>&nc=<thời gian>`, `cache:'no-store'`) hiện đủ mã; (c) chụp màn hình 1 trang để xem hiển thị.
-7. **Ghi tiến độ** vào `du-lieu-oem\tien-do-oem.md` (+ `CLAUDE.md` mục 6.4 khi xong một đợt). Đóng tab đã mở.
+7. **Ghi tiến độ** vào `du-lieu-oem\tien-do-oem.md` (+ `plugin-hoathang/TIEN-DO.md` mục 6.4 khi xong một đợt). Đóng tab đã mở.
 
 ## 3. Sửa bảng OEM có sẵn
 - Chỉ sửa trong bảng có tiêu đề cột **"Hãng"** hoặc **"Chủ sở hữu"** (tên cột có thể chứa ký tự không ngắt ` ` → dùng `[\s ]`).

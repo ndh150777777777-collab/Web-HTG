@@ -22,7 +22,7 @@ Luôn tuân thủ quy tắc trong skill `hoathang-tong-quan` (tiếng Việt, t�
 5. Làm SEO theo Quy trình A.
 6. Kiểm tra: có giá bán, đủ ảnh, hiển thị tốt trên điện thoại.
 
-## Danh sách 8 hạng mục sửa nội dung (làm lần lượt; xong ghi "ĐÃ XONG" trong CLAUDE.md mục 6.5)
+## Danh sách 8 hạng mục sửa nội dung (làm lần lượt; xong ghi "ĐÃ XONG" trong plugin-hoathang/TIEN-DO.md mục 6.5)
 1. Nhãn "BÁN CHẠY NHẤT"
 2. Giờ hotline 24/7
 3. Ngày thành lập → **04/04/2024** (đã chốt)

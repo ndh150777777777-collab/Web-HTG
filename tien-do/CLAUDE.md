@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Website của công ty phụ tùng ô tô **Hoà Thắng**.
 Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên chuyên nghiệp**.
 
-> **Cập nhật lần cuối:** 22/11/2026 – thêm SP Lọc nhiên liệu Ranger 2005-2010 AFF-U1158 (ID 8620, đã xuất bản, mục 6.7); tạo `plugin-hoathang/CLAUDE.md`. Lịch sử các ngày trước xem mục 6 và `plugin-hoathang/TIEN-DO.md`. File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt).
+> File lưu dạng **UTF-8** – không lưu lại dạng UTF-16 (Claude sẽ đọc sai tiếng Việt). Tiến độ công việc **không ghi ở đây** – xem `plugin-hoathang/TIEN-DO.md`.
 
 ---
 
@@ -46,14 +46,14 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
 
 ### 1.5. Làm tiếp giữa các phiên
 - Mọi dự án bên dưới đều **SẼ TIẾP TỤC** ở các phiên sau.
-- **Đầu mỗi phiên**: đọc mục **"6. Tiến độ các dự án"** (và `du-lieu-oem/tien-do-oem.md`) để biết đang làm tới đâu, rồi làm tiếp — **không làm lại từ đầu**.
-- Khi hoàn thành việc gì, **cập nhật lại mục tiến độ** (sau khi báo người dùng).
+- **Đầu mỗi phiên**: đọc `plugin-hoathang/TIEN-DO.md` (bảng tổng quan + phần **"Trạng thái chi tiết các dự án"**, mục 6.1 → 6.8) và `du-lieu-oem/tien-do-oem.md` để biết đang làm tới đâu, rồi làm tiếp — **không làm lại từ đầu**.
+- Khi hoàn thành việc gì, **cập nhật tiến độ trong `TIEN-DO.md`** (sau khi báo người dùng) – không ghi tiến độ vào `CLAUDE.md`.
 
 ### 1.6. Đẩy tiến độ lên GitHub (người dùng đã cho phép sẵn – không cần hỏi lại)
 - **Khi nào:** sau **MỖI công việc hoàn thành** (thao tác trên website, sửa file dự án, cập nhật plugin…) và **trước khi kết thúc cuộc trò chuyện**.
 - **Làm gì:**
-  1. Thêm mục mới vào **đầu** phần nhật ký của `plugin-hoathang/TIEN-DO.md` (ngày – làm gì – trang + ID – kết quả kiểm tra – còn lại gì), cập nhật bảng tổng quan.
-  2. **Luôn cập nhật `CLAUDE.md`** (mục 6 tiến độ, dòng "Cập nhật lần cuối", quy tắc mới nếu có) – người dùng yêu cầu 16/11/2026. Rồi chép `CLAUDE.md` và `du-lieu-oem/tien-do-oem.md` sang `plugin-hoathang/tien-do/`.
+  1. Cập nhật `plugin-hoathang/TIEN-DO.md`: thêm mục mới vào **đầu** phần nhật ký (ngày – làm gì – trang + ID – kết quả kiểm tra – còn lại gì), sửa bảng tổng quan, phần "Trạng thái chi tiết các dự án" và dòng "Cập nhật lần cuối".
+  2. `CLAUDE.md` **chỉ sửa khi có quy tắc / cách làm mới** (người dùng quyết 22/11/2026: CLAUDE.md chỉ giữ nội dung công việc, tiến độ ghi vào TIEN-DO.md). Rồi chép `CLAUDE.md` và `du-lieu-oem/tien-do-oem.md` sang `plugin-hoathang/tien-do/`.
   3. Quét để chắc **không có mật khẩu/token**, commit lời nhắn tiếng Việt (`Tiến độ dd/mm/yyyy: …`), rồi push.
 - **Kho:** https://github.com/ndh150777777777-collab/Web-HTG (Private, nhánh `main`). Lệnh tắt: `/hoathang:day-tien-do`.
 - **Lưới an toàn:** khi phiên Claude Code đóng, hook `SessionEnd` (`.claude/hooks/day-tien-do-github.sh`, khai báo trong `.claude/settings.local.json`) tự commit + push thay đổi còn sót. Đây chỉ là dự phòng – vẫn phải tự ghi nhật ký sau mỗi việc.
@@ -107,7 +107,7 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 - **Nonce REST:** `/wp-admin/admin-ajax.php?action=rest-nonce`. Trường ACF (`oem_khong_gach`): POST `/wp-json/wp/v2/product/<ID>` với `{acf:{...}}`.
 - **CSS bổ sung:** trong `/wp-admin/customize.php` dùng `wp.customize('custom_css[bowmedia]')` → `.set(cũ + mới)` → `wp.customize.previewer.save()`. Chỉ thêm vào cuối, không sửa dòng cũ.
 - **Giới hạn công cụ:** kết quả JS trả về bị cắt ở ~1.000 ký tự và bị chặn nếu có `? & =` (thay ký tự trước khi trả). Việc dài: chạy nền trong trang, lưu tiến độ vào `window`/`localStorage`, đọc lại ≤10 giây/lần. Lỗi "classifier no verdict" là tạm thời – chờ rồi thử lại.
-- **Web chặn:** cài plugin, sửa file theme (403); đăng nhập không ở `/wp-login.php`. Ô tìm kiếm thật là Ivory Search (xem 6.6). Khung sao kk Star Ratings do theme gọi nên công tắc "tắt" từng bài không có tác dụng.
+- **Web chặn:** cài plugin, sửa file theme (403); đăng nhập không ở `/wp-login.php`. Ô tìm kiếm thật là Ivory Search (xem 6.4). Khung sao kk Star Ratings do theme gọi nên công tắc "tắt" từng bài không có tác dụng.
 - **Đọc Excel** (PowerShell; hoặc dùng Python + openpyxl): `powershell -File plugin-hoathang/skills/hoathang-oem/scripts/doc-xlsx.ps1 -Path <file.xlsx> [-MaxRows 15] [-Filter <chữ>]`. Kiểm tra mã trên trang (chỉ đọc): `scripts/kiem-tra-ma.js`.
 - **Luật mã OEM** (nguồn tra sbparts/azfilter, cách lấy mã chéo, mã bộ kit, Bảng mã OEM 2/4/8/11 cột, ô ẩn tìm kiếm): xem **`.claude/rules/oem-rules.md`** (Claude tự đọc đầu mỗi phiên).
 - Chuyển dữ liệu giữa 2 web trong cùng tab: `window.name`, sang hoathang thì chép vào `localStorage`. Lỗi khác đã gặp: `plugin-hoathang/skills/hoathang-oem/meo-ky-thuat.md`.
@@ -125,119 +125,54 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 
 ---
 
-## 6. Tiến độ các dự án (tất cả: SẼ TIẾP TỤC)
-> Nhật ký chi tiết cho cả nhóm: `plugin-hoathang/TIEN-DO.md` (trên GitHub). Nhật ký OEM: `du-lieu-oem/tien-do-oem.md`.
+## 6. Quy tắc theo từng việc (rút từ kinh nghiệm đã làm)
+> **Tiến độ, kết quả, ID trang đã làm, việc còn treo** của từng dự án nằm ở `plugin-hoathang/TIEN-DO.md` – phần **"Trạng thái chi tiết các dự án"** (giữ số mục 6.1 → 6.8) và nhật ký bên dưới. Nhật ký OEM: `du-lieu-oem/tien-do-oem.md`.
 
-### 6.1. Sửa SEO các trang/bài trên web
-- Lọc trang/bài có điểm Rank Math dưới 85, sửa SEO trực tiếp trên website. Người dùng 16/11/2026 nâng mục tiêu: **trang dưới 87 → lên 90**.
-- **16/11/2026:** quét xong – 604 SP dưới 87 + 218 trang chưa đặt từ khoá (`du-lieu-seo/SEO_duoi_87_diem_16-11-2026.csv`). Nguyên nhân: từ khoá chính chung chung, trùng nhiều trang. **Điểm trong danh sách là điểm cũ** – Rank Math hiện tại chấm thêm Content AI (0/5) nên trang ghi 90 chấm lại chỉ 86; mẫu bài hiện tại tối đa ~86 (mất TOC, ảnh/video, độ dài, Content AI). Đã đổi từ khoá trang 8387 → 'lọc xăng dùng cho xe Innova' (điểm thật 86).
-- **Cách đọc/lưu điểm:** trong trang sửa, `wp.data.select('rank-math').getAnalysisScore()` và `rankMathEditor.resultManager.getResults()` (chờ ≥6 giây cho Content AI tải, nếu không điểm sẽ cao giả); lưu từ khoá + điểm bằng REST `/wp-json/rankmath/v1/updateMeta` (không cần lưu nội dung qua TinyMCE).
-- **16/11/2026 (tối) – phương án A (người dùng chọn):** lấy ~86 làm mức đạt; đặt từ khoá chính riêng (tên SP trước dấu phẩy/năm, VD 'Lọc nhiên liệu dùng cho xe D-MAX', giữ từ khoá phụ) cho **613 SP đã duyệt** (chỉ sản phẩm). Chỉ lưu khi điểm mới ≥ điểm cũ (chấm cả 2 trong iframe trang sửa). **17/11: tạm dừng ở 214/613** theo yêu cầu người dùng: 101 tăng điểm, 7 bằng, 106 giữ nguyên, 0 lỗi. Làm tiếp: đọc `du-lieu-seo/SEO_doi_tu_khoa_ket_qua_17-11-2026.csv`, chạy các dòng 'Chưa làm' (399 SP). Mẹo: chạy 2 trang song song; không chờ `onload` của iframe (tài nguyên phụ treo) mà chờ `rankMathEditor` sẵn sàng; tiến độ còn lưu trong localStorage `seo_job_16_11` / `seo_dry_16_11` của tab wp-admin. Để riêng: 183 SP ít nội dung (<300 chữ, cần viết bài), 26 trang/bài (cần người dùng chọn từ khoá) – xem `SEO_tu_khoa_moi_chay_kho_16-11-2026.csv`.
-- **17/11/2026 (chiều) – PHÁT HIỆN LỖI ĐO:** lần chạy trước chấm từ khoá cũ lúc trang vừa tải (bị trừ 5 điểm Content AI) còn từ khoá mới sau khi phân tích lại (không bị trừ) → từ khoá mới được cộng oan 5 điểm. Đo lại: 8384 báo 80→85 thực tế 85=85; 6459 báo 81→84 thực tế 86→84; 6486 báo 84→87 thực tế 89→87. Ước tính ~96/108 trang đã lưu thật ra giảm ~2 điểm. **Cách đo đúng:** đặt từ khoá bằng `wp.data.dispatch('rank-math').updateKeywords(kw)` rồi `rankMathEditor.refresh('keyword')` 2 lần (chờ 3,5 giây + 3 giây) cho CẢ từ khoá cũ và mới, rồi mới so. Lưu ý: từ khoá có năm dạng `2019-2022` bị Rank Math không nhận trong tiêu đề → điểm ~34.
-- **Người dùng quyết 17/11:** (1) chấm lại công bằng 108 trang đã lưu (chỉ đọc) → xuất CSV trang bị giảm → duyệt → đặt lại từ khoá cũ (từ khoá cũ còn trong localStorage `seo_job_16_11`, trường `oldkw`); (2) chạy tiếp SP còn lại bằng cách đo mới, chỉ lưu khi bằng/cao hơn. **Tạm dừng theo yêu cầu người dùng:** chạy mới 24 SP (1 lưu bằng điểm – 5926, 2 đã có sẵn, 21 giữ nguyên vì thấp hơn); chấm lại mới 2/108 (6385 bằng, 6459 giảm), kết quả trong localStorage `seo_recheck_17_11`. File: `du-lieu-seo/SEO_doi_tu_khoa_ket_qua_lan2_17-11-2026.csv` (còn 375 dòng "Chưa làm").
-- **17/11/2026 (tối) – KẾT THÚC đổi từ khoá:** chấm lại công bằng 60 trang đã lưu → 55 giảm (~2 điểm), 5 bằng, 0 tăng; chạy mới 24 SP → 0 tăng. **Người dùng quyết: đổi từ khoá chỉ làm giảm điểm → DỪNG, KHÔNG chạy 375 SP còn lại; khôi phục từ khoá cũ.** Đã khôi phục **104 trang** (55 giảm + 49 chưa chấm) bằng REST updateMeta (từ khoá cũ + điểm cũ), đọc lại 104/104 OK. Giữ từ khoá mới 5 trang bằng điểm: 5926, 6385, 6481, 6857, 8384. File: `du-lieu-seo/SEO_khoi_phuc_tu_khoa_ket_qua_17-11-2026.csv`. **Bài học:** đổi từ khoá chính riêng không tăng điểm Rank Math (mất điểm mật độ từ khoá); muốn lên điểm phải sửa nội dung (mục lục, ảnh/video, độ dài bài).
-- **Trạng thái:** việc đổi từ khoá ĐÃ DỪNG. Hướng tiếp (chờ người dùng chọn): thêm mục lục / ảnh / viết dài hơn cho 183 SP ít nội dung, 26 trang/bài cần chọn từ khoá.
+### 6.1. SEO Rank Math
+- Mục tiêu người dùng đặt 16/11/2026: trang **dưới 87 → lên 90**; mẫu bài hiện tại tối đa ~86 (Content AI 0/5, thiếu mục lục, ảnh/video, độ dài) → lấy **~86 làm mức đạt**.
+- **Đọc điểm:** trong trang sửa, `wp.data.select('rank-math').getAnalysisScore()` và `rankMathEditor.resultManager.getResults()`; chờ ≥6 giây cho Content AI tải (không thì điểm cao giả).
+- **So điểm công bằng:** đặt từ khoá bằng `wp.data.dispatch('rank-math').updateKeywords(kw)` rồi `rankMathEditor.refresh('keyword')` 2 lần (chờ 3,5 giây + 3 giây) cho CẢ từ khoá cũ và mới rồi mới so.
+- **Lưu từ khoá + điểm:** REST `/wp-json/rankmath/v1/updateMeta` (không cần lưu nội dung qua TinyMCE). Chấm trong iframe: chờ `rankMathEditor` sẵn sàng, không chờ `onload` (tài nguyên phụ treo).
+- Từ khoá có năm dạng `2019-2022` bị Rank Math không nhận trong tiêu đề (điểm ~34).
+- **Bài học 17/11/2026:** đổi từ khoá chính riêng cho từng trang **không tăng điểm** (mất điểm mật độ từ khoá) – người dùng đã quyết dừng. Muốn lên điểm phải sửa nội dung (mục lục, ảnh/video, độ dài bài).
 
-### 6.2. Viết lại SEO trang sản phẩm mã AFT-U520
-- Lọc dầu hộp số AT cho Territory 1.5 2021+, hãng Asahi, OEM 516013A.
-- Trang: https://hoathang.vn/san-pham/loc-dau-hop-so-at-dung-cho-xe-territory-1-5/
-- **Trạng thái:** chưa bắt đầu – sẽ tiếp tục.
+### 6.2. Mã OEM và Bảng mã OEM
+- Luật chính: `.claude/rules/oem-rules.md` (nguồn tra, bảng 2/4/8/11 cột, ô ẩn).
+- **Tra lại nhanh:** lấy mã gốc từ tiêu đề / dòng "Mã OEM" bảng thông số / ô đầu Bảng mã OEM; chuyển dữ liệu giữa tab bằng `BroadcastChannel` (localStorage tab wp-admin gần đầy).
+- Người dùng đã quyết: **không tạo bảng chỉ 1 mã**; 55 trang thiếu bảng để nguyên tới khi có nguồn mã mới; bỏ qua VFe34 (ID 4554), 6225 Lux SA, mã kit `_JT` / `_K1` / `_K2`; 7797 Xpander để nguyên tới khi có mã đúng.
 
-### 6.3. Thêm "Bảng mã OEM" vào trang sản phẩm
-- Luật tạo bảng (mẫu ID 3679, tiêu đề, 8 cột, vị trí, chỉ tạo khi đồng ý): xem `.claude/rules/oem-rules.md` mục 4.
-- Đã làm 15/11/2026: tạo bảng cho 6 trang – Wigo má phanh trước (ID 5926), Transit má phanh trước (ID 5946, 4559), Transit má phanh sau (ID 5950, 5942), Wigo lọc gió động cơ (ID 7900).
-- **16/11/2026:** quét 1.482 SP → **67 trang chưa có bảng**. Đã tạo bảng cho **12 trang có thêm mã mới** (ID 3439, 7953, 7785, 6750, 6649, 6565, 6244, 6112, 5989, 4382, 3821, 2658) – đưa hết mã, trang trống thì thêm vào cuối. Còn 55 trang ít/không có dữ liệu: `du-lieu-oem/Trang_chua_co_bang_OEM_16-11-2026.csv`.
-- **16/11/2026 (sau):** tra lại 55 trang bằng cả mã Asahi lẫn mã OEM trên trang → **không có mã mới** (23 trang nguồn chỉ có 1 mã, 14 trang bài đã có bảng mã chéo khác, 18 trang nguồn không có dữ liệu). Kết quả: `du-lieu-oem/Tra_lai_55_trang_chua_co_bang_16-11-2026.csv`.
-- **Người dùng quyết 16/11/2026: ĐỂ NGUYÊN 55 trang, không tạo bảng 1 mã.** Chỉ làm lại khi có nguồn mã mới (file nhà cung cấp hoặc azfilter/sbparts có thêm dữ liệu).
-- **Trạng thái:** sẽ tiếp tục khi có nguồn mã mới.
+### 6.3. Sửa nội dung web
+- 8 hạng mục (làm lần lượt, xong ghi "ĐÃ XONG" trong `TIEN-DO.md` mục 6.5): nhãn "BÁN CHẠY NHẤT", giờ hotline 24/7, ngày thành lập, bài Automechanika 2022, điểm tự chấm 4.8/5, đuôi `utm_source=chatgpt.com`, trang thiếu giá bán, địa chỉ cũ "Q. Hai Bà Trưng".
+- **Link partsouq.com trong mô tả SP: giữ nguyên** (người dùng quyết).
+- Dòng `[rt_reading_time] phút đọc` đang ẩn bằng CSS cuối *Giao diện → Tuỳ biến → CSS bổ sung* (`#readTime, span:has(> #readTime) { display: none !important; }`); muốn hiện lại thì xoá 2 dòng đó.
+- Khung sao kk Star Ratings do theme Flatsome tự gọi – công tắc "tắt" từng bài không ẩn được.
 
-### 6.4. Cập nhật mã OEM mới nhất lên các trang sản phẩm
-- Từ file Excel mã OEM, tra mã OEM theo nhóm hàng. Luật tra mã (nguồn theo nhóm hàng, chỉ cập nhật mã có trang): xem `.claude/rules/oem-rules.md` mục 2.
-- **Các đợt:**
-  | Đợt | Nhóm hàng | Trạng thái |
-  |---|---|---|
-  | 1 | Má phanh | ✅ Xong – kiểm tra lại 17/11: 418 trang, thêm 27 mã vào 9 trang (3122, 2221, 2218, 2216, 2214, 1914, 2215, 2207, 1992), ô ẩn OK; 2257 Sorento sau đã sửa 17/11 (thêm 40 mã, sửa nhãn SSANGYONG). File `du-lieu-oem/Dot1_ma_phanh_kiem_tra_lai_chay_kho_17-11-2026.csv` |
-  | 2 | Lọc dầu | ✅ Xong – kiểm tra lại 17/11: 164 trang, thêm 3 mã vào 3 trang (6039, 7429, 7436), ô ẩn OK; 208 trang lọc dầu hộp số chưa kiểm |
-  | 3 | Lọc nhiên liệu | ✅ Xong – kiểm tra lại 17/11: 162 trang (gồm lọc xăng) đủ mã. **Đã sửa 17/11:** 81 trang lọc xăng Azumi (ID 3083–3251) mô tả ghi nhầm "lọc dầu hộp số" → thay bằng nội dung đúng loại hàng (cách A). 7797 Xpander (mã AFF-J5015/PE01-13-ZE0 là lọc xăng Mazda) – người dùng quyết ĐỂ NGUYÊN 17/11, chỉ làm lại khi có mã đúng. File `du-lieu-oem/Dot3_loc_nhien_lieu_kiem_tra_lai_17-11-2026.csv` |
-  | 4 | Lọc gió động cơ | ✅ Xong – kiểm tra lại 17/11: 187 trang, 184 đủ mã, 3 trang azfilter không có dữ liệu (6880, 6288, 6244) |
-  | 5 | Lọc gió điều hòa | ✅ Xong – kiểm tra lại 17/11: 221 trang, thêm 27 mã vào 5 trang (6704, 6703, 6705, 6699, 6111), ô ẩn OK; 11 trang azfilter không có dữ liệu. File `du-lieu-oem/Dot5_loc_gio_dieu_hoa_kiem_tra_lai_chay_kho_17-11-2026.csv` |
-  | 6 | Guốc phanh | ✅ Xong – 57/57 trang đủ 106 mã |
-  | – | Lọc dầu hộp số | ✅ Kiểm tra lần đầu 17/11: 208 trang, thêm 4 mã vào 4 trang (3305, 2592, 2596, 2435), ô ẩn OK; 4 trang azfilter không có dữ liệu. File `du-lieu-oem/Loc_dau_hop_so_kiem_tra_OEM_chay_kho_17-11-2026.csv` |
-  | 7 | *(chưa chọn nhóm hàng)* | Chưa làm |
-- **15/11/2026:** kiểm tra lại 429 trang → 421 đủ, 8 thiếu → sửa 7 trang (Escape 2001-2008 ID 3429 thêm 30 mã + 6 trang tạo bảng ở mục 6.3), **bỏ qua VFe34 (ID 4554)** theo quyết định người dùng (dữ liệu nghi sai).
-- **16/11/2026 – kiểm tra TOÀN BỘ 1.482 SP:** thêm 408 mã vào 131 trang (điền lại ô ẩn xong). **Nhóm B 22 trang** bảng lệch hẳn với nguồn (nghi ghi mã sản phẩm khác) – chờ người dùng xem. File: `du-lieu-oem/Kiem_tra_toan_bo_OEM_16-11-2026_chay_kho.csv`.
-- **16/11/2026 – so sánh 22 trang nhóm B** (`du-lieu-oem/Nhom_B_so_sanh_16-11-2026.csv`): **14 trang loại 1** bảng đúng sản phẩm Asahi (khớp mã gốc khác cùng mã Asahi, chỉ thiếu mã của mã gốc ghi trên trang); **4 trang loại 2** nghi chép nhầm bảng (1916 Morning má phanh trước mang bảng má phanh sau Sportage ID 2271; 6095/6098/6099 mang bảng lọc gió điều hoà Sedona AFC-K324); **4 trang loại 3** (6225 Lux SA cần người xem; 3378–3380 nguồn chỉ có mã bộ kit _K1/_K2 → bỏ qua). **Đã thay bảng 4 trang loại 2** (người dùng duyệt 16/11): 1916 → 25 mã má phanh trước theo sbparts; 6095/6098/6099 → 7 mã theo azfilter (mã gốc trang đứng đầu). Kiểm tra OK, đã điền lại ô ẩn; gõ `581011YA10` ra trang Morning. **Đã thêm 669 mã vào 14 trang loại 1** (người dùng duyệt 16/11; 4335–4339 mỗi trang +106 mã; 2215/2207 bảng 11 cột có cột trống xen giữa – đã dựng dòng mới đúng mẫu). Kiểm tra 14/14 OK, ô ẩn 14/14; gõ `26669013` ra Aveo/Cruze/Fadil. Còn: 7 ô lỗi Excel (4394, 4391, 4335–4339), 6225 Lux SA.
-- **20/11/2026 – tra lại TOÀN BỘ 1.498 SP với azfilter/sbparts** (người dùng yêu cầu "cập nhật các mã mới"): 1.430 trang đủ mã, 54 nguồn không có dữ liệu. Người dùng duyệt → **thêm 11 mã vào 11 trang**: SOUEAST SE003122 cho 10 trang AB-K1157 (2271, 2270, 2269, 2268, 2267, 2266, 2265, 2264, 2263, 1927) + NiBK PN1322/E cho 4657 Camry. Lưu đúng, web hiện mã, ô ẩn OK, tìm kiếm OK. Bỏ qua 4554, 6225 (treo cũ), 3820 (mã kit `_JT`). File `du-lieu-oem/Ma_OEM_moi_azfilter_sbparts_chay_kho_20-11-2026.csv`. **Cách tra lại nhanh:** lấy mã gốc từ tiêu đề / dòng "Mã OEM" bảng thông số / ô đầu Bảng mã OEM; chuyển dữ liệu giữa tab bằng `BroadcastChannel` (localStorage tab wp-admin gần đầy).
-- **Còn treo:** guốc phanh AS-J1265 (Xpander EPB), AS-J9012 (Celerio) chưa có trang; AS-C554, AS-K2286 không có trên sbparts; mã 18268, 18488 nghi là đĩa phanh; vài trang má phanh có dòng mã nghi sai (xem `du-lieu-oem/tien-do-oem.md`).
-- **Trạng thái:** sẽ tiếp tục.
+### 6.4. Ô tìm kiếm (Ivory Search) và ô ẩn mã không gạch
+- Ô tìm kiếm thật là **Ivory Search form 2644** (gợi ý AJAX). Kiểm tra bằng cách gõ vào ô trên trang chủ – `?s=...&post_type=product` hay `flatsome_ajax_search_products` cho kết quả sai. Chỉ tìm được trang **đã xuất bản**.
+- Trường ACF **`oem_khong_gach`** (nhóm trường ID 8571, bật REST): mọi mã OEM trong bảng + mã SP trong tên, bỏ `- . /` và khoảng trắng, viết hoa, cách nhau dấu cách. Ivory Search → form 2644 → Includes → Custom Fields đã chọn trường này. Người dùng **không muốn thêm mã không gạch vào bảng OEM**.
+- Thêm SP mới / sửa bảng OEM → **phải điền lại ô ẩn** (web không tự chạy). Quy trình: skill `hoathang-tim-ma-oem`.
+- Web **không cài được plugin, không sửa được file theme** (403, nghi Hide My WP). Muốn dùng Code Snippets phải nhờ người dùng bỏ chặn tạm thời.
+- Gợi ý tìm kiếm đang chậm ~3,5–5 giây do form 2644 tìm cả Post/Page/Attachment… Đề xuất chỉ để Product **đang chờ người dùng duyệt – chưa sửa** (TIEN-DO.md mục 6.8).
 
-### 6.5. Danh sách 8 hạng mục sửa nội dung
-Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
-1. Nhãn "BÁN CHẠY NHẤT"
-2. Giờ hotline 24/7
-3. Ngày thành lập (đã chốt 04/04/2024)
-4. Bài Automechanika 2022
-5. Điểm tự chấm 4.8/5 – **ĐÃ XONG 16/11/2026** (không còn 4.8/5; xoá dữ liệu bình chọn kk Star Ratings của bài Giới thiệu ID 712 – đang hiện 4.6/5 (9 bình chọn) – và SP MG ZS ID 3553 (khai báo sao gửi Google); 2 trang này cũng đặt "tắt" chấm sao. Giao diện Flatsome tự gọi khung sao nên công tắc "tắt" không ẩn được – giờ hiện khung trống "Rate this post")
-6. Đuôi `utm_source=chatgpt.com` trong liên kết – **ĐÃ XONG 16/11/2026** (xoá 3.105 link trên 1.155 sản phẩm: 1.740 trong mô tả + 1.365 trong mô tả ngắn; quét lại còn 0; trang/bài/menu không bị dính)
-7. Trang thiếu giá bán
-8. Địa chỉ cũ "Q. Hai Bà Trưng"
-
-- **Trạng thái:** đang làm – xong mục 5, 6 (16/11/2026). Đã ẩn dòng `[rt_reading_time] phút đọc` (shortcode hỏng do theme in ra ở đầu cả 8 bài viết) bằng CSS thêm vào cuối *Giao diện → Tuỳ biến → CSS bổ sung* (`#readTime, span:has(> #readTime) { display: none !important; }`) – 16/11/2026; muốn hiện lại thì xoá 2 dòng đó. 971 link partsouq.com trong mô tả SP: **người dùng quyết giữ nguyên, không làm**.
-
-### 6.6. Ô tìm kiếm tra được mã OEM gõ liền không gạch (làm 16/11/2026)
-- **Vấn đề:** khách gửi mã `0446548210` (không gạch) nhưng bảng OEM ghi `04465-48210` → ô tìm kiếm không ra. **Người dùng KHÔNG muốn thêm mã không gạch vào bảng OEM.**
-- **Ô tìm kiếm thật của web là plugin Ivory Search** (form ID **2644**, gợi ý khi gõ bằng AJAX) – KHÔNG phải tìm kiếm mặc định của WordPress/Flatsome. Khi kiểm tra phải gõ vào ô trên trang chủ (hoặc gọi AJAX của Ivory Search); thử bằng `?s=...&post_type=product` hay `flatsome_ajax_search_products` sẽ cho kết quả sai.
-- **Đã làm (cách không cần cài plugin):**
-  1. Tạo nhóm trường ACF PRO **"Mã OEM không gạch (ẩn, dùng cho tìm kiếm)"** (ID 8571), trường văn bản tên **`oem_khong_gach`**, gắn vào sản phẩm, bật "Hiển thị trong REST API".
-  2. Điền trường này cho **1.482/1.482 sản phẩm** qua REST API: lấy mọi ô mã OEM trong các bảng + mã sản phẩm trong tên, bỏ dấu `- . /` và khoảng trắng, viết hoa, cách nhau bằng dấu cách. Chạy 2 lượt (lượt 2 bổ sung 736 sản phẩm còn thiếu mã Asahi dạng AFC-J108, AN-965K). Không đổi nội dung bài / bảng OEM / SEO.
-  3. Trong Ivory Search → form 2644 → Includes → **Custom Fields**: chọn `oem_khong_gach`, lưu.
-- **Kết quả:** gõ `0446548210` ra Má phanh Sienna 2011-2020 và Highlander 2005-2019 (Asahi AB-J1324); gõ `04465-48210` vẫn ra như cũ.
-- **Việc phải làm khi có thay đổi:** thêm sản phẩm mới hoặc sửa/thêm mã trong bảng OEM → **chạy lại bước điền ô ẩn** cho các sản phẩm đó (web không có đoạn code tự chạy). Quy trình + đoạn JS: skill `hoathang-tim-ma-oem`.
-- **Hạn chế của web (đã gặp):** **không cài được plugin** (`plugin-install.php` báo "không được phép truy cập") và **không sửa được file theme** (`theme-editor.php` 403) – nghi do Hide My WP / cấu hình web; trang đăng nhập không phải `/wp-login.php` (đường dẫn riêng). Muốn dùng Code Snippets phải nhờ người dùng bỏ chặn tạm thời.
-- **Phát hiện còn treo (chờ người dùng quyết):**
-  - **61 sản phẩm có mã OEM lỗi Excel** trong bảng OEM, hiện dạng `4,05E+09`, `4,68E+07` (mất số khi nhập từ Excel). Chưa sửa; mã đúng phải lấy lại từ file Excel gốc hoặc azfilter.jp / sbparts.jp. Ví dụ ID: 5883, 5877, 5658, 5655, 4657, 4396, 4395, 4394.
-  - ~~130 sản phẩm không có bảng OEM~~ → kiểm tra 16/11: thực tế 67, đã tạo 12 (xem 6.3). Đã điền lại ô ẩn cho 12 trang đó (16/11, 12/12 đúng).
-- **Trạng thái:** ✅ Xong phần tìm kiếm; sẽ tiếp tục xử lý 2 việc treo ở trên.
-
-### 6.7. Thêm sản phẩm mới
-- **MẪU SEO CHUẨN LỌC GIÓ ĐIỀU HÒA = trang ID 8584** (Transit AFC-U201) – người dùng tự sửa và chốt 19/11/2026 ("đây là cách viết seo chuẩn của lọc gió điều hòa"). Trang mới: đọc `content.raw`/`excerpt.raw` của 8584, giữ nguyên bố cục, chỉ thay mã Asahi / OEM / hãng / dòng xe / năm / kích thước / 2 bảng mã.
-  - Tên SP: `Lọc gió điều hòa dùng cho xe <Xe> <năm> | Asahi <mã> | <OEM>`; **slug KHÔNG có năm** (`loc-gio-dieu-hoa-dung-cho-xe-<xe>`).
-  - Mẫu giảm lặp từ khoá: phụ đề h2 cỡ 75% "Lọc Gió Điều Hòa-Lọc bụi bẩn…"; "2. Lọc gió là gì?…"; "3./7. … Lọc Gió Điều Hòa Asahi <mã>"; **"8. Hướng dẫn thay thế và bảo dưỡng"** (không thêm loại hàng); mục 5 **"5. Bảng mã OEM"** (bảng nhỏ + "Bảng mã OEM" 8 cột, mã gốc đứng đầu).
-  - Cuối bài: Hotline/Zalo, Website, **link partsouq** (`https://partsouq.com/`). Giá để trống; ảnh người dùng tự chèn, đặt làm Ảnh sản phẩm khi được đồng ý.
-  - Rank Math: **từ khoá chỉ để `Lọc gió điều hòa`** (người dùng chốt 20/11/2026: "áp dụng hết" – không thêm tên xe/mã; **chỉ cho trang mới, KHÔNG đổi các trang lọc gió điều hòa cũ** – người dùng quyết 20/11) + mô tả meta. Xong phải điền ô ẩn `oem_khong_gach` và thử ô tìm kiếm.
-  - **Luôn tra azfilter trước:** mã OEM người dùng đưa có thể lệch dòng xe (19/11: 1748 479 ghi Triton → thực tế Ford Transit; không phải D-MAX) → hỏi lại.
-  - 8584 có 3 chỗ cụt chữ người dùng chọn giữ nguyên ("khi chọn cho Transit", "là l dùng để đối chiếu", "6. Dấu hiệu cần kiểm tra hoặc") – khi chép sang trang mới thì hỏi.
-- **19/11/2026:** thêm **Lọc gió điều hòa Mazda 3 2014-2019 | Asahi AFC-J001 | KD45-61-J6X (ID 8577)** – đã xuất bản, Bảng mã OEM 12 mã theo azfilter (KD45-61-J6X ↔ AZUMI AC25001), ô ẩn OK, gõ `KD4561J6X` ra trang, ảnh đại diện 8578 đã đặt. Slug đã sửa thành `loc-gio-dieu-hoa-dung-cho-xe-mazda-3` (19/11, người dùng duyệt).
-- **19/11/2026:** thêm **Lọc gió điều hòa Transit 2014-2021 | Asahi AFC-U201 | 1748 479 (ID 8584)** – đã xuất bản, `/san-pham/loc-gio-dieu-hoa-dung-cho-xe-transit/`, Bảng mã OEM 42 mã theo azfilter (1748 479 ↔ AZUMI AC22201C, khớp trang AFC-U201C ID 6043), ảnh đại diện 8578 (người dùng xác nhận dùng chung ảnh với Mazda 3), ô ẩn 42 mã, gõ `1748479` ra trang.
-- **19/11/2026 – ✅ HOÀN THÀNH (người dùng tự chèn ảnh và xuất bản; kiểm tra lại: cả 2 đã publish, có ảnh đại diện, ô ẩn đủ mã):**
-  - **ID 8585** Lọc gió điều hòa Mazda 3 1.5 2.0 2019-2025 | Asahi AFC-J504 | BDGF-61-J6X (người dùng ghi nhầm U504; bản than AFC-J504C là ID 6337). Chép y 8584, giữ 3 chỗ cụt chữ. Bảng mã OEM 4 mã Mazda theo azfilter (↔ AZUMI AC25004, 207×200×49/25 mm). Slug `…-mazda-3-1-5-2-0`.
-  - **ID 8595** Lọc gió động cơ Seltos 1.4 2020- | Asahi AFA-K1010 | 28113-A0200 (người dùng ghi nhầm AFC). **Lọc gió động cơ: người dùng chọn bố cục 8584 đổi nội dung sang lọc gió động cơ, viết đủ câu**, filter-sys 81. 2 mã theo azfilter (↔ AZUMI A11010, 267×146×55 mm). Slug `loc-gio-dong-co-dung-cho-xe-seltos-1-4`.
-  - Ô ẩn + Rank Math 2 trang đã xong. Slug 8577 người dùng chưa trả lời → giữ nguyên.
-- **19/11/2026 – ✅ HOÀN THÀNH (người dùng tự chèn ảnh + xuất bản):** **ID 8600** Lọc gió điều hòa Xpander 2019- | Asahi AFC-J3005 | 7850A002. Cùng OEM với AFC-J304 (ID 6191) – người dùng xác nhận là mã Asahi khác, tạo trang riêng. Chép y 8584 (giữ cụt chữ), 16 mã theo azfilter (↔ AZUMI AC23304, 180×178×18 mm), slug `loc-gio-dieu-hoa-dung-cho-xe-xpander`. Rank Math + ô ẩn OK.
-- **19/11/2026 – ✅ HOÀN THÀNH (người dùng tự chèn ảnh + xuất bản):** **ID 8604** Lọc gió điều hòa VF3 | Asahi AFC-V331 | BIN 34036070 (bản than AFC-V331C là ID 6089). **azfilter không có dữ liệu** → người dùng chọn bỏ kích thước, không ghi năm, giữ cụt chữ; chỉ bảng nhỏ (1 mã, không tạo bảng 8 cột). Slug `loc-gio-dieu-hoa-dung-cho-xe-vf3`. Rank Math + ô ẩn OK.
-- **19/11/2026 – đã xử lý 2 việc treo:** đổi slug 8577 → `loc-gio-dieu-hoa-dung-cho-xe-mazda-3` (link cũ tự chuyển hướng); sửa kích thước trang than AFC-J504C (ID 6337) 203×200×40/22 → **207×200×49/25 mm** theo azfilter AC25004C (6 chỗ, phần khác giữ nguyên).
-- **19/11/2026:** thêm **ID 8608** Lọc gió động cơ Creta 1.6 2015-2018 | Asahi AFA-K1010 | 28113-A0200 – azfilter A11010 xác nhận Creta 07.15–06.18 1.6L D4FB. Người dùng yêu cầu **chép nguyên trang Seltos 8595, chỉ đổi dòng xe/năm** (cùng ảnh 8598). Slug `loc-gio-dong-co-dung-cho-xe-creta-1-6`, Rank Math + ô ẩn OK. ✅ **Đã xuất bản** (người dùng), gõ `28113A0200` ra trang Creta + Seltos.
-- **19/11/2026:** thêm **ID 8609** Lọc gió điều hòa CX-30 2.0 2021-2025 | Asahi AFC-J504 | BDGF-61-J6X – azfilter AC25004 xác nhận CX-30 2.0L. **Chép nguyên trang Mazda 3 (8585), chỉ đổi dòng xe/năm** (ảnh chung 8586). Slug `loc-gio-dieu-hoa-dung-cho-xe-cx-30-2-0`, Rank Math + ô ẩn OK. ✅ **Đã xuất bản** (người dùng), gõ `BDGF61J6X` ra trang.
-- **19/11/2026:** thêm **ID 8610** Lọc gió điều hòa Mazda 6 2014-2023 và **ID 8611** CX-5 2013-2023 | Asahi AFC-J001 | KD45-61-J6X – azfilter AC25001 xác nhận. Chép nguyên trang Mazda 3 (8577), ảnh chung 8593. Rank Math + ô ẩn OK. ✅ **Đã xuất bản** (người dùng), gõ `KD4561J6X` ra cả 2 trang.
-- **20/11/2026 – người dùng xác nhận "lắp được" → đã làm:** **ID 8612** Triton 2014-2025, **8613** D-Max MU-X 1.9 2019-, **8614** BT-50 1.9 2019-2025, **8615** Navara 2015-2023, **8616** Outlander 2012-2025, **8617** Lancer 2007-2015 – chép nguyên 8584, chỉ đổi xe/năm; giữ Bảng mã OEM U201 + câu catalogue Transit/Nissan; ảnh chung 8590; ô ẩn OK; **từ khoá Rank Math chỉ "Lọc gió điều hòa"** (người dùng yêu cầu 20/11). ✅ **Đã xuất bản** (người dùng), gõ `1748479` ra cả 6 trang + Transit.
-- (Trước đó) **20/11/2026 – đã hỏi:** yêu cầu làm AFC-U201 cho 6 xe (Triton 14-25, D-Max/MU-X 1.9 2019+, BT-50 1.9 19-25, Navara 15-23, Outlander 12-25, Lancer 07-15). azfilter AC22201 + vỏ hộp chỉ ghi Transit + Nissan → KHÔNG khớp. Trên web 5 xe đó dùng AFC-J507C (7803A004, 216×200×30), Navara dùng AFC-J212C. Đã đưa hướng A (không làm / làm J507) – B (ghi "lắp tương đương theo kích thước") – C (U201 cho xe Nissan trên vỏ hộp). Người dùng sẽ hỏi lại nguồn rồi quyết. Chưa tạo trang.
-- **22/11/2026:** thêm **ID 8620** Lọc nhiên liệu Ranger 2005-2010 | Asahi AFF-U1158 | 1770A172 – người dùng chọn OEM chính 1770A172 (cùng trang Triton 8347; Pajero Sport 8342 dùng 1770A053). azfilter FC21158 xác nhận Ford Ranger 2.5/3.0 Diesel (WL-T, WLAA, MD30DITC) 2002–2011. Chép nguyên 8347, đổi xe/năm/động cơ, viết lại 3 câu Mitsubishi, sửa alt ảnh; slug `loc-nhien-lieu-ranger-2005-2010` (có năm như các trang lọc nhiên liệu cũ); ảnh chung 8345; Rank Math `Lọc nhiên liệu,Ranger`; ô ẩn OK. ✅ **Đã xuất bản** (người dùng), gõ `1770A172` / `AFFU1158` / `WE0113ZA5A` ra trang.
-- **Cách làm "cùng mã Asahi, khác dòng xe" (người dùng chốt 19/11):** chép nguyên trang đã có, chỉ thay dòng xe/năm, dùng chung ảnh; vẫn tra azfilter xác nhận xe trước.
-- **Trạng thái:** ✅ Xong cả 10 trang 8577, 8584, 8585, 8595, 8600, 8604, 8608, 8609, 8610, 8611 + 6 trang U201 8612–8617 (tất cả đã xuất bản, có ảnh) – tiếp tục khi người dùng gửi sản phẩm mới.
-
-### 6.8. Làm gợi ý ô tìm kiếm nhanh hơn (20/11/2026) – ⏸ GÁC LẠI
-- **Người dùng hỏi:** muốn tra kiểu gợi ý như sbparts/azfilter, cả chữ lẫn số (VD "má phanh vios" phải gợi ý AB-J822).
-- **Kiểm tra (chỉ đọc):** Ivory Search form 2644 đã ra đúng cả chữ lẫn mã, gõ thiếu / đảo thứ tự / không dấu / có-không gạch đều ra (kể cả khách chưa đăng nhập). Gõ thừa/sai ký tự không ra (sbparts cũng không). **Vấn đề thật: gợi ý chậm ~3,5–5 giây.**
-- **Nguyên nhân:** form 2644 Includes đang tìm cả Post, Page, Attachment (thư viện ảnh/tệp, có tích images/videos/audios/text/pdfs/docs), Featured item, và tìm trong tên + nội dung + mô tả ngắn + `oem_khong_gach`.
-- **Đề xuất chờ duyệt:** Bước 1 – chỉ để Product (giữ cách tìm khác); Bước 2 (tuỳ chọn) – bỏ tìm nội dung bài, bổ sung mã có gạch vào ô ẩn. Ghi cấu hình cũ trước khi sửa, đo lại tốc độ và thử lại các mẫu.
-- **Trạng thái:** người dùng **gác lại để hỏi ý kiến** – chưa sửa gì. Làm tiếp khi người dùng đồng ý.
-
----
+### 6.5. Thêm sản phẩm mới
+- **Luôn tra azfilter (lọc) / sbparts (phanh) trước** để xác nhận xe lắp được – mã người dùng đưa có thể lệch dòng xe (VD 1748 479 ghi Triton → thực tế Ford Transit). Nguồn không ghi xe đó thì dừng lại hỏi.
+- **Cùng mã Asahi, khác dòng xe** (chốt 19/11/2026): chép nguyên trang đã có, chỉ thay dòng xe/năm (và động cơ trong bảng thông số), dùng chung ảnh; câu nào ghi riêng cho xe cũ thì viết lại và đưa duyệt.
+- **Mẫu SEO chuẩn lọc gió điều hòa = trang ID 8584** (Transit AFC-U201, người dùng chốt 19/11/2026): đọc `content.raw` / `excerpt.raw` của 8584, giữ bố cục, chỉ thay mã Asahi / OEM / hãng / dòng xe / năm / kích thước / 2 bảng mã.
+  - Tên: `Lọc gió điều hòa dùng cho xe <Xe> <năm> | Asahi <mã> | <OEM>`; **slug không có năm** (`loc-gio-dieu-hoa-dung-cho-xe-<xe>`).
+  - Phụ đề h2 cỡ 75% "Lọc Gió Điều Hòa-Lọc bụi bẩn…"; "2. Lọc gió là gì?…"; "3./7. … Lọc Gió Điều Hòa Asahi <mã>"; "8. Hướng dẫn thay thế và bảo dưỡng" (không thêm loại hàng); "5. Bảng mã OEM" (bảng nhỏ + bảng 8 cột, mã gốc đứng đầu).
+  - Cuối bài: Hotline/Zalo, Website, link `https://partsouq.com/`. Giá để trống; ảnh người dùng tự chèn, đặt làm Ảnh sản phẩm khi được đồng ý.
+  - **Rank Math: từ khoá chỉ `Lọc gió điều hòa`** (chốt 20/11/2026) – chỉ áp cho trang mới, không đổi trang lọc gió điều hòa cũ.
+  - 8584 có 3 chỗ cụt chữ người dùng giữ nguyên ("khi chọn cho Transit", "là l dùng để đối chiếu", "6. Dấu hiệu cần kiểm tra hoặc") – chép sang trang mới thì hỏi.
+- **Lọc gió động cơ:** dùng bố cục 8584 đổi nội dung sang lọc gió động cơ, viết đủ câu (mẫu Seltos ID 8595).
+- **Lọc nhiên liệu:** slug giữ năm như các trang cũ (VD `loc-nhien-lieu-ranger-2005-2010`); từ khoá Rank Math dạng `Lọc nhiên liệu,<Xe>`.
+- azfilter không có dữ liệu → hỏi người dùng (VD VF3: bỏ kích thước, không ghi năm, chỉ bảng nhỏ).
+- Tạo trang dạng **bản nháp**; người dùng xem rồi tự xuất bản. Xong: đặt Rank Math, điền ô ẩn `oem_khong_gach`; sau khi xuất bản thử ô tìm kiếm.
 
 ## 7. Các file trong dự án
 | File / thư mục | Dùng để |
 |---|---|
-| `CLAUDE.md` | Sổ tay này – Claude tự đọc đầu mỗi phiên |
+| `CLAUDE.md` | Sổ tay này (quy tắc + cách làm, không ghi tiến độ) – Claude tự đọc đầu mỗi phiên |
+| `plugin-hoathang/TIEN-DO.md` | **Tiến độ tất cả dự án**: bảng tổng quan, trạng thái chi tiết 6.1 → 6.8, nhật ký (mới nhất ở trên) |
 | `du-lieu-oem/` | Dữ liệu mã OEM: file Excel đối chiếu (`Doi_chieu_OEM_hoathang_tong_hop.xlsx`, `Them_OEM_loc_*.xlsx`, `Ma_khong_co_du_lieu.xlsx`, `Ma_OEM_chua_co_tren_web.xlsx`, `Book1.xlsx`), nhật ký `tien-do-oem.md` |
 | `du-lieu-oem/*.csv` | Kết quả chạy khô / kiểm tra (có cột Duyệt, Kết quả): `Kiem_tra_toan_bo_OEM_16-11-2026_chay_kho.csv` (1.482 SP), `Nhom_B_so_sanh_16-11-2026.csv` (22 trang nhóm B), `Nhom_B_loai1_chay_kho_16-11-2026.csv`, `Trang_chua_co_bang_OEM_16-11-2026.csv` (55 trang), `Dot6_guoc_phanh_chay_kho.csv`, `Kiem_tra_lai_15-11-2026_con_thieu.csv` |
 | `plugin-hoathang/` | Plugin `hoathang` + kho GitHub `Web-HTG` (manifest `.claude-plugin/`, skill, lệnh tắt, script, `TIEN-DO.md`) |

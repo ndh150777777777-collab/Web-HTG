@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Thư mục này là gì
 `plugin-hoathang/` vừa là **plugin Claude Code `hoathang`**, vừa là **kho GitHub `Web-HTG`** (https://github.com/ndh150777777777-collab/Web-HTG, Private, nhánh `main`). Nó gói kiến thức, quy trình, script và nhật ký tiến độ của dự án website hoathang.vn.
 
-- **Sổ tay chính của dự án là `../CLAUDE.md`** (thư mục cha `du-an-thu-nghiem`). Quy tắc làm việc (tiếng Việt, hỏi trước khi sửa/xoá, chạy khô trước khi sửa hàng loạt, không bịa mã OEM…), tiến độ mục 6 và luật OEM (`../.claude/rules/oem-rules.md`) đều nằm ở đó. Claude Code tự nạp file cha khi mở ở thư mục này – **không chép lại quy tắc vào đây**.
+- **Sổ tay chính của dự án là `../CLAUDE.md`** (thư mục cha `du-an-thu-nghiem`). Quy tắc làm việc (tiếng Việt, hỏi trước khi sửa/xoá, chạy khô trước khi sửa hàng loạt, không bịa mã OEM…), quy tắc từng việc ở mục 6 và luật OEM (`../.claude/rules/oem-rules.md`) đều nằm ở đó. Claude Code tự nạp file cha khi mở ở thư mục này – **không chép lại quy tắc vào đây**.
 - **`tien-do/CLAUDE.md` chỉ là bản sao** của `../CLAUDE.md` để nhóm xem trên GitHub. Không sửa trực tiếp bản sao – sửa `../CLAUDE.md` rồi chép đè sang.
 
 ## Không có build / lint / test
@@ -32,8 +32,8 @@ Hai script `.js` trong `skills/hoathang-oem/scripts/` không chạy bằng Node 
 
 ## Quy trình đẩy tiến độ (đã được cho phép sẵn)
 Sau mỗi việc xong (theo `commands/day-tien-do.md`):
-1. Cập nhật `../CLAUDE.md` (mục 6 + dòng "Cập nhật lần cuối") và `../du-lieu-oem/tien-do-oem.md` nếu cần.
-2. Thêm mục lên đầu nhật ký `TIEN-DO.md`, sửa "Cập nhật lần cuối".
+1. Cập nhật `../du-lieu-oem/tien-do-oem.md` nếu cần. `../CLAUDE.md` chỉ sửa khi có quy tắc / cách làm mới – **không ghi tiến độ vào đó**.
+2. `TIEN-DO.md`: thêm mục lên đầu nhật ký, sửa bảng tổng quan, phần "Trạng thái chi tiết các dự án" (6.1 → 6.8) và "Cập nhật lần cuối". Đây là nơi duy nhất ghi tiến độ.
 3. Chép đè `../CLAUDE.md` → `tien-do/CLAUDE.md`, `../du-lieu-oem/tien-do-oem.md` → `tien-do/tien-do-oem.md`.
 4. Quét không có mật khẩu/token, commit lời nhắn tiếng Việt `Tiến độ dd/mm/yyyy: …`, push `main`.
 

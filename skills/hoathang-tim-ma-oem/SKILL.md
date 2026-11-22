@@ -17,7 +17,7 @@ description: Dùng khi khách/nhân viên tra mã OEM gõ liền không gạch (
 - Chỉ ghi trường `oem_khong_gach`. **Không đổi nội dung bài, bảng OEM, SEO.**
 - Trước khi ghi hàng loạt: chạy khô, báo số sản phẩm cần ghi, chờ người dùng đồng ý.
 - Sau khi ghi: kiểm tra bằng cách gõ mã không gạch vào ô tìm kiếm trên trang chủ.
-- Xong việc: cập nhật tiến độ (CLAUDE.md mục 6.6) và đẩy GitHub theo `/hoathang:day-tien-do`.
+- Xong việc: cập nhật tiến độ (plugin-hoathang/TIEN-DO.md mục 6.6) và đẩy GitHub theo `/hoathang:day-tien-do`.
 
 ## Khi nào phải chạy lại
 Thêm sản phẩm mới, hoặc thêm/sửa mã trong bảng OEM của sản phẩm → điền lại ô ẩn cho các sản phẩm đó (không có đoạn code tự chạy).

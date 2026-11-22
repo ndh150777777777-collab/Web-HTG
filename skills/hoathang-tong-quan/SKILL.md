@@ -39,7 +39,7 @@ description: Dùng ĐẦU MỖI PHIÊN hoặc khi làm bất kỳ việc gì cho
 - Người dùng **cần cung cấp thêm**: địa chỉ hiện tại, số hotline, giờ làm việc đúng.
 
 ## Nơi lưu tiến độ (đọc đầu phiên)
-- `CLAUDE.md` mục **6. Tiến độ các dự án** (6.1 → 6.5).
+- `plugin-hoathang/TIEN-DO.md` phần **"Trạng thái chi tiết các dự án"** (6.1 → 6.8). `CLAUDE.md` chỉ giữ quy tắc, không ghi tiến độ (22/11/2026).
 - `du-lieu-oem\tien-do-oem.md`: nhật ký chi tiết dự án OEM.
 - Xem tóm tắt bằng lệnh `/hoathang:tien-do`.
 
