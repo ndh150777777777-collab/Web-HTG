@@ -8,7 +8,7 @@ description: Dùng ĐẦU MỖI PHIÊN hoặc khi làm bất kỳ việc gì cho
 ## Người dùng và công ty
 - Website công ty phụ tùng ô tô **Hoà Thắng** (Hoà Thắng Group – Auto Parts): https://hoathang.vn
 - Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên**.
-- Thư mục dự án trên máy: `C:\Users\Admin\du-an-thu-nghiem` (Windows 10, PowerShell 5.1, **không có Python**).
+- Thư mục dự án trên máy: `C:\Users\Admin\du-an-thu-nghiem` (Windows 10, PowerShell 5.1, Python 3.14 + openpyxl – cài 17/11/2026).
 
 ## Quy tắc bắt buộc (luôn tuân thủ)
 1. **Luôn trả lời bằng tiếng Việt**, dễ hiểu, chia **từng bước có đánh số**; giải thích thuật ngữ ngay lần đầu dùng; nói rõ làm để làm gì, kết quả mong đợi; chỉ rõ đường dẫn menu WordPress khi người dùng tự thao tác.

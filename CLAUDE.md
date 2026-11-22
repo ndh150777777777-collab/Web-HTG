@@ -42,4 +42,4 @@ Hook `SessionEnd` của dự án cha (`../.claude/hooks/day-tien-do-github.sh`) 
 ## Lưu ý khi sửa file trong kho
 - Lưu mọi file **UTF-8** (không UTF-16) để tiếng Việt không bị lỗi.
 - `.gitignore` chặn `.env*`, `*.pem`, `*.key`, `*.log`, `*.tmp`. Không đưa thông tin đăng nhập vào kho.
-- Một số skill còn ghi thông tin cũ (VD `hoathang-tong-quan` ghi "không có Python" – máy đã cài Python 3.14 từ 17/11/2026; `du-lieu-da-lam.md` là bản tóm tắt 15/11/2026). Khi thấy lệch với `../CLAUDE.md` thì lấy `../CLAUDE.md` làm chuẩn và hỏi người dùng trước khi sửa skill.
+- Một số file skill có thể ghi thông tin cũ (VD `hoathang-oem/du-lieu-da-lam.md` là bản tóm tắt 15/11/2026). Khi thấy lệch với `../CLAUDE.md` thì lấy `../CLAUDE.md` làm chuẩn và hỏi người dùng trước khi sửa skill.

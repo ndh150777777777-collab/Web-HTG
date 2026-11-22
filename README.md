@@ -14,10 +14,12 @@ plugin-hoathang/
 │   │   ├── du-lieu-da-lam.md  ← kết quả các đợt, ID trang, việc còn treo
 │   │   ├── meo-ky-thuat.md    ← lỗi đã gặp và cách tránh
 │   │   └── scripts/           ← đọc Excel (PowerShell), kiểm tra mã, lưu trang an toàn
-│   └── hoathang-seo-noi-dung/ ← SEO Rank Math, thêm sản phẩm, 8 hạng mục sửa nội dung
+│   ├── hoathang-seo-noi-dung/ ← SEO Rank Math, thêm sản phẩm, 8 hạng mục sửa nội dung
+│   └── hoathang-tim-ma-oem/   ← ô tìm kiếm tra mã OEM gõ liền không gạch (ô ẩn oem_khong_gach)
 └── commands/
     ├── tien-do.md             ← /hoathang:tien-do
     ├── cap-nhat-oem.md        ← /hoathang:cap-nhat-oem <nhóm hàng>
+    ├── day-tien-do.md         ← /hoathang:day-tien-do (ghi tiến độ + đẩy GitHub)
     └── kiem-tra-oem.md        ← /hoathang:kiem-tra-oem <nhóm hàng>
 ```
 - **Skill** = sổ tay hướng dẫn; Claude tự mở đúng sổ khi việc liên quan.

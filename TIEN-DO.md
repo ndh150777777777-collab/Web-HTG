@@ -37,6 +37,11 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
+### 22/11/2026 – Sửa thông tin cũ trong 3 file (người dùng đồng ý) – ✅ XONG
+- Skill `hoathang-tong-quan`: "không có Python" → Python 3.14 + openpyxl (cài 17/11).
+- `README.md`: thêm skill `hoathang-tim-ma-oem` và lệnh `/hoathang:day-tien-do` vào sơ đồ.
+- `CLAUDE.md` (dự án): rút gọn dòng "Cập nhật lần cuối" chỉ còn việc mới nhất; lịch sử xem mục 6 và TIEN-DO.md.
+
 ### 22/11/2026 – Tạo `CLAUDE.md` cho kho plugin (lệnh /init) – ✅ XONG
 - File mới `CLAUDE.md` ở gốc kho: giải thích kho = plugin + GitHub, sổ tay chính là `../CLAUDE.md`, `tien-do/CLAUDE.md` chỉ là bản sao, lệnh đọc Excel / thử plugin, cấu trúc skill/lệnh tắt, quy trình đẩy tiến độ.
 
