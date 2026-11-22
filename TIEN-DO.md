@@ -37,11 +37,11 @@
 - Má phanh: một số trang có dòng mã nghi sai (MG5 AB-C202, Sprinter, Peugeot 3008 AB-E602, RX330/Highlander AB-J1005, Z8/Rexton/Santafe Gold AB-C864, Z8 AB-C865).
 
 ## Nhật ký thao tác trên website
-### 22/11/2026 – Thêm SP mới: Lọc nhiên liệu Ranger 2005-2010 | Asahi AFF-U1158 | 1770A172 (ID 8620) – 🔄 BẢN NHÁP
+### 22/11/2026 – Thêm SP mới: Lọc nhiên liệu Ranger 2005-2010 | Asahi AFF-U1158 | 1770A172 (ID 8620) – ✅ ĐÃ XUẤT BẢN
 - Chép nguyên trang Triton/L200 ID 8347 (cùng mã 1770A172), chỉ đổi dòng xe/năm/động cơ; viết lại 3 câu riêng Mitsubishi cho Ranger; sửa alt ảnh (ghi nhầm PAJERO SPORT). Người dùng chọn OEM chính 1770A172 và duyệt bản nháp.
 - azfilter FC21158 (↔ 1770A053) xác nhận Ford Ranger 06.02–10.07 và 02.06–12.11, 2.5/3.0 Diesel (WL-T, WLAA, MD30DITC).
 - Slug `loc-nhien-lieu-ranger-2005-2010`, danh mục 111, ảnh chung 8345, Bảng mã OEM giữ nguyên của 8347, Rank Math từ khoá `Lọc nhiên liệu,Ranger`, ô ẩn 42 mã. Kiểm tra: nội dung/mô tả ngắn/tên lưu đúng, loại SP simple.
-- Còn lại: người dùng xem và bấm Xuất bản → thử ô tìm kiếm `1770A172`.
+- ✅ Người dùng đã xuất bản 22/11. Ô tìm kiếm: gõ `1770A172`, `AFFU1158`, `WE0113ZA5A` đều ra trang Ranger.
 
 ### 20/11/2026 – Cập nhật mã OEM mới: tra lại TOÀN BỘ 1.498 SP với azfilter/sbparts – ✅ XONG
 - Chạy khô (chỉ đọc): azfilter 990 trang lọc → 959 đủ, 29 nguồn không có dữ liệu, 2 lệch (6225 Lux SA – treo cũ; 3820 Matiz – mã bộ kit `_JT` → bỏ qua). sbparts 508 trang má/guốc phanh → 471 đủ, 25 không có dữ liệu, 12 thiếu.
