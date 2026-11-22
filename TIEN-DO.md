@@ -14,6 +14,7 @@
 | 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 20/11: tra lại TOÀN BỘ 1.498 SP, thêm 11 mã vào 11 trang (SE003122 cho AB-K1157, PN1322/E cho Camry 4657) |
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
 | 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
+| 6.7 | Thêm sản phẩm mới | ✅ Xong 16 trang | Đã xuất bản 16 trang (8577–8617); làm tiếp khi người dùng gửi sản phẩm mới |
 | 6.8 | Làm gợi ý tìm kiếm nhanh hơn | ⏸ Gác lại | 20/11: gợi ý chậm ~3,5–5 giây; đề xuất chỉ tìm trong Sản phẩm – chờ người dùng hỏi ý kiến |
 
 ## Mã OEM theo nhóm hàng
@@ -147,6 +148,16 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 22/11/2026 – Bỏ phần trùng giữa CLAUDE.md và 4 skill (người dùng đồng ý) – ✅ XONG
+- Quy tắc từ nay chỉ ghi ở `CLAUDE.md` + `.claude/rules/oem-rules.md`; skill chỉ giữ quy trình chi tiết và code, chỗ trùng thay bằng dòng "xem CLAUDE.md mục …".
+- `hoathang-tong-quan`: rút gọn còn phần chỉ đường đầu phiên + bảng dự án 6.1 → 6.8 (thêm 6.6, 6.7, 6.8 và cột đối chiếu số mục CLAUDE.md ↔ TIEN-DO.md). Bỏ quy tắc / công nghệ / mục tiêu / thông tin đã chốt (đã có trong CLAUDE.md), bỏ đề xuất cũ "tách CSS" (đã làm 16/11).
+- `hoathang-oem`: bỏ bảng nguồn tra và quy tắc Bảng mã OEM bị trùng với oem-rules (giữ HTML mẫu); sửa "máy không có Python"; số cột bảng sửa thành 2/4/8/11 (+ bảng 5 cột Escape ID 3429); thêm bước điền ô ẩn `oem_khong_gach` sau khi sửa mã.
+- `hoathang-seo-noi-dung`: mức đạt 85 → ~86; bỏ bước "đổi từ khoá riêng từng trang" (bài học 17/11); quy trình B theo CLAUDE.md 6.5 (mẫu ID 8584, giá để trống, bản nháp); bỏ dòng tiến độ cũ "chưa bắt đầu".
+- `hoathang-tim-ma-oem`: bỏ phần Bối cảnh / Quy tắc trùng; bỏ số cũ "~130 SP không có bảng" → trỏ về "Việc còn treo" ở file này. Đoạn code Bước 1-3 giữ nguyên.
+- Sửa chỗ trỏ theo: lệnh `day-tien-do` (trỏ CLAUDE.md 1.6 thay vì "tong-quan quy tắc 10"), `README.md`, bảng skill trong `CLAUDE.md` mục 3.
+- Bảng tổng quan thêm dòng 6.7 (trước bị thiếu).
+- Chưa kiểm tra: skill `hoathang-sua-web-them-san-pham` (đồng bộ từ claude.ai, không có trong thư mục dự án).
+
 ### 22/11/2026 – Tách tiến độ khỏi CLAUDE.md (người dùng yêu cầu) – ✅ XONG
 - `CLAUDE.md` chỉ giữ nội dung công việc: bỏ dòng "Cập nhật lần cuối"; mục 6 viết lại thành "Quy tắc theo từng việc" (SEO Rank Math, mã OEM, sửa nội dung, ô tìm kiếm, thêm SP mới); sửa mục 1.5, 1.6, 7.
 - Mục 6 cũ (tiến độ 6.1 → 6.8) chuyển **nguyên văn** sang phần "Trạng thái chi tiết các dự án" của file này.

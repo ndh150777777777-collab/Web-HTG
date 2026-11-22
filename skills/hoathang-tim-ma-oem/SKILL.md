@@ -5,22 +5,12 @@ description: Dùng khi khách/nhân viên tra mã OEM gõ liền không gạch (
 
 # Tìm mã OEM gõ liền không gạch trên hoathang.vn
 
-## Bối cảnh (đã chốt 16/11/2026)
-- Bảng OEM ghi mã có gạch (`04465-48210`). Khách gõ liền (`0446548210`). **Không được thêm mã không gạch vào bảng OEM** (người dùng không muốn).
-- Ô tìm kiếm thật của web là plugin **Ivory Search**, form ID **2644** (gợi ý AJAX khi gõ). Không phải tìm kiếm mặc định WordPress/Flatsome → khi kiểm tra phải gõ vào ô trên trang chủ, không dùng `?s=...&post_type=product` hay `flatsome_ajax_search_products`.
-- Cách làm: mỗi sản phẩm có **trường ẩn ACF `oem_khong_gach`** chứa mọi mã OEM đã bỏ `- . /` và khoảng trắng, viết hoa, cách nhau bằng dấu cách. Ivory Search được bật tìm trong trường này (Includes → Custom Fields).
-- Nhóm trường ACF: "Mã OEM không gạch (ẩn, dùng cho tìm kiếm)", ID 8571, gắn vào `product`, bật REST API.
-- Web **chặn cài plugin** và **sửa file theme** → không dùng Code Snippets/functions.php; trang đăng nhập không phải `/wp-login.php`. Người dùng tự đăng nhập wp-admin trên Chrome; AI không nhập mật khẩu.
+> Bối cảnh và quy tắc (Ivory Search form 2644, trường ACF `oem_khong_gach` nhóm ID 8571, không thêm mã không gạch vào bảng OEM, web chặn cài plugin / sửa theme, cách kiểm tra bằng ô tìm kiếm trên trang chủ) nằm ở **`CLAUDE.md` mục 6.4** và **`.claude/rules/oem-rules.md` mục 5**. Skill này chỉ giữ quy trình và đoạn code. Tiến độ: `TIEN-DO.md` mục 6.6.
 
-## Quy tắc
-- Trả lời tiếng Việt, đơn giản, báo tiến độ mỗi 5 phút.
+## Lưu ý riêng khi chạy
 - Chỉ ghi trường `oem_khong_gach`. **Không đổi nội dung bài, bảng OEM, SEO.**
 - Trước khi ghi hàng loạt: chạy khô, báo số sản phẩm cần ghi, chờ người dùng đồng ý.
-- Sau khi ghi: kiểm tra bằng cách gõ mã không gạch vào ô tìm kiếm trên trang chủ.
-- Xong việc: cập nhật tiến độ (plugin-hoathang/TIEN-DO.md mục 6.6) và đẩy GitHub theo `/hoathang:day-tien-do`.
-
-## Khi nào phải chạy lại
-Thêm sản phẩm mới, hoặc thêm/sửa mã trong bảng OEM của sản phẩm → điền lại ô ẩn cho các sản phẩm đó (không có đoạn code tự chạy).
+- **Khi nào phải chạy lại:** thêm sản phẩm mới, hoặc thêm/sửa mã trong bảng OEM → điền lại ô ẩn cho các sản phẩm đó (web không tự chạy).
 
 ## Quy trình điền ô ẩn (chạy JS trong tab wp-admin đã đăng nhập, ví dụ Claude in Chrome)
 Bước 1 – Lấy sản phẩm và tính mã (chạy khô, chưa ghi):
@@ -76,6 +66,5 @@ Bước 3 – Kiểm tra: mở trang chủ, gõ mã không gạch (ví dụ `044
 2. Chạy Bước 1-2 cho mọi sản phẩm.
 3. Ivory Search → Search Forms → form 2644 (`admin.php?page=ivory-search&post=2644&action=edit`) → Includes → Custom Fields: chọn `oem_khong_gach` (chỉ hiện sau khi ít nhất một sản phẩm đã có dữ liệu trường này) → Save Form.
 
-## Dữ liệu cần người dùng quyết (còn treo 16/11/2026)
-- ~61 sản phẩm có mã OEM lỗi Excel (`4,05E+09`…) trong bảng OEM → cần lấy mã đúng từ Excel gốc / azfilter.jp / sbparts.jp.
-- ~130 sản phẩm không có bảng OEM → chỉ tạo bảng khi người dùng đồng ý (xem skill `hoathang-oem`).
+## Việc còn treo
+Xem `TIEN-DO.md` phần "Việc còn treo / chờ quyết định" (VD 61 sản phẩm có mã lỗi Excel `4,05E+09`, 55 trang chưa có bảng OEM) – không ghi tiến độ trong skill.

@@ -91,7 +91,7 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
 ### Skill (quy trình chuyên biệt – gọi khi cần)
 | Skill | Dùng để |
 |---|---|
-| `hoathang-tong-quan` | Quy tắc làm việc, thông tin đã chốt, danh sách dự án, nơi lưu tiến độ |
+| `hoathang-tong-quan` | Chỉ đường đầu phiên: danh sách dự án 6.1 → 6.8 (đối chiếu số mục với CLAUDE.md), skill cho từng dự án, nơi lưu tiến độ. Quy tắc chỉ ghi ở CLAUDE.md – skill không chép lại |
 | `hoathang-oem` | Cập nhật / kiểm tra mã OEM, tạo Bảng mã OEM, lỗi dữ liệu đã biết, mẹo kỹ thuật |
 | `hoathang-seo-noi-dung` | Sửa SEO Rank Math, thêm trang sản phẩm theo bài mẫu, 8 hạng mục sửa nội dung |
 | `hoathang-tim-ma-oem` | Làm ô tìm kiếm tra được mã OEM gõ liền không gạch (ô ẩn ACF + Ivory Search), điền lại ô ẩn khi có sản phẩm mới / sửa bảng OEM |

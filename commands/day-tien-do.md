@@ -3,7 +3,7 @@ description: Ghi tiến độ công việc vừa làm trên web vào TIEN-DO.md 
 argument-hint: "[mô tả ngắn việc vừa làm – có thể để trống]"
 ---
 
-Dùng skill `hoathang-tong-quan` (quy tắc 10).
+Làm theo `CLAUDE.md` mục 1.6 (đã được người dùng cho phép sẵn – không cần hỏi lại).
 
 Việc vừa làm (nếu có): $ARGUMENTS
 

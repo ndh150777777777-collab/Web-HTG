@@ -1,59 +1,28 @@
 ---
 name: hoathang-tong-quan
-description: Dùng ĐẦU MỖI PHIÊN hoặc khi làm bất kỳ việc gì cho website hoathang.vn (công ty phụ tùng ô tô Hoà Thắng). Chứa quy tắc làm việc bắt buộc, thông tin đã chốt, công nghệ, mục tiêu, danh sách dự án và nơi lưu tiến độ.
+description: Dùng ĐẦU MỖI PHIÊN hoặc khi làm bất kỳ việc gì cho website hoathang.vn (công ty phụ tùng ô tô Hoà Thắng). Chỉ đường tới quy tắc làm việc, danh sách dự án 6.1 → 6.8, skill dùng cho từng dự án và nơi lưu tiến độ.
 ---
 
 # Tổng quan dự án hoathang.vn
 
-## Người dùng và công ty
-- Website công ty phụ tùng ô tô **Hoà Thắng** (Hoà Thắng Group – Auto Parts): https://hoathang.vn
-- Người dùng là **nhân viên làm web, mới bắt đầu, không phải lập trình viên**.
-- Thư mục dự án trên máy: `C:\Users\Admin\du-an-thu-nghiem` (Windows 10, PowerShell 5.1, Python 3.14 + openpyxl – cài 17/11/2026).
+> **Quy tắc làm việc, công nghệ, mục tiêu, thông tin đã chốt** nằm ở `CLAUDE.md` (thư mục `C:\Users\Admin\du-an-thu-nghiem`) – mục 1 → 6. **Luật mã OEM** ở `.claude/rules/oem-rules.md`. Skill này **không chép lại** các quy tắc đó (gọn 22/11/2026) – khi lệch nhau, lấy `CLAUDE.md` làm chuẩn.
 
-## Quy tắc bắt buộc (luôn tuân thủ)
-1. **Luôn trả lời bằng tiếng Việt**, dễ hiểu, chia **từng bước có đánh số**; giải thích thuật ngữ ngay lần đầu dùng; nói rõ làm để làm gì, kết quả mong đợi; chỉ rõ đường dẫn menu WordPress khi người dùng tự thao tác.
-2. **Code sạch**: gọn, tên rõ nghĩa, **chú thích tiếng Việt**; ưu tiên tính năng có sẵn của WordPress / Flatsome (UX Blocks) / Rank Math; sau khi đưa code phải nói code làm gì và dán vào đâu.
-3. **Luôn hỏi trước khi sửa hoặc xoá** bất kỳ tệp, trang, bài viết nào. **Tuyệt đối không xoá** khi chưa được cho phép.
-4. **Trước khi sửa hàng loạt**: chạy khô, báo **số trang / số mã** + danh sách, chờ duyệt.
-5. **Bản viết lại SEO phải đưa người dùng duyệt** trước khi áp dụng.
-6. **Không ghi mật khẩu / thông tin đăng nhập** vào bất kỳ file nào. Người dùng **tự đăng nhập** wp-admin trên Chrome.
-7. Việc dài: **báo tiến độ khoảng mỗi 5 phút**.
-8. Mọi dự án **SẼ TIẾP TỤC** ở phiên sau: đầu phiên đọc tiến độ, làm tiếp, không làm lại từ đầu; xong việc thì **cập nhật tiến độ**.
-9. **Luôn kiểm tra trang web thật trước khi sửa** – file đối chiếu cũ có thể đã lỗi thời (bài học 15/11/2026: 57 trang guốc phanh tưởng thiếu mã nhưng thực ra đã đủ).
-10. **Sau MỖI công việc hoàn thành** (thao tác trên website: thêm/sửa mã, tạo bảng, sửa SEO, sửa nội dung, kiểm tra chỉ đọc có kết quả mới; sửa file dự án; cập nhật plugin…) **và trước khi kết thúc cuộc trò chuyện**: **ghi tiến độ và đẩy lên GitHub ngay** (người dùng yêu cầu 15/11/2026, đã cho phép sẵn – không cần hỏi lại). Làm theo lệnh `/hoathang:day-tien-do`: thêm mục mới lên đầu nhật ký `TIEN-DO.md`, chép `du-lieu-oem/tien-do-oem.md` sang `tien-do/`, commit tiếng Việt, push lên kho **https://github.com/ndh150777777777-collab/Web-HTG** (Private, nhánh `main`, thư mục `C:\Users\admin\du-an-thu-nghiem\plugin-hoathang`). Không đẩy mật khẩu/token.
+## Đầu mỗi phiên
+1. Đọc `plugin-hoathang/TIEN-DO.md`: bảng tổng quan + phần **"Trạng thái chi tiết các dự án"** (6.1 → 6.8) – nơi duy nhất ghi tiến độ.
+2. Đọc `du-lieu-oem/tien-do-oem.md` (nhật ký chi tiết dự án OEM).
+3. Làm tiếp, không làm lại từ đầu. Xem tóm tắt nhanh: `/hoathang:tien-do`.
+4. Xong mỗi việc: ghi tiến độ và đẩy GitHub theo `CLAUDE.md` mục 1.6 (`/hoathang:day-tien-do`).
 
-## Công nghệ
-- **WordPress** + **WooCommerce** (sản phẩm là post type `product`, đường dẫn `/san-pham/<slug>/`).
-- Theme **Flatsome** (có UX Blocks). Plugin SEO **Rank Math SEO**.
-- Trình soạn thảo cổ điển: nội dung bài nằm ở `#content` trong trang sửa `/wp-admin/post.php?post=<ID>&action=edit`.
+## Danh sách dự án (số mục theo `TIEN-DO.md`; tất cả SẼ TIẾP TỤC)
+| # | Dự án | Skill dùng | Quy tắc trong `CLAUDE.md` |
+|---|---|---|---|
+| 6.1 | Sửa SEO trang/bài Rank Math (mức đạt ~86) | `hoathang-seo-noi-dung` | 6.1 |
+| 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5 2021+, OEM 516013A) – https://hoathang.vn/san-pham/loc-dau-hop-so-at-dung-cho-xe-territory-1-5/ | `hoathang-seo-noi-dung` | 6.1 |
+| 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | `hoathang-oem` | 6.2 |
+| 6.4 | Cập nhật mã OEM mới nhất | `hoathang-oem` | 6.2 |
+| 6.5 | 8 hạng mục sửa nội dung | `hoathang-seo-noi-dung` | 6.3 |
+| 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | `hoathang-tim-ma-oem` | 6.4 |
+| 6.7 | Thêm sản phẩm mới | `hoathang-seo-noi-dung` (quy trình B) | 6.5 |
+| 6.8 | Làm gợi ý ô tìm kiếm nhanh hơn (gác lại) | – | 6.4 |
 
-## Mục tiêu dự án
-1. Sửa SEO các trang/bài **dưới 85 điểm Rank Math**, lọc ra các mã/trang dưới 85 điểm.
-2. Cập nhật **mã OEM mới nhất** phục vụ bán hàng.
-3. Hiển thị **đủ chi tiết** để khách tra tìm mặt hàng dễ.
-4. **Thêm sản phẩm mới** theo bài mẫu đã có trên web.
-
-## Thông tin đã chốt (không tự đổi)
-- **Ngày thành lập công ty: 04/04/2024** (theo giấy ĐKKD; thay cho 23/01/2024).
-- Địa chỉ cũ **"Q. Hai Bà Trưng"** phải thay bằng địa chỉ hiện tại; chưa có thì **hỏi người dùng**.
-- Người dùng **cần cung cấp thêm**: địa chỉ hiện tại, số hotline, giờ làm việc đúng.
-
-## Nơi lưu tiến độ (đọc đầu phiên)
-- `plugin-hoathang/TIEN-DO.md` phần **"Trạng thái chi tiết các dự án"** (6.1 → 6.8). `CLAUDE.md` chỉ giữ quy tắc, không ghi tiến độ (22/11/2026).
-- `du-lieu-oem\tien-do-oem.md`: nhật ký chi tiết dự án OEM.
-- Xem tóm tắt bằng lệnh `/hoathang:tien-do`.
-
-## Danh sách dự án (tất cả: SẼ TIẾP TỤC)
-| # | Dự án | Skill dùng |
-|---|---|---|
-| 6.1 | Sửa SEO trang/bài dưới 85 điểm | `hoathang-seo-noi-dung` |
-| 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5 2021+, Asahi, OEM 516013A) – https://hoathang.vn/san-pham/loc-dau-hop-so-at-dung-cho-xe-territory-1-5/ | `hoathang-seo-noi-dung` |
-| 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | `hoathang-oem` |
-| 6.4 | Cập nhật mã OEM mới nhất | `hoathang-oem` |
-| 6.5 | 8 hạng mục sửa nội dung | `hoathang-seo-noi-dung` |
-
-## File khác trong dự án
-- `index.html` – trang web HTML đầu tiên của người dùng (học tập), `mo-trang-web.bat` mở nó.
-- `cap-nhat-oem.bat` – lệnh tắt mở Claude Code làm tiếp dự án OEM.
-- Thư mục `css/`, `js/`, `images/` – để dành cho trang học tập.
-- Đề xuất còn treo: tách CSS của `index.html` ra `css/style.css` (chờ người dùng đồng ý).
+> Lưu ý: số mục 6.x trong `CLAUDE.md` (quy tắc) **khác** số mục 6.x trong `TIEN-DO.md` (tiến độ) – xem cột cuối để đối chiếu.

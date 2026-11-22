@@ -9,7 +9,7 @@ plugin-hoathang/
 │   ├── plugin.json            ← thông tin plugin
 │   └── marketplace.json       ← để cài plugin từ thư mục trên máy
 ├── skills/
-│   ├── hoathang-tong-quan/    ← quy tắc làm việc, thông tin đã chốt, danh sách dự án
+│   ├── hoathang-tong-quan/    ← chỉ đường đầu phiên: danh sách dự án 6.1 → 6.8, skill cho từng dự án, nơi lưu tiến độ
 │   ├── hoathang-oem/          ← quy trình cập nhật/kiểm tra mã OEM, tạo Bảng mã OEM
 │   │   ├── du-lieu-da-lam.md  ← kết quả các đợt, ID trang, việc còn treo
 │   │   ├── meo-ky-thuat.md    ← lỗi đã gặp và cách tránh
