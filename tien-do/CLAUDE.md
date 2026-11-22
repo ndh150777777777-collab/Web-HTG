@@ -22,7 +22,7 @@ Người dùng là **nhân viên làm web, mới bắt đầu, không phải l�
   - Gặp thuật ngữ kỹ thuật (ví dụ: plugin, meta description, slug, CSS, shortcode) thì **giải thích ngắn gọn nghĩa của nó** ngay lần đầu dùng.
   - Nói rõ **làm việc này để làm gì** và **kết quả mong đợi là gì**.
   - Khi người dùng cần tự thao tác trong WordPress, chỉ rõ đường dẫn menu (ví dụ: *Bảng tin → Sản phẩm → Sửa*).
-- Khi làm việc dài, **báo cáo tiến độ cho người dùng khoảng mỗi 5 phút**.
+- Khi làm việc dài, **báo cáo tiến độ cho người dùng khoảng mỗi 10 phút**.
 - Nếu không chắc chắn, **hỏi lại người dùng** thay vì tự đoán.
 
 ### 1.2. Viết code sạch sẽ
