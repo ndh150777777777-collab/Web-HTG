@@ -152,6 +152,11 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 23/11/2026 – Cài UpdraftPlus và tạo bản sao lưu toàn bộ web – ✅ XONG
+- Người dùng muốn tải backup về máy; web chưa có plugin sao lưu → người dùng chọn cài **UpdraftPlus** (Cài đặt → UpdraftPlus Backups), đã kích hoạt.
+- Bấm "Sao Lưu Ngay" (có cơ sở dữ liệu + tệp, không gửi lên đám mây) lúc 10:34 → xong 1 bản gồm 5 phần: Cơ sở dữ liệu, Plugins, Giao diện, Tải lên, Khác. Bản sao lưu nằm trên máy chủ (`wp-content/updraft/`).
+- Người dùng tự bấm tải từng phần về máy (tab "Bản sao lưu hiện có"). Chưa đặt lịch sao lưu tự động.
+
 ### 23/11/2026 – BẬT tìm kiếm nhanh cho mọi khách (người dùng thử ổn) – ✅ XONG
 - Snippet WPCode 8623: công tắc `HT_TN_CHE_DO` `'admin'` → **`'all'`** ("Snippet updated", vẫn bật).
 - Kiểm tra vai trò khách (Browser 1, chưa đăng nhập): trang chủ và trang SP đều có đoạn tìm nhanh; gõ thật "má phanh vios" → 6 SP Vios hiện ngay; tải danh sách 109 KB trong 0,1 s, **0 yêu cầu admin-ajax**.
