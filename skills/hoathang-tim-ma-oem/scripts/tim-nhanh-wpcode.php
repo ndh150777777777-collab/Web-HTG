@@ -102,6 +102,11 @@ add_action( 'admin_init', function () {
 	if ( ! file_exists( $duong_dan ) || isset( $_GET['ht_tao_lai_tim_kiem'] ) ) {
 		ht_tn_tao_tep();
 	}
+	// Dọn tệp .json của bản thử đầu (23/11/2026, người dùng cho xoá) – không còn dùng
+	$tep_cu = dirname( $duong_dan ) . '/hoathang-tim-kiem.json';
+	if ( file_exists( $tep_cu ) ) {
+		unlink( $tep_cu );
+	}
 } );
 
 /** In đoạn tìm kiếm nhanh (CSS + JavaScript) ở cuối trang công khai. */
