@@ -3,7 +3,7 @@
 > File này được **cập nhật và đẩy lên GitHub sau mỗi lần thao tác trên website**, để mọi người trong nhóm biết đã làm gì, làm tới đâu.
 > Nhật ký chi tiết dự án mã OEM: [`tien-do/tien-do-oem.md`](tien-do/tien-do-oem.md).
 
-**Cập nhật lần cuối:** 22/11/2026
+**Cập nhật lần cuối:** 23/11/2026
 
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
@@ -15,7 +15,7 @@
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
 | 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
 | 6.7 | Thêm sản phẩm mới | ✅ Xong 16 trang | Đã xuất bản 16 trang (8577–8617); làm tiếp khi người dùng gửi sản phẩm mới |
-| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | ⏸ Gác lại | 20/11: gợi ý chậm ~3,5–5 giây; đề xuất chỉ tìm trong Sản phẩm – chờ người dùng hỏi ý kiến |
+| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | 🔄 Đang làm | 23/11: đo lần đầu 3,1–6,7 s, lần lặp 0,3 s, WordPress rỗng 0,25 s → chậm do câu lệnh tìm kiếm; đã cho phép cài plugin – chờ người dùng chọn cách |
 
 ## Mã OEM theo nhóm hàng
 | Đợt | Nhóm hàng | Nguồn tra | Trạng thái |
@@ -138,7 +138,8 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 - **Cách làm "cùng mã Asahi, khác dòng xe" (người dùng chốt 19/11):** chép nguyên trang đã có, chỉ thay dòng xe/năm, dùng chung ảnh; vẫn tra azfilter xác nhận xe trước.
 - **Trạng thái:** ✅ Xong cả 10 trang 8577, 8584, 8585, 8595, 8600, 8604, 8608, 8609, 8610, 8611 + 6 trang U201 8612–8617 (tất cả đã xuất bản, có ảnh) – tiếp tục khi người dùng gửi sản phẩm mới.
 
-### 6.8. Làm gợi ý ô tìm kiếm nhanh hơn (20/11/2026) – ⏸ GÁC LẠI
+### 6.8. Làm gợi ý ô tìm kiếm nhanh hơn (20/11/2026) – 🔄 ĐANG LÀM (23/11: web đã cài được plugin)
+- **Đo 23/11 (chỉ đọc):** lần đầu gõ 3,1–6,7 s; gõ lại cùng chữ 0,27–0,35 s; admin-ajax rỗng 0,25 s → chậm do câu lệnh tìm kiếm, không phải do WordPress. Mục tiêu người dùng: ~0,3 s. Các cách: (1) thu hẹp form 2644 chỉ Product; (2) FiboSearch Pro; (3) danh sách SP tìm trong trình duyệt (WPCode).
 - **Người dùng hỏi:** muốn tra kiểu gợi ý như sbparts/azfilter, cả chữ lẫn số (VD "má phanh vios" phải gợi ý AB-J822).
 - **Kiểm tra (chỉ đọc):** Ivory Search form 2644 đã ra đúng cả chữ lẫn mã, gõ thiếu / đảo thứ tự / không dấu / có-không gạch đều ra (kể cả khách chưa đăng nhập). Gõ thừa/sai ký tự không ra (sbparts cũng không). **Vấn đề thật: gợi ý chậm ~3,5–5 giây.**
 - **Nguyên nhân:** form 2644 Includes đang tìm cả Post, Page, Attachment (thư viện ảnh/tệp, có tích images/videos/audios/text/pdfs/docs), Featured item, và tìm trong tên + nội dung + mô tả ngắn + `oem_khong_gach`.
@@ -148,6 +149,13 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 23/11/2026 – Đo tốc độ ô tìm kiếm Ivory Search (chỉ đọc, không sửa gì) – ✅ XONG
+- Đo trên trang chủ, vai trò khách chưa đăng nhập, form 2644 (`is_ajax_load_posts`).
+- Gõ thật: `0446548210` → 4,0 giây; `má phanh vios` → 4,8 giây (gần hết là chờ máy chủ, tải về chỉ ~1 KB).
+- Gửi thẳng lần đầu: `AB-J822` 6,7 s; `j822` 3,1 s; `0446548210` 3,7 s; `loc gio dieu hoa` 5,1 s. **Gõ lại đúng chữ đó lần 2: 0,27–0,35 s** (máy chủ đã nhớ kết quả).
+- Mốc so sánh: yêu cầu admin-ajax rỗng (WordPress khởi động) ~0,25 s; trang chủ ~0,5 s; REST `/wp-json/` ~1,6–2 s.
+- **Kết luận:** WordPress/hosting không chậm; chậm là do **câu lệnh tìm kiếm** của form 2644 (tìm cả Post/Page/Attachment + nội dung bài + ô ẩn). Cách 1 (thu hẹp phạm vi tìm) có thể giảm nhiều – chờ người dùng chọn cách.
+
 ### 22/11/2026 – Bỏ phần trùng giữa CLAUDE.md và 4 skill (người dùng đồng ý) – ✅ XONG
 - Quy tắc từ nay chỉ ghi ở `CLAUDE.md` + `.claude/rules/oem-rules.md`; skill chỉ giữ quy trình chi tiết và code, chỗ trùng thay bằng dòng "xem CLAUDE.md mục …".
 - `hoathang-tong-quan`: rút gọn còn phần chỉ đường đầu phiên + bảng dự án 6.1 → 6.8 (thêm 6.6, 6.7, 6.8 và cột đối chiếu số mục CLAUDE.md ↔ TIEN-DO.md). Bỏ quy tắc / công nghệ / mục tiêu / thông tin đã chốt (đã có trong CLAUDE.md), bỏ đề xuất cũ "tách CSS" (đã làm 16/11).
