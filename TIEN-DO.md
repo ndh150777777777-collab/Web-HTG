@@ -15,7 +15,7 @@
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
 | 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
 | 6.7 | Thêm sản phẩm mới | ✅ Xong 16 trang | Đã xuất bản 16 trang (8577–8617); làm tiếp khi người dùng gửi sản phẩm mới |
-| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | 🔄 Đang làm | 23/11: chậm do câu lệnh tìm kiếm (WordPress rỗng 0,25 s). Đã thêm 24.945 mã có gạch vào ô ẩn (1.484 SP), form 2644 chỉ tìm Product (tên + mô tả ngắn + ô ẩn) → 1,6–3,2 s. Cách 3 (WPCode snippet 8623, tìm trong trình duyệt): 1–8 ms – đang thử, chỉ quản trị viên thấy |
+| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | ✅ Xong | 23/11: BẬT cho mọi khách – gợi ý 1–8 ms (snippet WPCode 8623, tắt = như cũ). Trước đó: chậm do câu lệnh tìm kiếm (WordPress rỗng 0,25 s). Đã thêm 24.945 mã có gạch vào ô ẩn (1.484 SP), form 2644 chỉ tìm Product (tên + mô tả ngắn + ô ẩn) → 1,6–3,2 s. Cách 3 (WPCode snippet 8623, tìm trong trình duyệt): 1–8 ms – đang thử, chỉ quản trị viên thấy |
 
 ## Mã OEM theo nhóm hàng
 | Đợt | Nhóm hàng | Nguồn tra | Trạng thái |
@@ -142,7 +142,7 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 - **Đo 23/11 (chỉ đọc):** lần đầu gõ 3,1–6,7 s; gõ lại cùng chữ 0,27–0,35 s; admin-ajax rỗng 0,25 s → chậm do câu lệnh tìm kiếm, không phải do WordPress. Mục tiêu người dùng: ~0,3 s. Các cách: (1) thu hẹp form 2644 chỉ Product; (2) FiboSearch Pro; (3) danh sách SP tìm trong trình duyệt (WPCode).
 - **Người dùng chọn (23/11):** thêm mã có gạch vào ô ẩn rồi bỏ tìm nội dung bài. ✅ Đã thêm 24.945 mã cho 1.484 SP (khớp 1.499/1.499). ✅ Form 2644 chỉ còn Product – tên + mô tả ngắn + ô ẩn (cấu hình cũ: `du-lieu-oem/Cau_hinh_Ivory_form2644_truoc_khi_sua_23-11-2026.txt`) → đo 1,6–3,2 s (nhanh ~2 lần), mọi mẫu vẫn ra.
 - **Từ nay ô ẩn gồm cả mã không gạch lẫn mã có gạch** – đã ghi vào CLAUDE.md 6.4, oem-rules mục 5, skill `hoathang-tim-ma-oem`.
-- 🧪 Cách 3 (người dùng chọn 23/11): WPCode snippet **ID 8623**, đang ở chế độ `'admin'` (chỉ quản trị viên). Gợi ý 1–8 ms, khách tải 111 KB 1 lần. **Tắt snippet 8623 = trở lại như cũ.** Chờ người dùng thử rồi đổi `'all'`.
+- ✅ Cách 3 (người dùng chọn 23/11): WPCode snippet **ID 8623**, **đã bật cho mọi khách (`'all'`)**. Gợi ý 1–8 ms, khách tải ~110 KB 1 lần. **Tắt snippet 8623 = trở lại như cũ.**
 - **Người dùng hỏi:** muốn tra kiểu gợi ý như sbparts/azfilter, cả chữ lẫn số (VD "má phanh vios" phải gợi ý AB-J822).
 - **Kiểm tra (chỉ đọc):** Ivory Search form 2644 đã ra đúng cả chữ lẫn mã, gõ thiếu / đảo thứ tự / không dấu / có-không gạch đều ra (kể cả khách chưa đăng nhập). Gõ thừa/sai ký tự không ra (sbparts cũng không). **Vấn đề thật: gợi ý chậm ~3,5–5 giây.**
 - **Nguyên nhân:** form 2644 Includes đang tìm cả Post, Page, Attachment (thư viện ảnh/tệp, có tích images/videos/audios/text/pdfs/docs), Featured item, và tìm trong tên + nội dung + mô tả ngắn + `oem_khong_gach`.
@@ -152,6 +152,11 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 23/11/2026 – BẬT tìm kiếm nhanh cho mọi khách (người dùng thử ổn) – ✅ XONG
+- Snippet WPCode 8623: công tắc `HT_TN_CHE_DO` `'admin'` → **`'all'`** ("Snippet updated", vẫn bật).
+- Kiểm tra vai trò khách (Browser 1, chưa đăng nhập): trang chủ và trang SP đều có đoạn tìm nhanh; gõ thật "má phanh vios" → 6 SP Vios hiện ngay; tải danh sách 109 KB trong 0,1 s, **0 yêu cầu admin-ajax**.
+- Trở lại như cũ: WPCode → Code Snippets → tắt snippet 8623.
+
 ### 23/11/2026 – Tìm kiếm nhanh trong trình duyệt (Cách 3, WPCode) – 🧪 ĐANG THỬ (chỉ quản trị viên thấy)
 - Cài + kích hoạt plugin **WPCode** (Insert Headers and Footers, Syed Balkhi – wordpress.org).
 - Tạo snippet PHP **ID 8623** "Hoà Thắng – Tìm kiếm nhanh (thay gợi ý Ivory 2644)", Run Everywhere, **công tắc `HT_TN_CHE_DO = 'admin'`** → khách thường vẫn dùng Ivory Search (đã kiểm: trang chủ khi chưa đăng nhập không có đoạn tìm nhanh). Mã nguồn: `skills/hoathang-tim-ma-oem/scripts/tim-nhanh-wpcode.php`.

@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // 'admin' = chỉ tài khoản quản trị dùng cách tìm mới (để thử trước)
 // 'all'   = mọi khách đều dùng
 if ( ! defined( 'HT_TN_CHE_DO' ) ) {
-	define( 'HT_TN_CHE_DO', 'admin' );
+	define( 'HT_TN_CHE_DO', 'all' ); // 23/11/2026: người dùng thử ổn → bật cho mọi khách
 }
 define( 'HT_TN_FORM_ID', 2644 );          // ID form Ivory Search đang dùng trên web
 // Lưu dạng .js (không phải .json) vì máy chủ chỉ nén tệp .js/.css → khách tải ~110 KB thay vì ~650 KB
