@@ -15,7 +15,7 @@
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
 | 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
 | 6.7 | Thêm sản phẩm mới | ✅ Xong 16 trang | Đã xuất bản 16 trang (8577–8617); làm tiếp khi người dùng gửi sản phẩm mới |
-| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | 🔄 Đang làm | 23/11: chậm do câu lệnh tìm kiếm (WordPress rỗng 0,25 s). Đã thêm 24.945 mã có gạch vào ô ẩn (1.484 SP). Tiếp: thu hẹp form 2644, đo lại |
+| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | 🔄 Đang làm | 23/11: chậm do câu lệnh tìm kiếm (WordPress rỗng 0,25 s). Đã thêm 24.945 mã có gạch vào ô ẩn (1.484 SP), form 2644 chỉ tìm Product (tên + mô tả ngắn + ô ẩn) → 1,6–3,2 s. Muốn 0,3 s: chờ chọn Cách 3 / FiboSearch Pro |
 
 ## Mã OEM theo nhóm hàng
 | Đợt | Nhóm hàng | Nguồn tra | Trạng thái |
@@ -140,8 +140,9 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 
 ### 6.8. Làm gợi ý ô tìm kiếm nhanh hơn (20/11/2026) – 🔄 ĐANG LÀM (23/11: web đã cài được plugin)
 - **Đo 23/11 (chỉ đọc):** lần đầu gõ 3,1–6,7 s; gõ lại cùng chữ 0,27–0,35 s; admin-ajax rỗng 0,25 s → chậm do câu lệnh tìm kiếm, không phải do WordPress. Mục tiêu người dùng: ~0,3 s. Các cách: (1) thu hẹp form 2644 chỉ Product; (2) FiboSearch Pro; (3) danh sách SP tìm trong trình duyệt (WPCode).
-- **Người dùng chọn (23/11):** thêm mã có gạch vào ô ẩn rồi bỏ tìm nội dung bài. ✅ Đã thêm 24.945 mã cho 1.484 SP (khớp 1.499/1.499). ⏳ Tiếp: ghi cấu hình cũ form 2644, bỏ Post/Page/Attachment + nội dung, đo lại.
-- **Từ nay ô ẩn gồm cả mã không gạch lẫn mã có gạch** (dạng gốc trong bảng) – quy trình điền ô ẩn cho SP mới phải làm theo (cần cập nhật skill `hoathang-tim-ma-oem`, CLAUDE.md 6.4 – chờ người dùng đồng ý).
+- **Người dùng chọn (23/11):** thêm mã có gạch vào ô ẩn rồi bỏ tìm nội dung bài. ✅ Đã thêm 24.945 mã cho 1.484 SP (khớp 1.499/1.499). ✅ Form 2644 chỉ còn Product – tên + mô tả ngắn + ô ẩn (cấu hình cũ: `du-lieu-oem/Cau_hinh_Ivory_form2644_truoc_khi_sua_23-11-2026.txt`) → đo 1,6–3,2 s (nhanh ~2 lần), mọi mẫu vẫn ra.
+- **Từ nay ô ẩn gồm cả mã không gạch lẫn mã có gạch** – đã ghi vào CLAUDE.md 6.4, oem-rules mục 5, skill `hoathang-tim-ma-oem`.
+- ⏳ Chưa đạt 0,3 s → chờ người dùng chọn Cách 3 (WPCode, tìm trong trình duyệt) hoặc FiboSearch Pro.
 - **Người dùng hỏi:** muốn tra kiểu gợi ý như sbparts/azfilter, cả chữ lẫn số (VD "má phanh vios" phải gợi ý AB-J822).
 - **Kiểm tra (chỉ đọc):** Ivory Search form 2644 đã ra đúng cả chữ lẫn mã, gõ thiếu / đảo thứ tự / không dấu / có-không gạch đều ra (kể cả khách chưa đăng nhập). Gõ thừa/sai ký tự không ra (sbparts cũng không). **Vấn đề thật: gợi ý chậm ~3,5–5 giây.**
 - **Nguyên nhân:** form 2644 Includes đang tìm cả Post, Page, Attachment (thư viện ảnh/tệp, có tích images/videos/audios/text/pdfs/docs), Featured item, và tìm trong tên + nội dung + mô tả ngắn + `oem_khong_gach`.
@@ -151,6 +152,13 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 23/11/2026 – Thu hẹp form tìm kiếm Ivory Search 2644 + cập nhật sổ tay (người dùng đồng ý) – ✅ XONG
+- Ghi cấu hình cũ: `du-lieu-oem/Cau_hinh_Ivory_form2644_truoc_khi_sua_23-11-2026.txt`.
+- Includes: bỏ Post, Page, Attachment, Featured item, bỏ "nội dung bài"; còn **Product – tên + mô tả ngắn + `oem_khong_gach`**, trạng thái publish. Lưu: "Search form saved", đọc lại đúng.
+- Đo lại (chữ chưa tìm lần nào): `04465-48210` 2,2 s · `0446548210` 2,3 s · `04465 48210` 2,1 s · `AB-J822` 3,0 s · `j822` 1,6 s · "má phanh vios" 2,6 s · "loc gio dieu hoa" 2,9 s · `1770A172` 1,9 s · "lọc dầu ranger" 3,2 s. **Nhanh gấp ~2 lần (trước 3,1–6,7 s) nhưng chưa đạt 0,3 s.** Mọi mẫu vẫn ra sản phẩm (mã có gạch, không gạch, có dấu cách, không dấu).
+- Sổ tay: CLAUDE.md 6.4 (ô ẩn có cả mã có gạch; form chỉ tìm tên + mô tả ngắn + ô ẩn; cách đo tốc độ), `oem-rules.md` mục 5, skill `hoathang-tim-ma-oem` (code tạo cả 2 dạng mã + lọc dung tích/ren).
+- Còn lại: muốn ~0,3 s phải đổi cách (Cách 3: danh sách SP tìm trong trình duyệt bằng WPCode, hoặc FiboSearch Pro) – chờ người dùng chọn.
+
 ### 23/11/2026 – Thêm mã OEM có gạch vào ô ẩn `oem_khong_gach` (người dùng duyệt) – ✅ XONG
 - Mục đích: chuẩn bị bỏ tìm "nội dung bài" ở form 2644 cho nhanh mà khách gõ mã có gạch vẫn ra.
 - Chạy khô 1.499 SP: 1.484 SP thêm **24.945 mã** dạng gốc trong bảng (VD `04465-48210`, `AB-J1324`); giữ nguyên mã không gạch cũ. 15 SP không cần thêm (lọc dầu hộp số AT, bảng đã viết liền: 3366, 3330, 3329, 3318, 3317, 3316, 3273, 3145, 3144, 3112, 3115, 3114, 3113, 3073, 3072). Đã lọc bỏ 11 giá trị không phải mã (dung tích `2.5 / 3.0 DIESEL`, `2.0L / 2.5L`…, ren `3/4-16`).

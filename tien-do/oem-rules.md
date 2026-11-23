@@ -39,5 +39,6 @@
 
 ## 5. Ô ẩn tìm kiếm mã không gạch (`oem_khong_gach`)
 - **Không thêm mã dạng không gạch vào bảng OEM** – người dùng không muốn.
+- Ô ẩn chứa **cả mã không gạch lẫn mã có gạch** (dạng gốc trong bảng) – từ 23/11/2026 ô tìm kiếm không đọc nội dung bài, nên thiếu dạng nào trong ô ẩn thì gõ dạng đó không ra.
 - Mỗi khi **thêm sản phẩm mới hoặc sửa/thêm mã trong bảng OEM** → **chạy lại bước điền ô ẩn ACF `oem_khong_gach`** cho các sản phẩm đó (web không tự chạy). Quy trình: skill `hoathang-tim-ma-oem`.
 - Kiểm tra tìm kiếm bằng ô Ivory Search (form 2644) trên trang chủ, không dùng `?s=...`.

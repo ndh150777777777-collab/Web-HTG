@@ -8,6 +8,8 @@ description: Dùng khi khách/nhân viên tra mã OEM gõ liền không gạch (
 > Bối cảnh và quy tắc (Ivory Search form 2644, trường ACF `oem_khong_gach` nhóm ID 8571, không thêm mã không gạch vào bảng OEM, web chặn cài plugin / sửa theme, cách kiểm tra bằng ô tìm kiếm trên trang chủ) nằm ở **`CLAUDE.md` mục 6.4** và **`.claude/rules/oem-rules.md` mục 5**. Skill này chỉ giữ quy trình và đoạn code. Tiến độ: `TIEN-DO.md` mục 6.6.
 
 ## Lưu ý riêng khi chạy
+- **Từ 23/11/2026 form 2644 không tìm nội dung bài** → ô ẩn phải có **cả mã không gạch lẫn mã có gạch**, thiếu dạng nào thì gõ dạng đó không ra. Đoạn code dưới đã tạo đủ 2 dạng.
+- Khi chạy cho toàn bộ SP, đoạn code tính lại ô ẩn từ bảng (thứ tự mã có thể khác bản đang lưu) → `canGhi` có thể gần bằng tổng số SP; đó là bình thường, vẫn phải báo người dùng.
 - Chỉ ghi trường `oem_khong_gach`. **Không đổi nội dung bài, bảng OEM, SEO.**
 - Trước khi ghi hàng loạt: chạy khô, báo số sản phẩm cần ghi, chờ người dùng đồng ý.
 - **Khi nào phải chạy lại:** thêm sản phẩm mới, hoặc thêm/sửa mã trong bảng OEM → điền lại ô ẩn cho các sản phẩm đó (web không tự chạy).
@@ -29,6 +31,8 @@ const isCode=t=>{
   const d=(t.match(/\d/g)||[]).length;
   return d>=4||(d>=3&&/[A-Z]/i.test(t)&&/-/.test(t)); // mã OEM, hoặc mã Asahi dạng AFC-J108
 };
+// Giá trị không phải mã OEM lọt từ bảng thông số: dung tích máy (2.5 / 3.0 DIESEL, 2.0L), ren (3/4-16)
+const khongPhaiMa=t=>/^\d\.\d+ ?L?( ?\/ ?\d\.\d+ ?L?)*( [A-Z]+)?$/.test(t)||/^\d+\/\d+-\d+$/.test(t)||t.includes('DIESEL');
 window.__final={};const changed=[],sci=[];
 for(const x of all){
   const doc=new DOMParser().parseFromString(x.content.rendered,'text/html');const set=new Set();
@@ -36,8 +40,11 @@ for(const x of all){
     const t=c.textContent.replace(/ /g,' ').trim();
     if(sciRe.test(t)&&!sci.includes(x.id))sci.push(x.id);
     if(isCode(t))set.add(t);});
-  const tm=(x.title.rendered||'').match(/[A-Z]{1,3}-[A-Z]?\d{3,5}/);if(tm)set.add(tm[0]); // mã sản phẩm trong tên
-  const v=[...new Set([...set].map(norm))].join(' ');window.__final[x.id]=v;
+  const tm=(x.title.rendered||'').match(/[A-Z]{1,3}-[A-Z]?\d{3,5}[A-Z]?/);if(tm)set.add(tm[0]); // mã sản phẩm trong tên
+  // Ô ẩn = mã không gạch (như cũ) + dạng gốc có gạch, viết hoa (từ 23/11/2026, vì form 2644 không tìm nội dung bài)
+  const goc=[...set].map(t=>t.replace(/\s+/g,' ').toUpperCase());
+  const coGach=goc.filter(t=>t!==norm(t)&&!khongPhaiMa(t));
+  const v=[...new Set([...goc.map(norm),...coGach])].join(' ');window.__final[x.id]=v;
   if(((x.acf&&x.acf.oem_khong_gach)||'')!==v)changed.push(x.id);}
 window.__changed=changed;
 ({tong:all.length,canGhi:changed.length,loiExcel:sci.length})
@@ -59,7 +66,7 @@ Promise.all([worker(),worker(),worker(),worker()]).then(()=>{window.__prog.runni
 ```
 Đọc `window.__prog` mỗi ≤30 giây (lệnh JS bị ngắt nếu chạy quá ~45 giây; đừng chuyển trang giữa chừng vì biến sẽ mất). Nếu có `fail` thì chạy lại riêng các ID đó.
 
-Bước 3 – Kiểm tra: mở trang chủ, gõ mã không gạch (ví dụ `0446548210`) vào ô "Nhập mã để tìm kiếm" → phải hiện đúng sản phẩm (Sienna 2011-2020 và Highlander 2005-2019, Asahi AB-J1324).
+Bước 3 – Kiểm tra: mở trang chủ, gõ mã không gạch (ví dụ `0446548210`) **và mã có gạch** (`04465-48210`) vào ô "Nhập mã để tìm kiếm" → cả hai phải hiện đúng sản phẩm (Sienna 2011-2020 và Highlander 2005-2019, Asahi AB-J1324).
 
 ## Nếu phải tạo lại từ đầu (chỉ khi mất cấu hình)
 1. ACF → Nhóm trường → Thêm mới: trường văn bản tên `oem_khong_gach`, vị trí "Loại bài viết = product", bật "Hiển thị trong REST API", xuất bản.

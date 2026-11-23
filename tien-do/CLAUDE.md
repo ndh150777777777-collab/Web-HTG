@@ -149,10 +149,11 @@ Dự án không có code để build hay chạy thử. Mọi thay đổi trên h
 
 ### 6.4. Ô tìm kiếm (Ivory Search) và ô ẩn mã không gạch
 - Ô tìm kiếm thật là **Ivory Search form 2644** (gợi ý AJAX). Kiểm tra bằng cách gõ vào ô trên trang chủ – `?s=...&post_type=product` hay `flatsome_ajax_search_products` cho kết quả sai. Chỉ tìm được trang **đã xuất bản**.
-- Trường ACF **`oem_khong_gach`** (nhóm trường ID 8571, bật REST): mọi mã OEM trong bảng + mã SP trong tên, bỏ `- . /` và khoảng trắng, viết hoa, cách nhau dấu cách. Ivory Search → form 2644 → Includes → Custom Fields đã chọn trường này. Người dùng **không muốn thêm mã không gạch vào bảng OEM**.
+- Trường ACF **`oem_khong_gach`** (nhóm trường ID 8571, bật REST): mọi mã OEM trong bảng + mã SP trong tên, bỏ `- . /` và khoảng trắng, viết hoa, cách nhau dấu cách; **kèm thêm dạng gốc có gạch** của mã (VD `0446548210 04465-48210`, từ 23/11/2026), bỏ giá trị không phải mã (dung tích `2.5 / 3.0 DIESEL`, ren `3/4-16`). Ivory Search → form 2644 → Includes → Custom Fields đã chọn trường này. Người dùng **không muốn thêm mã không gạch vào bảng OEM**.
+- Form 2644 (từ 23/11/2026) **chỉ tìm Product, trong tên + mô tả ngắn + `oem_khong_gach`** – KHÔNG tìm nội dung bài, nên mã chỉ có trong bảng mà thiếu ở ô ẩn sẽ không tìm ra. Cấu hình cũ: `du-lieu-oem/Cau_hinh_Ivory_form2644_truoc_khi_sua_23-11-2026.txt`.
 - Thêm SP mới / sửa bảng OEM → **phải điền lại ô ẩn** (web không tự chạy). Quy trình: skill `hoathang-tim-ma-oem`.
 - Web **không cài được plugin, không sửa được file theme** (403, nghi Hide My WP). Muốn dùng Code Snippets phải nhờ người dùng bỏ chặn tạm thời.
-- Gợi ý tìm kiếm đang chậm ~3,5–5 giây do form 2644 tìm cả Post/Page/Attachment… Đề xuất chỉ để Product **đang chờ người dùng duyệt – chưa sửa** (TIEN-DO.md mục 6.8).
+- Tốc độ gợi ý: đo bằng POST `admin-ajax.php` `action=is_ajax_load_posts`, `id=2644`, `security=` nonce lấy từ `IvoryAjaxVars` trên trang chủ; dùng chữ chưa tìm lần nào (gõ lại cùng chữ máy chủ đã nhớ, chỉ ~0,3 s). Kết quả đo: TIEN-DO.md mục 6.8.
 
 ### 6.5. Thêm sản phẩm mới
 - **Luôn tra azfilter (lọc) / sbparts (phanh) trước** để xác nhận xe lắp được – mã người dùng đưa có thể lệch dòng xe (VD 1748 479 ghi Triton → thực tế Ford Transit). Nguồn không ghi xe đó thì dừng lại hỏi.
