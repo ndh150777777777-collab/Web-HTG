@@ -15,7 +15,7 @@
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
 | 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
 | 6.7 | Thêm sản phẩm mới | ✅ Xong 16 trang | Đã xuất bản 16 trang (8577–8617); làm tiếp khi người dùng gửi sản phẩm mới |
-| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | ✅ Xong | 23/11: BẬT cho mọi khách – gợi ý 1–8 ms (snippet WPCode 8623, tắt = như cũ). Trước đó: chậm do câu lệnh tìm kiếm (WordPress rỗng 0,25 s). Đã thêm 24.945 mã có gạch vào ô ẩn (1.484 SP), form 2644 chỉ tìm Product (tên + mô tả ngắn + ô ẩn) → 1,6–3,2 s. Cách 3 (WPCode snippet 8623, tìm trong trình duyệt): 1–8 ms – đang thử, chỉ quản trị viên thấy |
+| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | ✅ Xong | 23/11: BẬT cho mọi khách – gợi ý 1–8 ms (snippet WPCode 8623, tắt = như cũ). Trước đó: chậm do câu lệnh tìm kiếm (WordPress rỗng 0,25 s). Đã thêm 24.945 mã có gạch vào ô ẩn (1.484 SP), form 2644 chỉ tìm Product (tên + mô tả ngắn + ô ẩn) → 1,6–3,2 s (dùng khi Enter / "Xem tất cả") |
 
 ## Mã OEM theo nhóm hàng
 | Đợt | Nhóm hàng | Nguồn tra | Trạng thái |
