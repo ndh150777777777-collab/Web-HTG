@@ -15,7 +15,7 @@
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
 | 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
 | 6.7 | Thêm sản phẩm mới | ✅ Xong 16 trang | Đã xuất bản 16 trang (8577–8617); làm tiếp khi người dùng gửi sản phẩm mới |
-| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | 🔄 Đang làm | 23/11: đo lần đầu 3,1–6,7 s, lần lặp 0,3 s, WordPress rỗng 0,25 s → chậm do câu lệnh tìm kiếm; đã cho phép cài plugin – chờ người dùng chọn cách |
+| 6.8 | Làm gợi ý tìm kiếm nhanh hơn | 🔄 Đang làm | 23/11: chậm do câu lệnh tìm kiếm (WordPress rỗng 0,25 s). Đã thêm 24.945 mã có gạch vào ô ẩn (1.484 SP). Tiếp: thu hẹp form 2644, đo lại |
 
 ## Mã OEM theo nhóm hàng
 | Đợt | Nhóm hàng | Nguồn tra | Trạng thái |
@@ -140,6 +140,8 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 
 ### 6.8. Làm gợi ý ô tìm kiếm nhanh hơn (20/11/2026) – 🔄 ĐANG LÀM (23/11: web đã cài được plugin)
 - **Đo 23/11 (chỉ đọc):** lần đầu gõ 3,1–6,7 s; gõ lại cùng chữ 0,27–0,35 s; admin-ajax rỗng 0,25 s → chậm do câu lệnh tìm kiếm, không phải do WordPress. Mục tiêu người dùng: ~0,3 s. Các cách: (1) thu hẹp form 2644 chỉ Product; (2) FiboSearch Pro; (3) danh sách SP tìm trong trình duyệt (WPCode).
+- **Người dùng chọn (23/11):** thêm mã có gạch vào ô ẩn rồi bỏ tìm nội dung bài. ✅ Đã thêm 24.945 mã cho 1.484 SP (khớp 1.499/1.499). ⏳ Tiếp: ghi cấu hình cũ form 2644, bỏ Post/Page/Attachment + nội dung, đo lại.
+- **Từ nay ô ẩn gồm cả mã không gạch lẫn mã có gạch** (dạng gốc trong bảng) – quy trình điền ô ẩn cho SP mới phải làm theo (cần cập nhật skill `hoathang-tim-ma-oem`, CLAUDE.md 6.4 – chờ người dùng đồng ý).
 - **Người dùng hỏi:** muốn tra kiểu gợi ý như sbparts/azfilter, cả chữ lẫn số (VD "má phanh vios" phải gợi ý AB-J822).
 - **Kiểm tra (chỉ đọc):** Ivory Search form 2644 đã ra đúng cả chữ lẫn mã, gõ thiếu / đảo thứ tự / không dấu / có-không gạch đều ra (kể cả khách chưa đăng nhập). Gõ thừa/sai ký tự không ra (sbparts cũng không). **Vấn đề thật: gợi ý chậm ~3,5–5 giây.**
 - **Nguyên nhân:** form 2644 Includes đang tìm cả Post, Page, Attachment (thư viện ảnh/tệp, có tích images/videos/audios/text/pdfs/docs), Featured item, và tìm trong tên + nội dung + mô tả ngắn + `oem_khong_gach`.
@@ -149,6 +151,14 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 23/11/2026 – Thêm mã OEM có gạch vào ô ẩn `oem_khong_gach` (người dùng duyệt) – ✅ XONG
+- Mục đích: chuẩn bị bỏ tìm "nội dung bài" ở form 2644 cho nhanh mà khách gõ mã có gạch vẫn ra.
+- Chạy khô 1.499 SP: 1.484 SP thêm **24.945 mã** dạng gốc trong bảng (VD `04465-48210`, `AB-J1324`); giữ nguyên mã không gạch cũ. 15 SP không cần thêm (lọc dầu hộp số AT, bảng đã viết liền: 3366, 3330, 3329, 3318, 3317, 3316, 3273, 3145, 3144, 3112, 3115, 3114, 3113, 3073, 3072). Đã lọc bỏ 11 giá trị không phải mã (dung tích `2.5 / 3.0 DIESEL`, `2.0L / 2.5L`…, ren `3/4-16`).
+- Ghi qua REST (chỉ trường ACF, không đổi nội dung/bảng/SEO): 1.484/1.484 thành công. Đọc lại REST công khai: **1.499/1.499 khớp** file.
+- File: `du-lieu-oem/O_an_them_ma_co_gach_chay_kho_23-11-2026.csv` (đã điền Duyệt/Kết quả).
+- Thử ô tìm kiếm (form chưa đổi): `04465-48210`, `0446548210` ra 5 SP, `AB-J822` ra 7 SP – như cũ, vẫn chậm 3,6–5,9 s.
+- Còn lại: ghi cấu hình cũ form 2644 → bỏ Post/Page/Attachment + nội dung bài → đo lại (chờ người dùng duyệt).
+
 ### 23/11/2026 – Đo tốc độ ô tìm kiếm Ivory Search (chỉ đọc, không sửa gì) – ✅ XONG
 - Đo trên trang chủ, vai trò khách chưa đăng nhập, form 2644 (`is_ajax_load_posts`).
 - Gõ thật: `0446548210` → 4,0 giây; `má phanh vios` → 4,8 giây (gần hết là chờ máy chủ, tải về chỉ ~1 KB).
