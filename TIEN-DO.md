@@ -152,6 +152,13 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 24/11/2026 – Sửa lỗi chữ bị dồn thành cột (trang AB-V862 và 13 trang khác) – ✅ XONG
+- Lỗi thật người dùng báo ở trang 8006: phần mô tả bị xếp thành hàng chục cột chữ hẹp nằm ngang. Nguyên nhân: nội dung chép từ ChatGPT còn khung `<div class="… flex …">` (VD `TyagGW_tableWrapper flex flex-col-reverse w-fit`); Flatsome có sẵn `.flex { display: flex; }` → khung ôm nhiều đoạn bị xếp ngang.
+- Quét 1.528 bài: 14 trang vỡ rõ – 8006, 8305, 8123, 7987, 7961, 7861, 5839, 4394, 4393, 4337, 4316, 4315, 2955, 8358 (mô tả ngắn); ~380 trang khác có khung này nhưng chưa vỡ rõ.
+- Người dùng đồng ý → thêm vào **cuối** *Giao diện → Tuỳ biến → CSS bổ sung* (không sửa dòng cũ, không sửa nội dung bài): `.single-product .entry-content .flex, .single-product .product-short-description .flex, .single-post .entry-content .flex { display: block !important; }`. Muốn bỏ: xoá 4 dòng có chú thích "khung chép từ ChatGPT (24/11/2026)".
+- Kiểm tra lại cả 14 trang công khai: CSS đã có, không còn khung nào xếp ngang, 0 đoạn chữ bị hẹp; chụp màn hình 8006 hiển thị bình thường.
+- Người dùng quyết: **không sửa** các chỗ cụt chữ (47 trang, file chạy khô `du-lieu-seo/Sua_mat_chu_chay_kho_24-11-2026.csv` để tham khảo) và chưa sửa chữ "Má phánh" ở tiêu đề SEO/alt ảnh 8006, 7656.
+
 ### 24/11/2026 – Kiểm tra lỗi "mất chữ" trong nội dung (từ trang AB-V862) – 🔍 CHỈ ĐỌC, CHƯA SỬA
 - Người dùng báo trang Má phanh sau VF9 | AB-V862 (ID 8006) lỗi chữ. Thấy: "[Má phanh sau] có nhiệm vụ…", "vị trí má phanh [sau] , thuận tiện…", "Má Phanh [Sau] Dùng Cho Xe VF9"; tiêu đề SEO Rank Math ghi sai "Má phánh sau dùng cho xe VF9" (7656 VF8 cũng vậy); ảnh trên trang VF9 có alt "Má phánh sau Vinfast VF8".
 - Quét toàn bộ 1.528 sản phẩm/bài/trang (chỉ đọc) → **47 trang chắc chắn mất chữ** + 7 trang cần xem (chỉ thừa dấu cách). File: `du-lieu-seo/Trang_mat_chu_24-11-2026.csv`.
