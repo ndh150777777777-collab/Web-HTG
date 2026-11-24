@@ -152,6 +152,11 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 24/11/2026 – Sửa chữ "Má phánh" ở trang AB-V862 (VF9 8006, VF8 7656) – ✅ XONG
+- Người dùng bảo "sửa nốt" → sửa 5 chỗ trong bản chạy khô: tiêu đề SEO Rank Math 8006 → "Má phanh sau dùng cho xe VF9", 7656 → "…VF8" (REST `rankmath/v1/updateMeta`); alt ảnh trong bài 8006 "Má phánh sau Vinfast VF8" → "Má phanh sau Vinfast VF9", 7656 → "Má phanh sau Vinfast VF8" (lưu form post.php, chỉ thay đúng chuỗi alt); alt ảnh Thư viện 7659 (dùng chung) → "Má phanh sau Vinfast VF8 VF9".
+- Kiểm tra: nội dung lưu = bản dự kiến (cả 2 trang); trang công khai tiêu đề đúng, không còn chữ "phánh", alt đúng.
+- Còn lại: từ khoá Rank Math 7656 vẫn là "Má phánh sau,VF8" (từ khoá cũ được khôi phục 17/11) – chưa đổi; các chỗ cụt chữ 47 trang để nguyên theo người dùng.
+
 ### 24/11/2026 – Sửa lỗi chữ bị dồn thành cột (trang AB-V862 và 13 trang khác) – ✅ XONG
 - Lỗi thật người dùng báo ở trang 8006: phần mô tả bị xếp thành hàng chục cột chữ hẹp nằm ngang. Nguyên nhân: nội dung chép từ ChatGPT còn khung `<div class="… flex …">` (VD `TyagGW_tableWrapper flex flex-col-reverse w-fit`); Flatsome có sẵn `.flex { display: flex; }` → khung ôm nhiều đoạn bị xếp ngang.
 - Quét 1.528 bài: 14 trang vỡ rõ – 8006, 8305, 8123, 7987, 7961, 7861, 5839, 4394, 4393, 4337, 4316, 4315, 2955, 8358 (mô tả ngắn); ~380 trang khác có khung này nhưng chưa vỡ rõ.
