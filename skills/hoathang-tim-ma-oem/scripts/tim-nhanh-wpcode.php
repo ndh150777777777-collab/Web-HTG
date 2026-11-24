@@ -173,6 +173,12 @@ html.ht-tn-bat .is-form-id-<?php echo (int) HT_TN_FORM_ID; ?> .is-loader-image {
 		var tu = boDau(q).split(/\s+/).map(function (t) { return t.replace(/[\-\.\/]/g, ''); }).filter(Boolean);
 		if (!tu.length) return [];
 		var lien = tu.join('').toUpperCase(); // "04465 48210" → "0446548210"
+		// Mã gõ có dấu cách (VD "11 42 7 566 327") → ghép lại tìm nguyên mã trước;
+		// có sản phẩm khớp nguyên mã thì chỉ hiện các sản phẩm đó (tránh khớp lẻ tẻ từng mẩu số) – 24/11/2026
+		if (tu.length > 1 && lien.length >= 6) {
+			var dung = ds.filter(function (sp) { return sp.ma.indexOf(lien) > -1; });
+			if (dung.length) return dung;
+		}
 		var kq = [];
 		for (var i = 0; i < ds.length; i++) {
 			var sp = ds[i], diem = 0, du = true;

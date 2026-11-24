@@ -152,6 +152,12 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 24/11/2026 – Sửa ô tìm kiếm nhanh khi gõ mã có dấu cách (snippet WPCode 8623) – ✅ XONG
+- Người dùng báo: gõ "11 42 7 566 327" (BMW, azfilter: lọc dầu Azumi OE32053) ra đúng 2 trang Lux SA 7464 / Lux A 7461 (AFO-E323) nhưng kèm 3 trang má phanh AB-J973 (1371, 1370, 1365). Nguyên nhân: ô tìm kiếm nhanh tách mã thành 5 mẩu `11 42 7 566 327` rồi khớp từng mẩu ở bất kỳ mã nào (J973 có 1605**11**7, **42**5405, ABJ9**7**3, 1**566**096, 31341**327**).
+- Người dùng đồng ý → snippet 8623 hàm `tim()`: thêm bước ghép các mẩu thành mã liền, có sản phẩm khớp nguyên mã thì chỉ hiện các sản phẩm đó. Sửa y hệt file `skills/hoathang-tim-ma-oem/scripts/tim-nhanh-wpcode.php`. Đọc lại: mã lưu đúng, snippet vẫn bật.
+- Kiểm tra: gõ thật trên trang chủ "11 42 7 566 327" → chỉ 2 trang Lux. Chạy thử 21.332 cách gõ có dấu cách của 10.666 mã trên web: cách cũ 4.044 lần ra sản phẩm sai, cách mới 0. "04465 48210", "lọc dầu vios", "má phanh vf9", "AFO-E323" vẫn ra đúng.
+- Phát hiện thêm (CHƯA sửa, chờ người dùng): ô ẩn `oem_khong_gach` của **325 trang** có 2.441 mẩu số 3 chữ số lẻ tẻ (VD Lux 7464: `541 827 566 327 …`, 8620: `403 318 962 893 …`) – mảnh vỡ khi tách mã có dấu cách lúc thêm dạng có gạch 23/11. Không phải mã OEM.
+
 ### 24/11/2026 – Sửa chữ "Má phánh" ở trang AB-V862 (VF9 8006, VF8 7656) – ✅ XONG
 - Người dùng bảo "sửa nốt" → sửa 5 chỗ trong bản chạy khô: tiêu đề SEO Rank Math 8006 → "Má phanh sau dùng cho xe VF9", 7656 → "…VF8" (REST `rankmath/v1/updateMeta`); alt ảnh trong bài 8006 "Má phánh sau Vinfast VF8" → "Má phanh sau Vinfast VF9", 7656 → "Má phanh sau Vinfast VF8" (lưu form post.php, chỉ thay đúng chuỗi alt); alt ảnh Thư viện 7659 (dùng chung) → "Má phanh sau Vinfast VF8 VF9".
 - Kiểm tra: nội dung lưu = bản dự kiến (cả 2 trang); trang công khai tiêu đề đúng, không còn chữ "phánh", alt đúng.
