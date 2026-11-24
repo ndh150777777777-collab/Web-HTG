@@ -3,7 +3,7 @@
 > File này được **cập nhật và đẩy lên GitHub sau mỗi lần thao tác trên website**, để mọi người trong nhóm biết đã làm gì, làm tới đâu.
 > Nhật ký chi tiết dự án mã OEM: [`tien-do/tien-do-oem.md`](tien-do/tien-do-oem.md).
 
-**Cập nhật lần cuối:** 23/11/2026
+**Cập nhật lần cuối:** 24/11/2026
 
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
@@ -152,6 +152,12 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 24/11/2026 – Kiểm tra lỗi "mất chữ" trong nội dung (từ trang AB-V862) – 🔍 CHỈ ĐỌC, CHƯA SỬA
+- Người dùng báo trang Má phanh sau VF9 | AB-V862 (ID 8006) lỗi chữ. Thấy: "[Má phanh sau] có nhiệm vụ…", "vị trí má phanh [sau] , thuận tiện…", "Má Phanh [Sau] Dùng Cho Xe VF9"; tiêu đề SEO Rank Math ghi sai "Má phánh sau dùng cho xe VF9" (7656 VF8 cũng vậy); ảnh trên trang VF9 có alt "Má phánh sau Vinfast VF8".
+- Quét toàn bộ 1.528 sản phẩm/bài/trang (chỉ đọc) → **47 trang chắc chắn mất chữ** + 7 trang cần xem (chỉ thừa dấu cách). File: `du-lieu-seo/Trang_mat_chu_24-11-2026.csv`.
+- Nguyên nhân (gần như chắc chắn): nội dung dán từ ChatGPT; ChatGPT hiển thị tên loại hàng ("Má phanh sau", "Lọc xăng", "Lọc gió điều hòa"…) thành chữ bấm được, khi chép/dán thì mất chữ đó, chỉ để lại dấu cách `&nbsp;`. Bằng chứng: các thẻ còn thuộc tính `data-start/data-end` của ChatGPT, độ dài ghi trong đó dài hơn chữ còn lại đúng bằng số ký tự bị mất (VD 12 = "Má phanh sau").
+- Còn lại: chờ người dùng quyết có sửa không (phải tự điền lại chữ cho từng câu – không đoán được 100%, cần duyệt).
+
 ### 23/11/2026 – Cài UpdraftPlus và tạo bản sao lưu toàn bộ web – ✅ XONG
 - Người dùng muốn tải backup về máy; web chưa có plugin sao lưu → người dùng chọn cài **UpdraftPlus** (Cài đặt → UpdraftPlus Backups), đã kích hoạt.
 - Bấm "Sao Lưu Ngay" (có cơ sở dữ liệu + tệp, không gửi lên đám mây) lúc 10:34 → xong 1 bản gồm 5 phần: Cơ sở dữ liệu, Plugins, Giao diện, Tải lên, Khác. Bản sao lưu nằm trên máy chủ (`wp-content/updraft/`).
