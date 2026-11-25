@@ -3,7 +3,7 @@
 > File này được **cập nhật và đẩy lên GitHub sau mỗi lần thao tác trên website**, để mọi người trong nhóm biết đã làm gì, làm tới đâu.
 > Nhật ký chi tiết dự án mã OEM: [`tien-do/tien-do-oem.md`](tien-do/tien-do-oem.md).
 
-**Cập nhật lần cuối:** 24/11/2026
+**Cập nhật lần cuối:** 25/11/2026
 
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
@@ -81,6 +81,7 @@
 - **16/11/2026 – kiểm tra TOÀN BỘ 1.482 SP:** thêm 408 mã vào 131 trang (điền lại ô ẩn xong). **Nhóm B 22 trang** bảng lệch hẳn với nguồn (nghi ghi mã sản phẩm khác) – chờ người dùng xem. File: `du-lieu-oem/Kiem_tra_toan_bo_OEM_16-11-2026_chay_kho.csv`.
 - **16/11/2026 – so sánh 22 trang nhóm B** (`du-lieu-oem/Nhom_B_so_sanh_16-11-2026.csv`): **14 trang loại 1** bảng đúng sản phẩm Asahi (khớp mã gốc khác cùng mã Asahi, chỉ thiếu mã của mã gốc ghi trên trang); **4 trang loại 2** nghi chép nhầm bảng (1916 Morning má phanh trước mang bảng má phanh sau Sportage ID 2271; 6095/6098/6099 mang bảng lọc gió điều hoà Sedona AFC-K324); **4 trang loại 3** (6225 Lux SA cần người xem; 3378–3380 nguồn chỉ có mã bộ kit _K1/_K2 → bỏ qua). **Đã thay bảng 4 trang loại 2** (người dùng duyệt 16/11): 1916 → 25 mã má phanh trước theo sbparts; 6095/6098/6099 → 7 mã theo azfilter (mã gốc trang đứng đầu). Kiểm tra OK, đã điền lại ô ẩn; gõ `581011YA10` ra trang Morning. **Đã thêm 669 mã vào 14 trang loại 1** (người dùng duyệt 16/11; 4335–4339 mỗi trang +106 mã; 2215/2207 bảng 11 cột có cột trống xen giữa – đã dựng dòng mới đúng mẫu). Kiểm tra 14/14 OK, ô ẩn 14/14; gõ `26669013` ra Aveo/Cruze/Fadil. Còn: 7 ô lỗi Excel (4394, 4391, 4335–4339), 6225 Lux SA.
 - **20/11/2026 – tra lại TOÀN BỘ 1.498 SP với azfilter/sbparts** (người dùng yêu cầu "cập nhật các mã mới"): 1.430 trang đủ mã, 54 nguồn không có dữ liệu. Người dùng duyệt → **thêm 11 mã vào 11 trang**: SOUEAST SE003122 cho 10 trang AB-K1157 (2271, 2270, 2269, 2268, 2267, 2266, 2265, 2264, 2263, 1927) + NiBK PN1322/E cho 4657 Camry. Lưu đúng, web hiện mã, ô ẩn OK, tìm kiếm OK. Bỏ qua 4554, 6225 (treo cũ), 3820 (mã kit `_JT`). File `du-lieu-oem/Ma_OEM_moi_azfilter_sbparts_chay_kho_20-11-2026.csv`. **Cách tra lại nhanh:** lấy mã gốc từ tiêu đề / dòng "Mã OEM" bảng thông số / ô đầu Bảng mã OEM; chuyển dữ liệu giữa tab bằng `BroadcastChannel` (localStorage tab wp-admin gần đầy).
+- **25/11/2026:** trang Hilux AS-J2335 (ID 1221) bảng OEM lẫn 14 mã của J1012 → đã xoá (người dùng duyệt), ô ẩn OK. Đã đổi mã gốc 04495-0K090 → 04495-0K010 (18 chỗ, người dùng cho mã).
 - **Còn treo:** guốc phanh AS-J1265 (Xpander EPB), AS-J9012 (Celerio) chưa có trang; AS-C554, AS-K2286 không có trên sbparts; mã 18268, 18488 nghi là đĩa phanh; vài trang má phanh có dòng mã nghi sai (xem `du-lieu-oem/tien-do-oem.md`).
 - **Trạng thái:** sẽ tiếp tục.
 
@@ -152,6 +153,17 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 25/11/2026 – Đổi mã OEM gốc trang Hilux AS-J2335 (ID 1221): 04495-0K090 → 04495-0K010 – ✅ XONG
+- Người dùng cho mã gốc đúng: AS-J2335 = **04495-0K010** (có trong nhóm J2335 sbparts 5617). Người dùng duyệt thay cả 18 chỗ: 11 trong nội dung (h1, bảng thông số, các câu) + 7 trong mô tả ngắn. Chỉ đổi mã, không động chữ khác.
+- Kiểm tra: content + excerpt lưu đúng, trang công khai 0 chỗ 0K090. Ô ẩn bỏ `044950K090` / `04495-0K090` (0K010 đã có sẵn). Tìm kiếm: `04495-0K090` → chỉ Fortuner J1012; `044950K010` / `04495-0K010` → 3 trang J2335 (Zace, Hilux, Innova).
+- Hết treo vụ J1012/J2335. Bảng OEM trang 1221 vẫn chưa có mã gốc đứng đầu (chưa sửa, không được yêu cầu).
+
+### 25/11/2026 – Xoá 14 mã J1012 chép nhầm vào bảng OEM trang Hilux AS-J2335 (ID 1221) – ✅ XONG
+- Người dùng báo: tra mã OEM của J1012 ra cả trang J2335. Đối chiếu sbparts: trang **Hilux 2006-2016 2WD | AS-J2335 (ID 1221)** có 14 mã cuối Bảng mã OEM là mã của nhóm J1012 (sbparts catalogue 5622: BS5008, S1012-1681, K-2395-01, K2395, 0602BB0710N, FN0620, FN0620T, FN0620W, FN2395, NS1010, 04495-0K020/0K050/0K070/0K120). Nhóm J2335 = sbparts 5617.
+- Người dùng duyệt xoá thẳng (không cần bản nháp): đưa NiBK FN2335 lên ô trống dòng K2411, bỏ 4 dòng cuối → bảng còn 8 dòng × 8 ô. Lưu đúng (nội dung = cũ − 4 dòng), trang công khai hết mã J1012, excerpt không có mã J1012.
+- Ô ẩn `oem_khong_gach` ID 1221: bỏ 20 giá trị (14 mã, cả dạng không gạch/có gạch). Thử Ivory form 2644: gõ `FN0620`, `044950K070`, `04495-0K070` → chỉ ra trang Fortuner J1012 (ID 1232).
+- **Còn treo:** ô "Mã OEM" bảng thông số ID 1221 vẫn ghi **04495-0K090** (mã của J1012) → gõ 0K090 vẫn ra Hilux. Chờ người dùng cho mã gốc đúng của J2335 Hilux 2WD. Bảng chưa có mã gốc đứng đầu.
+
 ### 24/11/2026 – Dọn mẩu số lẻ trong ô ẩn `oem_khong_gach` (325 trang) – ✅ XONG
 - Chạy khô `du-lieu-oem/O_an_bo_mau_so_le_chay_kho_24-11-2026.csv`: 325 trang, 5.046 mẩu toàn chữ số dài 1–3 ký tự (mảnh vỡ khi tách mã có dấu cách 23/11). Mẩu nào cũng nằm trong một mã đầy đủ vẫn giữ → 0 mã mất. Lưu ý 3523/3522: "626"/"323" là tên xe Mazda, vẫn tìm được qua tên SP.
 - Người dùng đồng ý → POST REST `{acf:{oem_khong_gach}}` từng trang; trước khi lưu đếm lại số mẩu sẽ xoá phải bằng bản chạy khô (khác thì bỏ qua – 0 trang bị bỏ). Đọc lại: 325/325 khớp, 0 lỗi. Kết quả: `du-lieu-oem/O_an_bo_mau_so_le_ket_qua_24-11-2026.csv`.
