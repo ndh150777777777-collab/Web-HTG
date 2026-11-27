@@ -39,7 +39,7 @@
 $L
 $L
 $L
-- 27/11/2026 – **Tra lại TOÀN BỘ 1.500 SP (azfilter 992 + sbparts 508):** thêm 96 mã vào 96 trang (nhóm A) + tạo Bảng mã OEM cho 8 trang (3163–3167, 7801, 7804, 7805); kiểm tra 104/104 OK, ô ẩn OK. Tạm bỏ qua `NiBK PN0436TK` (10 trang) và trang 3820; không làm 5598, 5874, 4554, 6225; 68 trang nguồn không có dữ liệu. File `Cap_nhat_OEM_toan_bo_27-11-2026_chay_kho.csv`. Chi tiết: `plugin-hoathang/TIEN-DO.md`.
+- 27/11/2026 – **Tra lại TOÀN BỘ 1.500 SP (azfilter 992 + sbparts 508):** thêm 96 mã vào 96 trang (nhóm A) + tạo Bảng mã OEM cho 8 trang (3163–3167, 7801, 7804, 7805); kiểm tra 104/104 OK, ô ẩn OK. Trang 3820 tạm bỏ qua (`NiBK PN0436TK` đã thêm vào 10 trang cùng ngày theo người dùng); không làm 5598, 5874, 4554, 6225; 68 trang nguồn không có dữ liệu. File `Cap_nhat_OEM_toan_bo_27-11-2026_chay_kho.csv`. Chi tiết: `plugin-hoathang/TIEN-DO.md`.
 - 15/11/2026 – Tạo tệp tiến độ và lệnh tắt `cap-nhat-oem.bat`.
 - 15/11/2026 – **Đợt 6 guốc phanh – chạy khô xong, người dùng đã duyệt.**
   - Nguồn: `Downloads\má phanh + guốc phanh asahi.xlsx` (55 mã guốc phanh) + `Doi_chieu_OEM_hoathang_tong_hop.xlsx` (đối chiếu sbparts ngày 13/11/2026).

@@ -154,6 +154,9 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 27/11/2026 – Thêm mã `NiBK PN0436TK` vào 10 trang má phanh sau (1927, 2263–2271) – ✅ XONG
+- Người dùng quyết thêm (trước đó tạm bỏ qua). Điền vào ô trống của bảng OEM; kiểm tra 10/10: lưu đúng, mô tả ngắn giữ nguyên, web hiện mã, ô ẩn `oem_khong_gach` có `PN0436TK`. Còn treo từ đợt tra lại toàn bộ: chỉ trang 3820 (Camry `35330-0W090`) tạm bỏ qua.
+
 ### 27/11/2026 – Cập nhật mã OEM cho TẤT CẢ sản phẩm (tra lại 1.500 SP) – ✅ XONG nhóm A + B
 - Tra từng mã gốc trên azfilter.jp (992 SP) và sbparts.jp (508 SP), so từng ô bảng OEM trên web thật (chạy khô, chỉ đọc) → file `du-lieu-oem/Cap_nhat_OEM_toan_bo_27-11-2026_chay_kho.csv` (177 dòng). Người dùng duyệt: làm nhóm A (thêm mã vào bảng có sẵn) và B (trang chưa có bảng, nguồn ≥2 mã); mục 3 (`PN0436TK`, trang 3820) **bỏ qua tạm**.
 - **Nhóm A: 96 trang / 96 mã** (77 sbparts, 19 azfilter): ID 1125–4663 (NiBK), 2976, 3305, 3756, 3794, 4335–4339, 4391, 6384, 6397, 6398, 6401, 6486, 6699, 6705, 8352, 8356… Điền ô trống trước, hết ô thì thêm dòng đúng số cột (2/4/8/11); riêng 3956 hoàn thiện dòng cuối đang thiếu ô (2→8 ô).
