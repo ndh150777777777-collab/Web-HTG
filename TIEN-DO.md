@@ -11,7 +11,7 @@
 | 6.1 | Sửa SEO trang/bài dưới 85 điểm Rank Math | ⏸ Dừng đổi từ khoá | 17/11: đổi từ khoá chỉ làm giảm điểm → dừng; đã khôi phục từ khoá cũ 104 trang (giữ 5 trang bằng điểm). Hướng tiếp: sửa nội dung để tăng điểm |
 | 6.2 | Viết lại SEO trang AFT-U520 (lọc dầu hộp số AT Territory 1.5) | ⏳ Chưa bắt đầu | |
 | 6.3 | Thêm "Bảng mã OEM" vào trang sản phẩm | 🔄 Đang làm | 15/11: 6 trang; 16/11: thêm 12 trang. Còn 55 trang chưa có bảng (ít/không có dữ liệu) |
-| 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 20/11: tra lại TOÀN BỘ 1.498 SP, thêm 11 mã vào 11 trang (SE003122 cho AB-K1157, PN1322/E cho Camry 4657) |
+| 6.4 | Cập nhật mã OEM mới nhất | 🔄 Đang làm | 27/11: tra lại TOÀN BỘ 1.500 SP, thêm 96 mã vào 96 trang + tạo Bảng mã OEM cho 8 trang (còn treo: PN0436TK, trang 3820 tạm bỏ qua). Trước đó 20/11: thêm 11 mã vào 11 trang |
 | 6.5 | 8 hạng mục sửa nội dung | ⏳ Chưa bắt đầu | |
 | 6.6 | Ô tìm kiếm tra được mã OEM gõ liền không gạch | ✅ Xong phần tìm kiếm | Còn treo: 61 SP mã lỗi Excel |
 | 6.7 | Thêm sản phẩm mới | ✅ Xong 16 trang | Đã xuất bản 16 trang (8577–8617); làm tiếp khi người dùng gửi sản phẩm mới |
@@ -82,6 +82,7 @@
 - **16/11/2026 – so sánh 22 trang nhóm B** (`du-lieu-oem/Nhom_B_so_sanh_16-11-2026.csv`): **14 trang loại 1** bảng đúng sản phẩm Asahi (khớp mã gốc khác cùng mã Asahi, chỉ thiếu mã của mã gốc ghi trên trang); **4 trang loại 2** nghi chép nhầm bảng (1916 Morning má phanh trước mang bảng má phanh sau Sportage ID 2271; 6095/6098/6099 mang bảng lọc gió điều hoà Sedona AFC-K324); **4 trang loại 3** (6225 Lux SA cần người xem; 3378–3380 nguồn chỉ có mã bộ kit _K1/_K2 → bỏ qua). **Đã thay bảng 4 trang loại 2** (người dùng duyệt 16/11): 1916 → 25 mã má phanh trước theo sbparts; 6095/6098/6099 → 7 mã theo azfilter (mã gốc trang đứng đầu). Kiểm tra OK, đã điền lại ô ẩn; gõ `581011YA10` ra trang Morning. **Đã thêm 669 mã vào 14 trang loại 1** (người dùng duyệt 16/11; 4335–4339 mỗi trang +106 mã; 2215/2207 bảng 11 cột có cột trống xen giữa – đã dựng dòng mới đúng mẫu). Kiểm tra 14/14 OK, ô ẩn 14/14; gõ `26669013` ra Aveo/Cruze/Fadil. Còn: 7 ô lỗi Excel (4394, 4391, 4335–4339), 6225 Lux SA.
 - **20/11/2026 – tra lại TOÀN BỘ 1.498 SP với azfilter/sbparts** (người dùng yêu cầu "cập nhật các mã mới"): 1.430 trang đủ mã, 54 nguồn không có dữ liệu. Người dùng duyệt → **thêm 11 mã vào 11 trang**: SOUEAST SE003122 cho 10 trang AB-K1157 (2271, 2270, 2269, 2268, 2267, 2266, 2265, 2264, 2263, 1927) + NiBK PN1322/E cho 4657 Camry. Lưu đúng, web hiện mã, ô ẩn OK, tìm kiếm OK. Bỏ qua 4554, 6225 (treo cũ), 3820 (mã kit `_JT`). File `du-lieu-oem/Ma_OEM_moi_azfilter_sbparts_chay_kho_20-11-2026.csv`. **Cách tra lại nhanh:** lấy mã gốc từ tiêu đề / dòng "Mã OEM" bảng thông số / ô đầu Bảng mã OEM; chuyển dữ liệu giữa tab bằng `BroadcastChannel` (localStorage tab wp-admin gần đầy).
 - **25/11/2026:** trang Hilux AS-J2335 (ID 1221) bảng OEM lẫn 14 mã của J1012 → đã xoá (người dùng duyệt), ô ẩn OK. Đã đổi mã gốc 04495-0K090 → 04495-0K010 (18 chỗ, người dùng cho mã).
+- **27/11/2026 – tra lại TOÀN BỘ 1.500 SP với azfilter (992 SP) / sbparts (508 SP)** (người dùng yêu cầu "cập nhật mã OEM của tất cả sản phẩm"): 1.293 trang đủ mã; **người dùng duyệt nhóm A + B** → **thêm 96 mã vào 96 trang** (hầu hết mã NiBK PNxxxx/E; 5 trang 4335–4339 thêm lại mã gốc 26300-02xxx; VAG, GM, Ford, Chery…) và **tạo Bảng mã OEM cho 8 trang** (3163–3167 lọc xăng Azumi 13 mã, 7801/7804/7805 Hilux 6 mã). Kiểm tra 104/104: lưu đúng, mô tả ngắn giữ nguyên, web hiện đủ mã; điền lại ô ẩn (95 SP đổi), tệp tìm kiếm nhanh có mã mới. **Tạm bỏ qua theo người dùng:** mã `NiBK PN0436TK` (10 trang, nghi mã kit), trang 3820 (Camry `35330-0W090`, treo cũ mã kit). Không làm: 5598, 5874 (đã đủ mã trong bảng nhỏ), 4554, 6225 (quyết cũ), 68 trang nguồn không có dữ liệu. File: `du-lieu-oem/Cap_nhat_OEM_toan_bo_27-11-2026_chay_kho.csv`.
 - **Còn treo:** guốc phanh AS-J1265 (Xpander EPB), AS-J9012 (Celerio) chưa có trang; AS-C554, AS-K2286 không có trên sbparts; mã 18268, 18488 nghi là đĩa phanh; vài trang má phanh có dòng mã nghi sai (xem `du-lieu-oem/tien-do-oem.md`).
 - **Trạng thái:** sẽ tiếp tục.
 
@@ -153,6 +154,13 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 27/11/2026 – Cập nhật mã OEM cho TẤT CẢ sản phẩm (tra lại 1.500 SP) – ✅ XONG nhóm A + B
+- Tra từng mã gốc trên azfilter.jp (992 SP) và sbparts.jp (508 SP), so từng ô bảng OEM trên web thật (chạy khô, chỉ đọc) → file `du-lieu-oem/Cap_nhat_OEM_toan_bo_27-11-2026_chay_kho.csv` (177 dòng). Người dùng duyệt: làm nhóm A (thêm mã vào bảng có sẵn) và B (trang chưa có bảng, nguồn ≥2 mã); mục 3 (`PN0436TK`, trang 3820) **bỏ qua tạm**.
+- **Nhóm A: 96 trang / 96 mã** (77 sbparts, 19 azfilter): ID 1125–4663 (NiBK), 2976, 3305, 3756, 3794, 4335–4339, 4391, 6384, 6397, 6398, 6401, 6486, 6699, 6705, 8352, 8356… Điền ô trống trước, hết ô thì thêm dòng đúng số cột (2/4/8/11); riêng 3956 hoàn thiện dòng cuối đang thiếu ô (2→8 ô).
+- **Nhóm B: tạo Bảng mã OEM 8 cột cho 8 trang** (3163–3167: 13 mã, mã gốc đứng đầu; 7801, 7804, 7805: 6 mã). **Bỏ qua 5598, 5874** vì trang đã có đủ các mã trong bảng nhỏ.
+- **Kiểm tra:** 104/104 lưu đúng (nội dung lưu = bản dự kiến), mô tả ngắn giữ nguyên, trang công khai hiện đủ mã; mọi dòng bảng đúng số ô. Ô ẩn `oem_khong_gach` điền lại 95 SP (9 SP đã đủ), 0 lỗi; tệp tìm kiếm nhanh đã có mã mới (PN0538E, 6000605431…).
+- **Còn lại:** `PN0436TK` 10 trang và trang 3820 chờ người dùng quyết; 68 trang nguồn không có dữ liệu (xem nhóm D trong CSV); 4554, 6225 để nguyên.
+
 ### 27/11/2026 – Gỡ `[CẦN BỔ SUNG]` khỏi 4 trang AFT-J422K đã xuất bản (8628–8631) – ✅ XONG
 - Người dùng xuất bản 4 trang khi còn 3 chỗ `[CẦN BỔ SUNG]` (hộp số/số cấp) → người dùng chọn cách B: bỏ 2 dòng bảng ("Hộp số tham khảo", "Số cấp tham khảo") + 1 mục `<li>` "Mã hộp số tham khảo". Kiểm tra: lưu = bản mới, 14→12 dòng bảng, trang công khai không còn dấu. Tệp tìm kiếm nhanh có cả 4 trang (mã `3533008010` 5 lần, dạng có gạch 0 lần trong tệp – tệp có thể chuẩn hoá bỏ gạch).
 - ID 8627 (Camry ACV30/ACV40/AHV40 Việt) đang ở THÙNG RÁC (người dùng chưa quyết khôi phục) – để nguyên.
