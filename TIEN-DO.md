@@ -153,7 +153,11 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
-### 27/11/2026 – Thêm 5 SP mới: Lọc dầu hộp số AT Asahi AFT-J422K | 35330-08010 (ID 8627–8631) – 📝 BẢN NHÁP, chờ người dùng duyệt
+### 27/11/2026 – Gỡ `[CẦN BỔ SUNG]` khỏi 4 trang AFT-J422K đã xuất bản (8628–8631) – ✅ XONG
+- Người dùng xuất bản 4 trang khi còn 3 chỗ `[CẦN BỔ SUNG]` (hộp số/số cấp) → người dùng chọn cách B: bỏ 2 dòng bảng ("Hộp số tham khảo", "Số cấp tham khảo") + 1 mục `<li>` "Mã hộp số tham khảo". Kiểm tra: lưu = bản mới, 14→12 dòng bảng, trang công khai không còn dấu. Tệp tìm kiếm nhanh có cả 4 trang (mã `3533008010` 5 lần, dạng có gạch 0 lần trong tệp – tệp có thể chuẩn hoá bỏ gạch).
+- ID 8627 (Camry ACV30/ACV40/AHV40 Việt) đang ở THÙNG RÁC (người dùng chưa quyết khôi phục) – để nguyên.
+
+### 27/11/2026 – Thêm 5 SP mới: Lọc dầu hộp số AT Asahi AFT-J422K | 35330-08010 (ID 8627–8631) – ✅ đã tạo bản nháp (4 trang đã xuất bản, xem mục trên)
 - Chép nguyên trang Camry 2001-2012 ID 3799 (cùng mã Asahi AFT-J422K), chỉ đổi dòng xe/năm/động cơ. Dùng chung ảnh 5280, danh mục 111, bộ lọc 78, Bảng mã OEM giữ nguyên (DAIHATSU/GM/TOYOTA).
 - azfilter xác nhận mã OEM 35330-08010 (Azumi JT21422K, cao 35, A 181, B 168): Camry ACV30/ACV40 2.4L 2AZ-FE + AHV40 2.4L 2AZ-FXE; Avalon GSX30L 3.5L; Highlander GSU40L 3.5L; Sienna GSL20L/25L 3.5L; RAV4 GSA33L/38L 3.5L. azfilter không có mã "AFT-J422K" (chỉ có mã Azumi).
 - Trang: 8627 Camry ACV30/ACV40/AHV40 Việt 2001-2012 · 8628 Avalon 2005-2012 · 8629 Highlander 2007-2013 · 8630 Sienna 2006-2010 · 8631 RAV4 3.5 2005-2013. Rank Math `Lọc dầu hộp số AT,<Xe>`, ô ẩn `oem_khong_gach` đã điền.
