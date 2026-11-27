@@ -3,7 +3,7 @@
 > File này được **cập nhật và đẩy lên GitHub sau mỗi lần thao tác trên website**, để mọi người trong nhóm biết đã làm gì, làm tới đâu.
 > Nhật ký chi tiết dự án mã OEM: [`tien-do/tien-do-oem.md`](tien-do/tien-do-oem.md).
 
-**Cập nhật lần cuối:** 25/11/2026
+**Cập nhật lần cuối:** 27/11/2026
 
 ## Tổng quan các dự án
 | # | Dự án | Trạng thái | Ghi chú |
@@ -153,6 +153,12 @@ Làm lần lượt; xong mục nào ghi **"ĐÃ XONG"** cạnh mục đó.
 ---
 
 ## Nhật ký thao tác trên website
+### 27/11/2026 – Thêm 5 SP mới: Lọc dầu hộp số AT Asahi AFT-J422K | 35330-08010 (ID 8627–8631) – 📝 BẢN NHÁP, chờ người dùng duyệt
+- Chép nguyên trang Camry 2001-2012 ID 3799 (cùng mã Asahi AFT-J422K), chỉ đổi dòng xe/năm/động cơ. Dùng chung ảnh 5280, danh mục 111, bộ lọc 78, Bảng mã OEM giữ nguyên (DAIHATSU/GM/TOYOTA).
+- azfilter xác nhận mã OEM 35330-08010 (Azumi JT21422K, cao 35, A 181, B 168): Camry ACV30/ACV40 2.4L 2AZ-FE + AHV40 2.4L 2AZ-FXE; Avalon GSX30L 3.5L; Highlander GSU40L 3.5L; Sienna GSL20L/25L 3.5L; RAV4 GSA33L/38L 3.5L. azfilter không có mã "AFT-J422K" (chỉ có mã Azumi).
+- Trang: 8627 Camry ACV30/ACV40/AHV40 Việt 2001-2012 · 8628 Avalon 2005-2012 · 8629 Highlander 2007-2013 · 8630 Sienna 2006-2010 · 8631 RAV4 3.5 2005-2013. Rank Math `Lọc dầu hộp số AT,<Xe>`, ô ẩn `oem_khong_gach` đã điền.
+- Còn thiếu: dòng "Hộp số tham khảo", "Số cấp tham khảo" và câu mã hộp số ghi `[CẦN BỔ SUNG]` (3 chỗ/trang) – cần nguồn trước khi xuất bản. Ảnh dùng chung của Camry (alt trong bài đã đổi theo xe mới, tên file ảnh vẫn là Camry). Chưa xuất bản, chưa thử ô tìm kiếm.
+
 ### 25/11/2026 – Đổi mã OEM gốc trang Hilux AS-J2335 (ID 1221): 04495-0K090 → 04495-0K010 – ✅ XONG
 - Người dùng cho mã gốc đúng: AS-J2335 = **04495-0K010** (có trong nhóm J2335 sbparts 5617). Người dùng duyệt thay cả 18 chỗ: 11 trong nội dung (h1, bảng thông số, các câu) + 7 trong mô tả ngắn. Chỉ đổi mã, không động chữ khác.
 - Kiểm tra: content + excerpt lưu đúng, trang công khai 0 chỗ 0K090. Ô ẩn bỏ `044950K090` / `04495-0K090` (0K010 đã có sẵn). Tìm kiếm: `04495-0K090` → chỉ Fortuner J1012; `044950K010` / `04495-0K010` → 3 trang J2335 (Zace, Hilux, Innova).
